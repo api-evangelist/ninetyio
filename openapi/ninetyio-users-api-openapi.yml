@@ -1,0 +1,66 @@
+openapi: 3.0.0
+info:
+  title: Ninety Public Issues Users API
+  description: 'Public API endpoints for Ninety users
+
+
+    [https://api.public.ninety.io/v1/swagger.json](/v1/swagger-json)'
+  version: '1.0'
+  contact: {}
+servers: []
+security:
+- JWT: []
+tags:
+- name: Users
+paths:
+  /v1/users/{id}:
+    get:
+      description: Returns a single User by their Id. The authenticated user must have Read-level permissions.
+      operationId: PublicUserController_findOne
+      parameters:
+      - name: id
+        required: true
+        in: path
+        description: The User Id
+        schema:
+          example: 507f1f77bcf86cd799439012
+          type: string
+      responses:
+        '200':
+          description: User retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponseDTO'
+      summary: Get a User by Id
+      tags:
+      - Users
+components:
+  schemas:
+    UserResponseDTO:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The Id of the User
+          example: 507f1f77bcf86cd799439012
+        primaryEmail:
+          type: string
+          description: The primary email address of the User
+          example: jane.doe@example.com
+        firstName:
+          type: string
+          description: The first name of the User
+          example: Jane
+        lastName:
+          type: string
+          description: The last name of the User
+          example: Doe
+      required:
+      - id
+  securitySchemes:
+    JWT:
+      scheme: bearer
+      bearerFormat: JWT
+      type: http
+      description: Personal Access Token — generate one at https://app.ninety.io/settings/user/developer-settings

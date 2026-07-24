@@ -1,0 +1,656 @@
+openapi: 3.0.0
+info:
+  title: Ninety Public Issues Rocks API
+  description: 'Public API endpoints for Ninety users
+
+
+    [https://api.public.ninety.io/v1/swagger.json](/v1/swagger-json)'
+  version: '1.0'
+  contact: {}
+servers: []
+security:
+- JWT: []
+tags:
+- name: Rocks
+paths:
+  /v1/rocks/query:
+    post:
+      description: Returns Rocks grouped by teamId. Supports filtering by status, level, future scope, and more. Results are paginated using pageIndex and pageSize.
+      operationId: PublicRockController_queryRocks
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetRocksQueryDTO'
+      responses:
+        '200':
+          description: Rocks grouped by teamId. Each key in the response object is a teamId.
+          content:
+            application/json:
+              example:
+                507f1f77bcf86cd799439011:
+                - _id: 507f1f77bcf86cd799439013
+                  userId: 507f1f77bcf86cd799439012
+                  teamId: 507f1f77bcf86cd799439011
+                  companyId: 507f1f77bcf86cd799439015
+                  title: Launch new customer onboarding flow
+                  description: Redesign the onboarding wizard to reduce drop-off by 20%
+                  archived: false
+                  deleted: false
+                  completed: false
+                  dueDate: '2026-06-30T23:59:59.000Z'
+                  statusCode: ON_TRACK
+                  levelCode: USER
+                  quarter: Q2
+                  futureScope: Current
+                  createdBy: jane.doe@example.com
+                  createdDate: '2026-01-15T09:00:00.000Z'
+                  updatedAt: '2026-03-01T14:30:00.000Z'
+                  followers:
+                  - 507f1f77bcf86cd799439012
+                  additionalTeamIds: []
+                  dueDateQuarter: 2026 Q2
+      summary: Query Rocks
+      tags:
+      - Rocks
+  /v1/rocks/{id}:
+    get:
+      description: Returns a single Rock by its Id.
+      operationId: PublicRockController_findOne
+      parameters:
+      - name: id
+        required: true
+        in: path
+        description: The Rock Id
+        schema:
+          example: 507f1f77bcf86cd799439013
+          type: string
+      responses:
+        '200':
+          description: Rock retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RockResponseDTO'
+      summary: Get a Rock by Id
+      tags:
+      - Rocks
+    patch:
+      description: Partially updates a Rock. Only the fields provided in the request body will be changed.
+      operationId: PublicRockController_update
+      parameters:
+      - name: id
+        required: true
+        in: path
+        description: The Rock Id
+        schema:
+          example: 507f1f77bcf86cd799439013
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateRockDTO'
+      responses:
+        '200':
+          description: Rock updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RockResponseDTO'
+      summary: Update a Rock
+      tags:
+      - Rocks
+    delete:
+      description: Soft-deletes a Rock. Returns the deleted Rock.
+      operationId: PublicRockController_delete
+      parameters:
+      - name: id
+        required: true
+        in: path
+        description: The Rock Id
+        schema:
+          example: 507f1f77bcf86cd799439013
+          type: string
+      responses:
+        '200':
+          description: Rock deleted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RockResponseDTO'
+      summary: Delete a Rock
+      tags:
+      - Rocks
+  /v1/rocks:
+    post:
+      description: Creates a Rock assigned to the authenticated user. The owner and companyId are automatically derived from the authenticated user's JWT.
+      operationId: PublicRockController_create
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateRockDTO'
+      responses:
+        '201':
+          description: Rock created successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RockResponseDTO'
+      summary: Create a Rock
+      tags:
+      - Rocks
+components:
+  schemas:
+    MilestoneResponseDTO:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: The Id of the Milestone
+          example: 507f1f77bcf86cd799439014
+        companyId:
+          type: string
+          description: The Id of the company the Milestone belongs to
+          example: 507f1f77bcf86cd799439015
+        rockId:
+          type: string
+          description: The Id of the Rock this Milestone belongs to
+          example: 507f1f77bcf86cd799439013
+        teamId:
+          type: string
+          description: The Id of the team the Milestone belongs to
+          example: 507f1f77bcf86cd799439011
+        ownedByUserId:
+          type: string
+          description: The Id of the user who owns this Milestone
+          example: 507f1f77bcf86cd799439012
+        title:
+          type: string
+          description: The title of the Milestone
+          example: Complete UX wireframes
+        description:
+          type: string
+          description: The description of the Milestone
+          example: Deliver final wireframes for review in Figma
+        dueDate:
+          type: string
+          description: The due date of the Milestone (ISO 8601)
+          example: '2026-05-15T23:59:59.000Z'
+        isDone:
+          type: boolean
+          description: True if the Milestone is done
+          example: false
+        isDeleted:
+          type: boolean
+          description: True if the Milestone has been deleted
+          example: false
+        completedDate:
+          type: string
+          description: The date the Milestone was completed (ISO 8601)
+          example: '2026-05-10T16:00:00.000Z'
+        userOrdinal:
+          type: number
+          description: The ordinal position of this Milestone for the user (0-based)
+          example: 0
+        followers:
+          description: Array of user Ids who are following this Milestone
+          example:
+          - 507f1f77bcf86cd799439012
+          - 507f1f77bcf86cd799439016
+          type: array
+          items:
+            type: string
+        createdBy:
+          type: string
+          description: The Id of the user who created the Milestone
+          example: 507f1f77bcf86cd799439012
+        createdDate:
+          type: string
+          description: The date the Milestone was created (ISO 8601)
+          example: '2026-01-15T09:00:00.000Z'
+        updatedAt:
+          type: string
+          description: The date the Milestone was last updated (ISO 8601)
+          example: '2026-03-01T14:30:00.000Z'
+        toDoId:
+          type: string
+          description: The Id of a related To-Do item, if any
+          example: 507f1f77bcf86cd799439099
+      required:
+      - _id
+      - companyId
+      - rockId
+      - teamId
+      - ownedByUserId
+      - title
+      - dueDate
+      - isDone
+      - isDeleted
+      - createdBy
+      - createdDate
+    RockResponseDTO:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: The Id of the Rock
+          example: 507f1f77bcf86cd799439013
+        userId:
+          type: string
+          description: The Id of the user who owns the Rock
+          example: 507f1f77bcf86cd799439012
+        teamId:
+          type: string
+          description: The Id of the team the Rock belongs to
+          example: 507f1f77bcf86cd799439011
+        companyId:
+          type: string
+          description: The Id of the company the Rock belongs to
+          example: 507f1f77bcf86cd799439015
+        title:
+          type: string
+          description: The title of the Rock
+          example: Launch new customer onboarding flow
+        description:
+          type: string
+          description: The description of the Rock
+          example: Redesign the onboarding wizard to reduce drop-off by 20%
+        archived:
+          type: boolean
+          description: True if the Rock is archived
+          example: false
+        deleted:
+          type: boolean
+          description: True if the Rock is deleted
+          example: false
+        completed:
+          type: boolean
+          description: True if the Rock is completed
+          example: false
+        dueDate:
+          type: string
+          description: The due date of the Rock (ISO 8601)
+          example: '2026-06-30T23:59:59.000Z'
+        originalDueDate:
+          type: string
+          description: The original due date before any changes (ISO 8601)
+          example: '2026-03-31T23:59:59.000Z'
+        statusCode:
+          description: The status of the Rock — `OFF_TRACK` · `ON_TRACK` · `DONE` · `CANCELED`
+          example: ON_TRACK
+          allOf:
+          - $ref: '#/components/schemas/RockStatusCode'
+        levelCode:
+          description: The level of the Rock — `USER` · `COMPANY_AND_DEPARTMENT` · `COMPANY` · `DEPARTMENT`
+          example: USER
+          allOf:
+          - $ref: '#/components/schemas/RockLevelCode'
+        quarter:
+          description: The quarter associated with the Rock — `Q1` · `Q2` · `Q3` · `Q4` · `None`
+          example: Q2
+          allOf:
+          - $ref: '#/components/schemas/RockQuarter'
+        futureScope:
+          description: The future scope of the Rock — `Current` · `Next` · `Later` · `Future`
+          example: Current
+          allOf:
+          - $ref: '#/components/schemas/RockFutureScope'
+        createdBy:
+          type: string
+          description: The username of the user who created the Rock
+          example: jane.doe@example.com
+        createdDate:
+          type: string
+          description: The date the Rock was created (ISO 8601)
+          example: '2026-01-15T09:00:00.000Z'
+        updatedAt:
+          type: string
+          description: The date the Rock was last updated (ISO 8601)
+          example: '2026-03-01T14:30:00.000Z'
+        updatedBy:
+          type: string
+          description: The Id of the user who last updated the Rock
+          example: 507f1f77bcf86cd799439012
+        archivedDate:
+          type: string
+          description: The date the Rock was archived (ISO 8601)
+          example: '2026-03-01T14:30:00.000Z'
+        completedDate:
+          type: string
+          description: The date the Rock was completed (ISO 8601)
+          example: '2026-06-30T23:59:59.000Z'
+        createdByUserId:
+          type: string
+          description: The Id of the user who created the Rock
+          example: 507f1f77bcf86cd799439012
+        ordinal:
+          type: number
+          description: Sort ordinal for the Rock within its team
+          example: 2
+        userOrdinal:
+          type: number
+          description: Sort ordinal for the Rock within the owning user's list
+          example: 0
+        planningBoardOrdinal:
+          type: number
+          description: Sort ordinal for the Rock on the planning board
+          example: 2
+        comments:
+          type: array
+          description: Comments on the Rock
+          items:
+            type: object
+        attachments:
+          type: array
+          description: Attachments on the Rock
+          items:
+            type: object
+        followers:
+          description: Array of user Ids following the Rock
+          example:
+          - 507f1f77bcf86cd799439012
+          - 507f1f77bcf86cd799439016
+          type: array
+          items:
+            type: string
+        additionalTeamIds:
+          description: Array of additional team Ids associated with the Rock
+          example:
+          - 507f1f77bcf86cd799439022
+          type: array
+          items:
+            type: string
+        rockQuarterYearDueDate:
+          type: string
+          description: The quarter-aligned year due date of the Rock (ISO 8601)
+          example: '2026-06-30T23:59:59.999Z'
+        dueDateQuarter:
+          type: string
+          description: Human-readable label for the due date quarter (e.g. "2026 Q2")
+          example: 2026 Q2
+        milestones:
+          description: Milestones associated with this Rock
+          type: array
+          items:
+            $ref: '#/components/schemas/MilestoneResponseDTO'
+      required:
+      - _id
+      - userId
+      - teamId
+      - companyId
+      - title
+      - archived
+      - deleted
+      - completed
+      - dueDate
+      - statusCode
+      - levelCode
+      - quarter
+    RockStatusCode:
+      type: string
+      enum:
+      - OFF_TRACK
+      - ON_TRACK
+      - DONE
+      - CANCELED
+      description: Filter Rocks by status — `OFF_TRACK` · `ON_TRACK` · `DONE` · `CANCELED`
+    UpdateRockDTO:
+      type: object
+      properties:
+        userId:
+          type: string
+          description: The Id of the user who owns the Rock
+          example: 507f1f77bcf86cd799439012
+        teamId:
+          type: string
+          description: The Id of the team the Rock belongs to
+          example: 507f1f77bcf86cd799439011
+        title:
+          type: string
+          description: The title of the Rock
+          example: Launch new customer onboarding flow
+        description:
+          type: string
+          description: The description of the Rock
+          example: Redesign the onboarding wizard to reduce drop-off by 20%
+        statusCode:
+          description: The status of the Rock — `OFF_TRACK` · `ON_TRACK` · `DONE` · `CANCELED`
+          example: ON_TRACK
+          allOf:
+          - $ref: '#/components/schemas/RockStatusCode'
+        levelCode:
+          description: The level of the Rock — `USER` · `COMPANY_AND_DEPARTMENT` · `COMPANY` · `DEPARTMENT`
+          example: USER
+          allOf:
+          - $ref: '#/components/schemas/RockLevelCode'
+        quarter:
+          description: The quarter associated with the Rock — `Q1` · `Q2` · `Q3` · `Q4` · `None`
+          example: Q2
+          allOf:
+          - $ref: '#/components/schemas/RockQuarter'
+        dueDate:
+          type: string
+          description: The due date of the Rock (ISO 8601)
+          example: '2026-06-30T23:59:59.000Z'
+        rockQuarterYearDueDate:
+          type: string
+          description: The quarter-aligned year due date of the Rock (ISO 8601)
+          example: '2026-06-30T23:59:59.999Z'
+        archived:
+          type: boolean
+          description: Set to true to archive the Rock, false to unarchive it
+          example: false
+        futureScope:
+          description: The future scope of the Rock — `Current` · `Next` · `Later` · `Future`
+          example: Current
+          allOf:
+          - $ref: '#/components/schemas/RockFutureScope'
+        additionalTeamIds:
+          description: Array of additional team Ids that can also view this Rock
+          example:
+          - 507f1f77bcf86cd799439022
+          type: array
+          items:
+            type: string
+    RockLevelCode:
+      type: string
+      enum:
+      - USER
+      - COMPANY_AND_DEPARTMENT
+      - COMPANY
+      - DEPARTMENT
+      description: Filter Rocks by level — `USER` · `COMPANY_AND_DEPARTMENT` · `COMPANY` · `DEPARTMENT`
+    GetRocksQueryDTO:
+      type: object
+      properties:
+        sortField:
+          description: Field to sort Rocks by
+          default: dueDate
+          example: dueDate
+          allOf:
+          - $ref: '#/components/schemas/RockSortField'
+        sortDirection:
+          type: string
+          description: Sort direction
+          enum:
+          - ASC
+          - DESC
+          default: DESC
+          example: DESC
+        pageSize:
+          type: number
+          description: Number of items per page (max 200)
+          minimum: 0
+          maximum: 200
+          default: 10
+          example: 10
+        pageIndex:
+          type: number
+          description: Page index (0-based)
+          minimum: 0
+          default: 0
+          example: 0
+        teamId:
+          type: string
+          description: Filter Rocks by team Id
+          example: 507f1f77bcf86cd799439011
+        userId:
+          type: string
+          description: Filter Rocks by owner user Id
+          example: 507f1f77bcf86cd799439012
+        statusCode:
+          description: Filter Rocks by status — `OFF_TRACK` · `ON_TRACK` · `DONE` · `CANCELED`
+          example: ON_TRACK
+          allOf:
+          - $ref: '#/components/schemas/RockStatusCode'
+        levelCode:
+          description: Filter Rocks by level — `USER` · `COMPANY_AND_DEPARTMENT` · `COMPANY` · `DEPARTMENT`
+          example: USER
+          allOf:
+          - $ref: '#/components/schemas/RockLevelCode'
+        futureScope:
+          type: string
+          description: Filter by future scope — `Current` · `Next` · `Later` · `Future` · `all` (returns Rocks across all future scopes)
+          enum:
+          - Current
+          - Next
+          - Later
+          - Future
+          - all
+          example: Current
+        archived:
+          type: boolean
+          description: True for archived Rocks only, false (default) for active Rocks only
+          example: false
+        searchText:
+          type: string
+          description: Filter Rocks by title or description text
+          example: onboarding
+        includeRockGoals:
+          type: boolean
+          description: When true, linked goals are included in the response
+          example: false
+        userIds:
+          type: string
+          description: Comma-separated list of user Ids to filter Rocks by (alternative to userId for multiple users)
+          example: 507f1f77bcf86cd799439012,507f1f77bcf86cd799439016
+      required:
+      - sortField
+      - sortDirection
+      - pageSize
+      - pageIndex
+    CreateRockDataDTO:
+      type: object
+      properties:
+        teamId:
+          type: string
+          description: The Id of the team the Rock belongs to
+          example: 507f1f77bcf86cd799439011
+        title:
+          type: string
+          description: The title of the Rock
+          example: Launch new customer onboarding flow
+        dueDate:
+          type: string
+          description: The due date of the Rock (ISO 8601)
+          example: '2026-06-30T23:59:59.000Z'
+        statusCode:
+          description: The status of the Rock — `OFF_TRACK` · `ON_TRACK` · `DONE` · `CANCELED`
+          example: ON_TRACK
+          allOf:
+          - $ref: '#/components/schemas/RockStatusCode'
+        levelCode:
+          description: The level of the Rock — `USER` · `COMPANY_AND_DEPARTMENT` · `COMPANY` · `DEPARTMENT`
+          example: USER
+          allOf:
+          - $ref: '#/components/schemas/RockLevelCode'
+        quarter:
+          description: The quarter associated with the Rock — `Q1` · `Q2` · `Q3` · `Q4` · `None`
+          example: Q2
+          allOf:
+          - $ref: '#/components/schemas/RockQuarter'
+        description:
+          type: string
+          description: The description of the Rock
+          example: Redesign the onboarding wizard to reduce drop-off by 20%
+        additionalTeamIds:
+          description: Array of additional team Ids that can also view this Rock
+          example:
+          - 507f1f77bcf86cd799439022
+          - 507f1f77bcf86cd799439033
+          type: array
+          items:
+            type: string
+        futureScope:
+          description: The future scope of the Rock — `Current` · `Next` · `Later` · `Future`
+          example: Current
+          allOf:
+          - $ref: '#/components/schemas/RockFutureScope'
+        rockQuarterYearDueDate:
+          type: string
+          description: The quarter-aligned year due date of the Rock (ISO 8601)
+          example: '2026-06-30T23:59:59.999Z'
+      required:
+      - teamId
+      - title
+      - dueDate
+      - statusCode
+      - levelCode
+      - quarter
+    RockSortField:
+      type: string
+      enum:
+      - title
+      - statusCode
+      - dueDate
+      - completedDate
+      - owner
+      - team
+      - dueDateQuarter
+      description: Field to sort Rocks by
+    RockFutureScope:
+      type: string
+      enum:
+      - Current
+      - Next
+      - Later
+      - Future
+      description: The future scope of the Rock — `Current` · `Next` · `Later` · `Future`
+    CreateRockDTO:
+      type: object
+      properties:
+        rock:
+          description: The Rock data
+          allOf:
+          - $ref: '#/components/schemas/CreateRockDataDTO'
+        addCreatorToFollowersList:
+          type: boolean
+          description: When true, the authenticated user is added to the Rock's followers list
+          default: false
+          example: false
+      required:
+      - rock
+    RockQuarter:
+      type: string
+      enum:
+      - Q1
+      - Q2
+      - Q3
+      - Q4
+      - None
+      description: The quarter associated with the Rock — `Q1` · `Q2` · `Q3` · `Q4` · `None`
+  securitySchemes:
+    JWT:
+      scheme: bearer
+      bearerFormat: JWT
+      type: http
+      description: Personal Access Token — generate one at https://app.ninety.io/settings/user/developer-settings

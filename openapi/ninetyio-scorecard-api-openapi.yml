@@ -1,0 +1,443 @@
+openapi: 3.0.0
+info:
+  title: Ninety Public Issues Scorecard API
+  description: 'Public API endpoints for Ninety users
+
+
+    [https://api.public.ninety.io/v1/swagger.json](/v1/swagger-json)'
+  version: '1.0'
+  contact: {}
+servers: []
+security:
+- JWT: []
+tags:
+- name: Scorecard
+paths:
+  /v1/scorecard/kpis/query:
+    post:
+      description: Returns a paginated list of Measurables matching the provided filters.
+      operationId: PublicScorecardController_queryKpis
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetKpisQueryDTO'
+      responses:
+        '200':
+          description: Measurables queried successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedKpiResponseDTO'
+      summary: Query Measurables
+      tags:
+      - Scorecard
+  /v1/scorecard/kpis/{kpiId}/scores:
+    post:
+      description: Creates or updates the score for a Measurable for the given period. If a score already exists for that period, it is overwritten.
+      operationId: PublicScorecardController_putScore
+      parameters:
+      - name: kpiId
+        required: true
+        in: path
+        description: The Id of the Measurable
+        schema:
+          example: 64d6a32564d6a32564d6a325
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PutScoreDTO'
+      responses:
+        '200':
+          description: Score created/updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScoreResponseDTO'
+      summary: Create or update a Measurable score
+      tags:
+      - Scorecard
+  /v1/scorecard/kpis/{kpiId}/notes:
+    post:
+      description: Creates or updates the note for a Measurable for the given period. If a note already exists for that period, it is overwritten.
+      operationId: PublicScorecardController_putNote
+      parameters:
+      - name: kpiId
+        required: true
+        in: path
+        description: The Id of the Measurable
+        schema:
+          example: 64d6a32564d6a32564d6a325
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PutNoteDTO'
+      responses:
+        '200':
+          description: Note created/updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoteResponseDTO'
+      summary: Create or update a Measurable note
+      tags:
+      - Scorecard
+  /v1/scorecard/kpis/{kpiId}/scores/{periodStartDate}:
+    delete:
+      description: Deletes the score for a Measurable for the given period start date.
+      operationId: PublicScorecardController_deleteScore
+      parameters:
+      - name: kpiId
+        required: true
+        in: path
+        description: The Id of the Measurable
+        schema:
+          example: 64d6a32564d6a32564d6a325
+          type: string
+      - name: periodStartDate
+        required: true
+        in: path
+        description: The ISO 8601 start date of the period
+        schema:
+          example: '2024-01-01T00:00:00.000Z'
+          type: string
+      responses:
+        '204':
+          description: Score deleted successfully
+      summary: Delete a Measurable score
+      tags:
+      - Scorecard
+  /v1/scorecard/kpis/{kpiId}/notes/{periodStartDate}:
+    delete:
+      description: Deletes the note for a Measurable for the given period start date.
+      operationId: PublicScorecardController_deleteNote
+      parameters:
+      - name: kpiId
+        required: true
+        in: path
+        description: The Id of the Measurable
+        schema:
+          example: 64d6a32564d6a32564d6a325
+          type: string
+      - name: periodStartDate
+        required: true
+        in: path
+        description: The ISO 8601 start date of the period
+        schema:
+          example: '2024-01-01T00:00:00.000Z'
+          type: string
+      responses:
+        '204':
+          description: Note deleted successfully
+      summary: Delete a Measurable note
+      tags:
+      - Scorecard
+components:
+  schemas:
+    PutNoteDTO:
+      type: object
+      properties:
+        note:
+          type: string
+          description: The note text
+          example: Great progress this week!
+        periodStartDate:
+          type: string
+          description: The period start date in ISO 8601 format
+          example: '2024-01-01T00:00:00.000Z'
+      required:
+      - note
+      - periodStartDate
+    TeamDTO:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The Id of the team
+          example: 507f1f77bcf86cd799439011
+        name:
+          type: string
+          description: The name of the team
+          example: Leadership
+      required:
+      - id
+      - name
+    GetKpisQueryDTO:
+      type: object
+      properties:
+        excludeKpiIds:
+          description: Array of Measurable Ids to exclude from the response
+          example:
+          - 64d6a32564d6a32564d6a325
+          type: array
+          items:
+            type: string
+        pageIndex:
+          type: number
+          description: The page number to retrieve
+          example: 0
+        pageSize:
+          type: number
+          description: The number of items to retrieve per page
+          example: 25
+        periodInterval:
+          type: string
+          description: Limits results to Measurables with the specified period interval
+          enum:
+          - weekly
+          - monthly
+          - quarterly
+          - annual
+          example: weekly
+        searchOwner:
+          type: string
+          description: The name, or part of the name, of the owner of the Measurables to retrieve
+          example: Jim
+        searchText:
+          type: string
+          description: Text to search for in the Measurable title or description
+          example: Finance
+        searchTitle:
+          type: string
+          description: Text to search for in the Measurable title only
+          example: Indicator
+        sortField:
+          type: string
+          description: The field to sort Measurables by
+          enum:
+          - id
+          - owner
+          - title
+          example: title
+        sortDirection:
+          type: string
+          description: The sort direction for the selected sort field
+          enum:
+          - ASC
+          - DESC
+          example: ASC
+        unassignedOnly:
+          type: boolean
+          description: Only include Measurables that have no owner assigned
+          example: false
+        userIds:
+          description: An array of user Ids to filter Measurables by owner
+          example:
+          - 64d6a32564d6a32564d6a325
+          - 64d6a32564d6a32564d6a326
+          type: array
+          items:
+            type: string
+    ScoreResponseDTO:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The Id of the score
+          example: 64d6a32564d6a32564d6a325
+        value:
+          type: number
+          description: The score value
+          example: 95
+        periodStartDate:
+          type: string
+          description: The period start date in ISO 8601 format
+          example: '2024-01-01T00:00:00.000Z'
+      required:
+      - id
+      - periodStartDate
+    PaginatedKpiResponseDTO:
+      type: object
+      properties:
+        currentPage:
+          type: number
+          description: The current page number (1-based index)
+        items:
+          description: The Measurables on the current page
+          type: array
+          items:
+            $ref: '#/components/schemas/KpiQueryItemResponseDTO'
+        itemsCount:
+          type: number
+          description: The number of items returned on the current page
+        totalCount:
+          type: number
+          description: The total number of items across all pages
+        totalPages:
+          type: number
+          description: The total number of pages available
+      required:
+      - currentPage
+      - items
+      - itemsCount
+      - totalCount
+      - totalPages
+    KpiQueryItemResponseDTO:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: The Id of the Measurable
+          example: 64d6a32564d6a32564d6a325
+        currency:
+          type: string
+          description: The currency for the Measurable. Only applicable when unit is `dollar`, `euro`, or `pound`.
+          enum:
+          - USD
+          - AUD
+          - CAD
+          - EUR
+          - GBP
+          example: USD
+        defaultGoal:
+          type: object
+          description: The default goal for the Measurable
+        periodInterval:
+          type: string
+          description: The period interval of the Measurable
+          enum:
+          - weekly
+          - monthly
+          - quarterly
+          - annual
+          example: weekly
+        title:
+          type: string
+          description: The title of the Measurable
+          example: Weekly Revenue
+        unit:
+          type: string
+          description: The unit of measurement for the Measurable
+          enum:
+          - number
+          - percentage
+          - yesno
+          - time
+          - dollar
+          - euro
+          - pound
+          example: number
+        userId:
+          type: object
+          description: The Id of the Measurable's owner. `null` if unassigned.
+          example: 507f1f77bcf86cd799439013
+        userFullName:
+          type: string
+          description: The full name of the Measurable's owner
+          example: Jane Smith
+        type:
+          type: string
+          description: Whether the Measurable is active or archived
+          enum:
+          - active
+          - archived
+          example: active
+        attachmentCount:
+          type: number
+          description: The number of attachments on the Measurable
+          example: 0
+        isSmart:
+          type: boolean
+          description: Whether the Measurable is formula-based (calculated from other Measurables)
+          example: false
+        isUsedInFormula:
+          type: boolean
+          description: Whether this Measurable is referenced in another Measurable's formula
+          example: false
+        lastScoreUpdatedAt:
+          type: object
+          description: ISO 8601 timestamp of the most recent score update. `null` if never scored.
+          example: '2024-03-15T10:30:00.000Z'
+        teams:
+          description: The Teams this Measurable belongs to
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamDTO'
+        scorecards:
+          description: The Scorecards this Measurable belongs to
+          type: array
+          items:
+            $ref: '#/components/schemas/ScorecardDTO'
+      required:
+      - _id
+      - defaultGoal
+      - periodInterval
+      - title
+      - unit
+      - userFullName
+      - type
+      - attachmentCount
+      - isSmart
+      - isUsedInFormula
+      - teams
+      - scorecards
+    PutScoreDTO:
+      type: object
+      properties:
+        value:
+          type: number
+          description: The score value
+          example: 100
+        periodStartDate:
+          type: string
+          description: The period start date in ISO 8601 format
+          example: '2024-01-01T00:00:00.000Z'
+      required:
+      - value
+      - periodStartDate
+    ScorecardDTO:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The Id of the Scorecard
+          example: 507f1f77bcf86cd799439012
+        name:
+          type: string
+          description: The name of the Scorecard
+          example: Weekly Leadership Scorecard
+        periodInterval:
+          type: string
+          description: The period interval of the Scorecard
+          enum:
+          - weekly
+          - monthly
+          - quarterly
+          - annual
+          example: weekly
+      required:
+      - id
+      - name
+      - periodInterval
+    NoteResponseDTO:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The Id of the note
+          example: 64d6a32564d6a32564d6a325
+        note:
+          type: string
+          description: The note text
+          example: Good progress this week
+        periodStartDate:
+          type: string
+          description: The period start date in ISO 8601 format
+          example: '2024-01-01T00:00:00.000Z'
+      required:
+      - id
+      - periodStartDate
+  securitySchemes:
+    JWT:
+      scheme: bearer
+      bearerFormat: JWT
+      type: http
+      description: Personal Access Token — generate one at https://app.ninety.io/settings/user/developer-settings

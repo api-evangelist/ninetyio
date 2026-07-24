@@ -1,0 +1,300 @@
+openapi: 3.0.0
+info:
+  title: Ninety Public Issues To-Dos API
+  description: 'Public API endpoints for Ninety users
+
+
+    [https://api.public.ninety.io/v1/swagger.json](/v1/swagger-json)'
+  version: '1.0'
+  contact: {}
+servers: []
+security:
+- JWT: []
+tags:
+- name: To-Dos
+paths:
+  /v1/todos:
+    post:
+      description: Creates a new To-Do. Omit `teamId` (or pass an empty string) to create a personal To-Do.
+      operationId: PublicTodoController_create
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTodoDTO'
+      responses:
+        '201':
+          description: To-Do created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TodoResponseDTO'
+      summary: Create a To-Do
+      tags:
+      - To-Dos
+  /v1/todos/query:
+    post:
+      description: Returns a list of To-Dos matching the provided filters.
+      operationId: PublicTodoController_queryTodos
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetTodosQueryDTO'
+      responses:
+        '200':
+          description: To-Dos queried successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TodoResponseDTO'
+      summary: Query To-Dos
+      tags:
+      - To-Dos
+  /v1/todos/{id}:
+    get:
+      description: Returns a single To-Do by its Id.
+      operationId: PublicTodoController_findOne
+      parameters:
+      - name: id
+        required: true
+        in: path
+        description: The To-Do Id
+        schema:
+          example: 507f1f77bcf86cd799439011
+          type: string
+      responses:
+        '200':
+          description: To-Do retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TodoResponseDTO'
+      summary: Get a To-Do by Id
+      tags:
+      - To-Dos
+    patch:
+      description: Partially updates a To-Do. Only fields included in the request body are changed.
+      operationId: PublicTodoController_update
+      parameters:
+      - name: id
+        required: true
+        in: path
+        description: The To-Do Id
+        schema:
+          example: 507f1f77bcf86cd799439011
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateTodoDTO'
+      responses:
+        '200':
+          description: To-Do updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TodoResponseDTO'
+      summary: Update a To-Do
+      tags:
+      - To-Dos
+    delete:
+      description: Permanently deletes a To-Do.
+      operationId: PublicTodoController_delete
+      parameters:
+      - name: id
+        required: true
+        in: path
+        description: The To-Do Id
+        schema:
+          example: 507f1f77bcf86cd799439011
+          type: string
+      responses:
+        '204':
+          description: To-Do deleted successfully
+      summary: Delete a To-Do
+      tags:
+      - To-Dos
+components:
+  schemas:
+    CreateTodoDTO:
+      type: object
+      properties:
+        title:
+          type: string
+          description: The title of the To-Do
+          example: Follow up with client
+        description:
+          type: string
+          description: The description of the To-Do
+          example: Send the Q2 proposal
+        dueDate:
+          type: string
+          description: Due date in YYYY-MM-DD format
+          example: '2024-03-15'
+        teamId:
+          type: string
+          description: The Id of the team to assign this To-Do to. Omit or pass an empty string for a personal To-Do.
+          example: 507f1f77bcf86cd799439011
+        repeat:
+          type: string
+          description: Recurrence pattern for the To-Do (e.g., `weekly`, `monthly`)
+          example: weekly
+        userId:
+          type: string
+          description: Id of the user to assign the To-Do to. Defaults to the authenticated user.
+          example: 507f1f77bcf86cd799439013
+      required:
+      - title
+    UpdateTodoDTO:
+      type: object
+      properties:
+        completed:
+          type: boolean
+          description: Whether the todo is completed
+        archived:
+          type: boolean
+          description: Whether the todo is archived
+        dueDate:
+          type: string
+          description: Due date in ISO format
+        teamId:
+          type: string
+          description: The team Id
+        title:
+          type: string
+          description: The title of the todo
+        description:
+          type: string
+          description: The description of the todo
+        repeat:
+          type: string
+          description: Repeat pattern
+        userId:
+          type: string
+          description: User Id to assign the To-Do to
+    TodoResponseDTO:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The To-Do Id
+          example: 507f1f77bcf86cd799439011
+        title:
+          type: string
+          description: The title of the To-Do
+          example: Follow up with client
+        description:
+          type: string
+          description: The description of the To-Do
+          example: Send the Q2 proposal
+        dueDate:
+          type: string
+          description: Due date in ISO 8601 format
+          example: '2024-03-15T00:00:00.000Z'
+        isPersonal:
+          type: boolean
+          description: Whether this is a personal To-Do (not associated with a team)
+          example: false
+        completed:
+          type: boolean
+          description: Whether the To-Do has been completed
+          example: false
+        archived:
+          type: boolean
+          description: Whether the To-Do has been archived
+          example: false
+        teamId:
+          type: string
+          description: The Id of the team this To-Do belongs to
+          example: 507f1f77bcf86cd799439012
+        teamName:
+          type: string
+          description: The name of the team this To-Do belongs to
+          example: Leadership
+        userId:
+          type: string
+          description: The Id of the user who owns the To-Do
+          example: 507f1f77bcf86cd799439013
+        companyId:
+          type: string
+          description: The Id of the company
+          example: 507f1f77bcf86cd799439014
+        createdDate:
+          type: string
+          description: ISO 8601 timestamp when the To-Do was created
+          example: '2024-01-15T09:00:00.000Z'
+        updatedDate:
+          type: string
+          description: ISO 8601 timestamp when the To-Do was last updated
+          example: '2024-02-01T14:30:00.000Z'
+      required:
+      - id
+      - title
+      - isPersonal
+      - completed
+      - archived
+      - userId
+      - companyId
+      - createdDate
+      - updatedDate
+    GetTodosQueryDTO:
+      type: object
+      properties:
+        teamId:
+          type: string
+          description: Filter results to a specific team Id
+          example: 507f1f77bcf86cd799439011
+        sort:
+          type: string
+          description: The field to sort results by
+          example: dueDate
+        order:
+          type: string
+          description: Sort direction
+          enum:
+          - asc
+          - desc
+          example: asc
+        page:
+          type: number
+          description: Page number (1-based)
+          example: 1
+        pageSize:
+          type: number
+          description: Number of results per page (max 100)
+          example: 25
+        isPersonal:
+          type: boolean
+          description: Filter to personal To-Dos only (not associated with a team)
+          example: false
+        completed:
+          type: boolean
+          description: Filter by completed status
+          example: false
+        archived:
+          type: boolean
+          description: Filter by archived status
+          example: false
+        searchText:
+          type: string
+          description: Search text to match against To-Do title and description
+          example: follow up
+        title:
+          type: string
+          description: Filter by exact title match
+          example: Follow up with client
+  securitySchemes:
+    JWT:
+      scheme: bearer
+      bearerFormat: JWT
+      type: http
+      description: Personal Access Token — generate one at https://app.ninety.io/settings/user/developer-settings

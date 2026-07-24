@@ -1,0 +1,259 @@
+openapi: 3.0.0
+info:
+  title: Ninety Public Issues Milestones API
+  description: 'Public API endpoints for Ninety users
+
+
+    [https://api.public.ninety.io/v1/swagger.json](/v1/swagger-json)'
+  version: '1.0'
+  contact: {}
+servers: []
+security:
+- JWT: []
+tags:
+- name: Milestones
+paths:
+  /v1/milestones/{id}:
+    get:
+      description: Returns a single Milestone by its Id.
+      operationId: PublicMilestoneController_findOne
+      parameters:
+      - name: id
+        required: true
+        in: path
+        description: The Milestone Id
+        schema:
+          example: 507f1f77bcf86cd799439014
+          type: string
+      responses:
+        '200':
+          description: Milestone retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MilestoneResponseDTO'
+      summary: Get a Milestone by Id
+      tags:
+      - Milestones
+    patch:
+      description: Partially updates a Milestone. Only the fields provided in the request body will be changed.
+      operationId: PublicMilestoneController_update
+      parameters:
+      - name: id
+        required: true
+        in: path
+        description: The Milestone Id
+        schema:
+          example: 507f1f77bcf86cd799439014
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateMilestoneDTO'
+      responses:
+        '200':
+          description: Milestone updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MilestoneResponseDTO'
+      summary: Update a Milestone
+      tags:
+      - Milestones
+  /v1/milestones:
+    post:
+      description: Creates a Milestone linked to a Rock assigned to the authenticated user. The owner and companyId are automatically derived from the authenticated user's JWT.
+      operationId: PublicMilestoneController_create
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateMilestoneDTO'
+      responses:
+        '201':
+          description: Milestone created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MilestoneResponseDTO'
+      summary: Create a Milestone
+      tags:
+      - Milestones
+components:
+  schemas:
+    CreateMilestoneDTO:
+      type: object
+      properties:
+        rockId:
+          type: string
+          description: The Id of the Rock this Milestone belongs to
+          example: 507f1f77bcf86cd799439013
+        title:
+          type: string
+          description: The title of the Milestone
+          example: Complete UX wireframes
+        dueDate:
+          type: string
+          description: The due date of the Milestone (ISO 8601)
+          example: '2026-05-15T23:59:59.000Z'
+        teamId:
+          type: string
+          description: The Id of the team the Milestone belongs to
+          example: 507f1f77bcf86cd799439011
+        description:
+          type: string
+          description: The description of the Milestone
+          example: Deliver final wireframes for review in Figma
+        userOrdinal:
+          type: number
+          description: The ordinal position of this Milestone for the user (0-based)
+          example: 0
+        toDoId:
+          type: string
+          description: The Id of a related To-Do item, if any
+          example: 507f1f77bcf86cd799439099
+        isDone:
+          type: boolean
+          description: True if the Milestone is already done at creation time
+          example: false
+        completedDate:
+          type: string
+          description: The date the Milestone was completed (ISO 8601). Required when isDone is true.
+          example: '2026-05-10T16:00:00.000Z'
+      required:
+      - rockId
+      - title
+      - dueDate
+      - teamId
+    MilestoneResponseDTO:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: The Id of the Milestone
+          example: 507f1f77bcf86cd799439014
+        companyId:
+          type: string
+          description: The Id of the company the Milestone belongs to
+          example: 507f1f77bcf86cd799439015
+        rockId:
+          type: string
+          description: The Id of the Rock this Milestone belongs to
+          example: 507f1f77bcf86cd799439013
+        teamId:
+          type: string
+          description: The Id of the team the Milestone belongs to
+          example: 507f1f77bcf86cd799439011
+        ownedByUserId:
+          type: string
+          description: The Id of the user who owns this Milestone
+          example: 507f1f77bcf86cd799439012
+        title:
+          type: string
+          description: The title of the Milestone
+          example: Complete UX wireframes
+        description:
+          type: string
+          description: The description of the Milestone
+          example: Deliver final wireframes for review in Figma
+        dueDate:
+          type: string
+          description: The due date of the Milestone (ISO 8601)
+          example: '2026-05-15T23:59:59.000Z'
+        isDone:
+          type: boolean
+          description: True if the Milestone is done
+          example: false
+        isDeleted:
+          type: boolean
+          description: True if the Milestone has been deleted
+          example: false
+        completedDate:
+          type: string
+          description: The date the Milestone was completed (ISO 8601)
+          example: '2026-05-10T16:00:00.000Z'
+        userOrdinal:
+          type: number
+          description: The ordinal position of this Milestone for the user (0-based)
+          example: 0
+        followers:
+          description: Array of user Ids who are following this Milestone
+          example:
+          - 507f1f77bcf86cd799439012
+          - 507f1f77bcf86cd799439016
+          type: array
+          items:
+            type: string
+        createdBy:
+          type: string
+          description: The Id of the user who created the Milestone
+          example: 507f1f77bcf86cd799439012
+        createdDate:
+          type: string
+          description: The date the Milestone was created (ISO 8601)
+          example: '2026-01-15T09:00:00.000Z'
+        updatedAt:
+          type: string
+          description: The date the Milestone was last updated (ISO 8601)
+          example: '2026-03-01T14:30:00.000Z'
+        toDoId:
+          type: string
+          description: The Id of a related To-Do item, if any
+          example: 507f1f77bcf86cd799439099
+      required:
+      - _id
+      - companyId
+      - rockId
+      - teamId
+      - ownedByUserId
+      - title
+      - dueDate
+      - isDone
+      - isDeleted
+      - createdBy
+      - createdDate
+    UpdateMilestoneDTO:
+      type: object
+      properties:
+        title:
+          type: string
+          description: The title of the Milestone
+          example: Complete UX wireframes
+        description:
+          type: string
+          description: The description of the Milestone
+          example: Deliver final wireframes for review in Figma
+        dueDate:
+          type: string
+          description: The due date of the Milestone (ISO 8601)
+          example: '2026-05-15T23:59:59.000Z'
+        isDone:
+          type: boolean
+          description: Set to true to mark the Milestone as done
+          example: true
+        ownedByUserId:
+          type: string
+          description: The Id of the user who owns this Milestone
+          example: 507f1f77bcf86cd799439012
+        completedDate:
+          type: string
+          description: The date the Milestone was completed (ISO 8601). Provide when setting isDone to true.
+          example: '2026-05-10T16:00:00.000Z'
+        followers:
+          description: Array of user Ids who are following this Milestone
+          example:
+          - 507f1f77bcf86cd799439012
+          - 507f1f77bcf86cd799439016
+          type: array
+          items:
+            type: string
+  securitySchemes:
+    JWT:
+      scheme: bearer
+      bearerFormat: JWT
+      type: http
+      description: Personal Access Token — generate one at https://app.ninety.io/settings/user/developer-settings

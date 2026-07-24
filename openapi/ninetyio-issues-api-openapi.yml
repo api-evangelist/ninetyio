@@ -1,0 +1,337 @@
+openapi: 3.0.0
+info:
+  title: Ninety Public Issues API
+  description: 'Public API endpoints for Ninety users
+
+
+    [https://api.public.ninety.io/v1/swagger.json](/v1/swagger-json)'
+  version: '1.0'
+  contact: {}
+servers: []
+security:
+- JWT: []
+tags:
+- name: Issues
+paths:
+  /v1/issues/query:
+    post:
+      description: Returns a paginated list of Issues. Supports filtering by team, interval, and search text.
+      operationId: PublicIssueController_queryIssues
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetIssuesQueryDTO'
+      responses:
+        '200':
+          description: Issues queried successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedIssuesResponseDTO'
+      summary: Query Issues
+      tags:
+      - Issues
+  /v1/issues/{issueId}:
+    get:
+      description: Returns a single Issue by its Id.
+      operationId: PublicIssueController_getIssue
+      parameters:
+      - name: issueId
+        required: true
+        in: path
+        description: The Issue Id
+        schema:
+          example: 507f1f77bcf86cd799439011
+          type: string
+      responses:
+        '200':
+          description: Issue retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IssueResponseDTO'
+      summary: Get an Issue by Id
+      tags:
+      - Issues
+    patch:
+      description: Partially updates an Issue. Only fields included in the request body are changed.
+      operationId: PublicIssueController_updateIssue
+      parameters:
+      - name: issueId
+        required: true
+        in: path
+        description: The Issue Id
+        schema:
+          example: 507f1f77bcf86cd799439011
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateIssueDTO'
+      responses:
+        '200':
+          description: Issue updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IssueResponseDTO'
+      summary: Update an Issue
+      tags:
+      - Issues
+    delete:
+      description: Permanently deletes an Issue.
+      operationId: PublicIssueController_deleteIssue
+      parameters:
+      - name: issueId
+        required: true
+        in: path
+        description: The Issue Id
+        schema:
+          example: 507f1f77bcf86cd799439011
+          type: string
+      responses:
+        '204':
+          description: Issue deleted successfully
+      summary: Delete an Issue
+      tags:
+      - Issues
+  /v1/issues:
+    post:
+      description: Creates a new Issue for the specified team.
+      operationId: PublicIssueController_createIssue
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateIssueDTO'
+      responses:
+        '201':
+          description: Issue created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IssueResponseDTO'
+      summary: Create an Issue
+      tags:
+      - Issues
+components:
+  schemas:
+    IssueResponseDTO:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the Issue
+          example: 507f1f77bcf86cd799439011
+        userId:
+          type: string
+          description: Id of the user who owns the Issue
+          example: 507f1f77bcf86cd799439012
+        teamId:
+          type: string
+          description: Id of the team that owns the Issue
+          example: 507f1f77bcf86cd799439013
+        companyId:
+          type: string
+          description: Id of the company
+          example: 507f1f77bcf86cd799439014
+        archived:
+          type: boolean
+          description: Whether the Issue has been archived
+          example: false
+        archivedDate:
+          format: date-time
+          type: string
+          description: Date and time when the Issue was archived
+          example: null
+        completed:
+          type: boolean
+          description: Whether the Issue has been resolved
+          example: false
+        completedDate:
+          format: date-time
+          type: string
+          description: Date and time when the Issue was resolved
+          example: null
+        createdBy:
+          type: string
+          description: Name of the user who created the Issue
+          example: Jane Smith
+        deleted:
+          type: boolean
+          description: Whether the Issue has been deleted
+          example: false
+        description:
+          type: string
+          description: HTML description of the Issue
+          example: <p>Revenue projections are inconsistent with actuals.</p>
+        intervalCode:
+          type: string
+          description: 'Issue classification: `SHORT_TERM` for weekly/session Issues, `LONG_TERM` for ongoing Issues'
+          enum:
+          - SHORT_TERM
+          - LONG_TERM
+          example: SHORT_TERM
+        priority:
+          type: number
+          description: Priority level from 0 (none) to 5 (highest)
+          example: 3
+        title:
+          type: string
+          description: Title of the Issue
+          example: Cash flow projections are off
+        createdDate:
+          format: date-time
+          type: string
+          description: Date and time when the Issue was created
+          example: '2024-01-15T09:00:00.000Z'
+    PaginatedIssuesResponseDTO:
+      type: object
+      properties:
+        items:
+          description: Array of Issues
+          type: array
+          items:
+            $ref: '#/components/schemas/IssueResponseDTO'
+        totalCount:
+          type: number
+          description: Total number of Issues matching the query
+        params:
+          description: Query parameters used
+          allOf:
+          - $ref: '#/components/schemas/IssuesQueryParamsResponseDTO'
+      required:
+      - items
+      - totalCount
+    CreateIssueDTO:
+      type: object
+      properties:
+        title:
+          type: string
+          description: Title of the Issue
+          example: Cash flow projections are off
+        teamId:
+          type: string
+          description: Id of the team that owns the Issue
+          example: 507f1f77bcf86cd799439011
+        interval:
+          type: string
+          description: Issue classification. Defaults to `SHORT_TERM` if not provided.
+          enum:
+          - SHORT_TERM
+          - LONG_TERM
+          default: SHORT_TERM
+          example: SHORT_TERM
+        description:
+          type: string
+          description: HTML description of the Issue
+          example: <p>Revenue projections are inconsistent with actuals.</p>
+        priority:
+          type: number
+          description: Priority level from 0 (none) to 5 (highest)
+          minimum: 0
+          maximum: 5
+          example: 3
+      required:
+      - title
+      - teamId
+    UpdateIssueDTO:
+      type: object
+      properties:
+        title:
+          type: string
+          description: Title of the Issue
+        teamId:
+          type: string
+          description: Id of the team that owns the Issue
+        interval:
+          type: string
+          description: Interval classification for the Issue
+          enum:
+          - SHORT_TERM
+          - LONG_TERM
+        description:
+          type: string
+          description: HTML description of the Issue
+        priority:
+          type: number
+          description: 'Priority of the Issue: 0-5'
+          minimum: 0
+          maximum: 5
+        completed:
+          type: boolean
+          description: Whether the Issue is completed
+    IssuesQueryParamsResponseDTO:
+      type: object
+      properties:
+        sortField:
+          type: string
+          description: Sort field used in the query
+        sortDirection:
+          type: string
+          description: Sort direction used in the query
+        pageSize:
+          type: number
+          description: Page size used in the query
+        pageIndex:
+          type: number
+          description: Page index used in the query
+        intervalCode:
+          type: string
+          description: Interval code filter used in the query
+    GetIssuesQueryDTO:
+      type: object
+      properties:
+        sortField:
+          type: string
+          description: The field to sort results by
+          default: createdDate
+          example: createdDate
+        sortDirection:
+          type: string
+          description: The sort direction
+          default: DESC
+          enum:
+          - ASC
+          - DESC
+          example: DESC
+        pageSize:
+          type: number
+          description: Number of items per page
+          default: 10
+          minimum: 1
+          example: 25
+        pageIndex:
+          type: number
+          description: Zero-based page index
+          default: 0
+          minimum: 0
+          example: 0
+        teamId:
+          type: string
+          description: A single team Id or a comma-separated list of team Ids to filter by. Omit to query all Teams.
+          example: 507f1f77bcf86cd799439011
+        intervalCode:
+          type: string
+          description: Filter by Issue classification
+          enum:
+          - SHORT_TERM
+          - LONG_TERM
+          example: SHORT_TERM
+        searchText:
+          type: string
+          description: Search text to match against Issue title, description, and comments
+          example: supply chain
+  securitySchemes:
+    JWT:
+      scheme: bearer
+      bearerFormat: JWT
+      type: http
+      description: Personal Access Token — generate one at https://app.ninety.io/settings/user/developer-settings

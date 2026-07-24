@@ -1,0 +1,52 @@
+openapi: 3.0.0
+info:
+  title: Ninety Public Issues Teams API
+  description: 'Public API endpoints for Ninety users
+
+
+    [https://api.public.ninety.io/v1/swagger.json](/v1/swagger-json)'
+  version: '1.0'
+  contact: {}
+servers: []
+security:
+- JWT: []
+tags:
+- name: Teams
+paths:
+  /v1/teams:
+    get:
+      description: Returns all Teams the authenticated user belongs to.
+      operationId: PublicTeamController_findAll
+      parameters: []
+      responses:
+        '200':
+          description: Teams retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TeamResponseDTO'
+      summary: Get Teams
+      tags:
+      - Teams
+components:
+  schemas:
+    TeamResponseDTO:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The team Id
+        name:
+          type: string
+          description: The team name
+      required:
+      - id
+      - name
+  securitySchemes:
+    JWT:
+      scheme: bearer
+      bearerFormat: JWT
+      type: http
+      description: Personal Access Token — generate one at https://app.ninety.io/settings/user/developer-settings
