@@ -1,0 +1,90 @@
+generated: '2026-07-20'
+method: derived
+status: candidate
+source: openapi/ninetyio-openapi-original.json
+notes: >-
+  No official hosted/remote MCP server was found for Ninety. This is a CANDIDATE
+  tool list derived one-to-one from the 25 Public API operations, for a potential
+  MCP server fronting https://api.public.ninety.io/v1 with a Personal Access
+  Token (Bearer) credential.
+server:
+  name: ninety
+  transport: http
+  url: null
+  auth: bearer (Personal Access Token)
+tools:
+  - name: query_issues
+    description: Query issues with filters, sort, and paging
+    source_operation: openapi/ninetyio-openapi-original.json#PublicIssueController_queryIssues
+  - name: get_issue
+    description: Get an issue by id
+    source_operation: openapi/ninetyio-openapi-original.json#PublicIssueController_getIssue
+  - name: create_issue
+    description: Create an issue
+    source_operation: openapi/ninetyio-openapi-original.json#PublicIssueController_createIssue
+  - name: update_issue
+    description: Update an issue
+    source_operation: openapi/ninetyio-openapi-original.json#PublicIssueController_updateIssue
+  - name: delete_issue
+    description: Delete an issue
+    source_operation: openapi/ninetyio-openapi-original.json#PublicIssueController_deleteIssue
+  - name: query_todos
+    description: Query to-dos with filters, sort, and paging
+    source_operation: openapi/ninetyio-openapi-original.json#PublicTodoController_queryTodos
+  - name: get_todo
+    description: Get a to-do by id
+    source_operation: openapi/ninetyio-openapi-original.json#PublicTodoController_findOne
+  - name: create_todo
+    description: Create a to-do
+    source_operation: openapi/ninetyio-openapi-original.json#PublicTodoController_create
+  - name: update_todo
+    description: Update a to-do
+    source_operation: openapi/ninetyio-openapi-original.json#PublicTodoController_update
+  - name: delete_todo
+    description: Delete a to-do
+    source_operation: openapi/ninetyio-openapi-original.json#PublicTodoController_delete
+  - name: get_teams
+    description: List teams
+    source_operation: openapi/ninetyio-openapi-original.json#PublicTeamController_findAll
+  - name: query_measurables
+    description: Query Scorecard measurables (KPIs)
+    source_operation: openapi/ninetyio-openapi-original.json#PublicScorecardController_queryKpis
+  - name: put_score
+    description: Create or update a measurable score
+    source_operation: openapi/ninetyio-openapi-original.json#PublicScorecardController_putScore
+  - name: put_note
+    description: Create or update a measurable note
+    source_operation: openapi/ninetyio-openapi-original.json#PublicScorecardController_putNote
+  - name: delete_score
+    description: Delete a measurable score
+    source_operation: openapi/ninetyio-openapi-original.json#PublicScorecardController_deleteScore
+  - name: delete_note
+    description: Delete a measurable note
+    source_operation: openapi/ninetyio-openapi-original.json#PublicScorecardController_deleteNote
+  - name: query_rocks
+    description: Query rocks with filters
+    source_operation: openapi/ninetyio-openapi-original.json#PublicRockController_queryRocks
+  - name: get_rock
+    description: Get a rock by id
+    source_operation: openapi/ninetyio-openapi-original.json#PublicRockController_findOne
+  - name: create_rock
+    description: Create a rock
+    source_operation: openapi/ninetyio-openapi-original.json#PublicRockController_create
+  - name: update_rock
+    description: Update a rock
+    source_operation: openapi/ninetyio-openapi-original.json#PublicRockController_update
+  - name: delete_rock
+    description: Delete a rock
+    source_operation: openapi/ninetyio-openapi-original.json#PublicRockController_delete
+  - name: get_milestone
+    description: Get a milestone by id
+    source_operation: openapi/ninetyio-openapi-original.json#PublicMilestoneController_findOne
+  - name: create_milestone
+    description: Create a milestone linked to a rock
+    source_operation: openapi/ninetyio-openapi-original.json#PublicMilestoneController_create
+  - name: update_milestone
+    description: Update a milestone
+    source_operation: openapi/ninetyio-openapi-original.json#PublicMilestoneController_update
+  - name: get_user
+    description: Get a user by id
+    source_operation: openapi/ninetyio-openapi-original.json#PublicUserController_findOne

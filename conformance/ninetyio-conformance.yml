@@ -1,0 +1,33 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/ninetyio-openapi-original.json
+standards:
+  - id: openapi-3.0
+    conforms: true
+    evidence: openapi field is 3.0.0
+  - id: oauth2
+    conforms: false
+    evidence: security uses http bearer (PAT), no oauth2 scheme
+  - id: oidc
+    conforms: false
+  - id: http-bearer-jwt
+    conforms: true
+    evidence: securityScheme JWT type http scheme bearer bearerFormat JWT
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: errors use NestJS { message, error, statusCode } envelope, not application/problem+json
+  - id: pagination
+    conforms: true
+    evidence: query endpoints expose page/pageSize with { items, totalCount } envelope
+  - id: idempotency
+    conforms: false
+    evidence: no idempotency-key header or parameter documented or in spec
+  - id: rate-limiting
+    conforms: true
+    evidence: documented 25 req/s limit returning 429 Too Many Requests
+  - id: rest
+    conforms: true
+    evidence: resource-oriented REST over HTTPS with JSON
+  - id: webhooks
+    conforms: false
+    evidence: docs state no webhooks/push notifications; polling required

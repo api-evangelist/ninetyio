@@ -1,0 +1,26 @@
+{
+  "provider": "ninetyio",
+  "sources": [
+    "ninetyio-issues-api-openapi.yml",
+    "ninetyio-milestones-api-openapi.yml",
+    "ninetyio-rocks-api-openapi.yml",
+    "ninetyio-scorecard-api-openapi.yml",
+    "ninetyio-teams-api-openapi.yml",
+    "ninetyio-to-dos-api-openapi.yml",
+    "ninetyio-users-api-openapi.yml"
+  ],
+  "outputs": [
+    "ninetyio-issues-api-openapi.yml",
+    "ninetyio-milestones-api-openapi.yml",
+    "ninetyio-rocks-api-openapi.yml",
+    "ninetyio-scorecard-api-openapi.yml",
+    "ninetyio-teams-api-openapi.yml",
+    "ninetyio-to-dos-api-openapi.yml",
+    "ninetyio-users-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

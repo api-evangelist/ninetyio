@@ -1,0 +1,22 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Ninety Public API
+  version: 1.0.0
+extends: openapi/ninetyio-openapi-original.json
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-enriched: '2026-07-20'
+      x-api-base-url: https://api.public.ninety.io/v1
+      x-auth-model: personal-access-token
+  - target: $.servers
+    update:
+      - url: https://api.public.ninety.io/v1
+        description: Ninety Public API v1 (production)
+  - target: $.info
+    update:
+      x-rate-limit: 25 requests/second (Thrive plan), 429 on exceed
+      x-pagination: offset (page/pageSize), envelope { items, totalCount }
+      x-idempotency: not supported
+      x-webhooks: none (polling required)
+      x-error-format: nestjs ({ message, error, statusCode })

@@ -1,0 +1,33 @@
+generated: '2026-07-20'
+method: searched
+notes: >-
+  Probed the standard /.well-known/ discovery surface on both the API host and
+  the website. No documents were served (API host returns 401 to unauthenticated
+  requests; website returns 404). No security.txt, OIDC, OAuth AS metadata,
+  api-catalog, or ai-plugin.json is published. Absence is a valid, recorded
+  result — no pointer is wired.
+hosts:
+  - host: https://api.public.ninety.io
+    documents:
+      - path: /.well-known/security.txt
+        status: 401
+      - path: /.well-known/openid-configuration
+        status: 401
+      - path: /.well-known/oauth-authorization-server
+        status: 401
+      - path: /.well-known/api-catalog
+        status: 401
+      - path: /.well-known/ai-plugin.json
+        status: 000
+  - host: https://www.ninety.io
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404

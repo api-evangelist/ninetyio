@@ -1,0 +1,12 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/ninetyio-openapi-original.json
+workflows:
+  - file: ninetyio-create-rock-with-milestones.yml
+    workflowId: createRockWithMilestones
+    title: Create a Ninety Rock with Milestones
+    summary: Resolve a team, create a quarterly Rock, and attach a Milestone to it.
+  - file: ninetyio-log-and-solve-issue.yml
+    workflowId: logAndSolveIssue
+    title: Log and Solve a Ninety Issue
+    summary: Resolve a team, create an Issue on its list, then mark it solved.

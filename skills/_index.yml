@@ -1,0 +1,20 @@
+generated: '2026-07-20'
+method: generated
+source: openapi/ninetyio-openapi-original.json
+skills:
+  - file: ninetyio-manage-issues.md
+    name: Manage Ninety Issues
+    api: openapi/ninetyio-openapi-original.json
+    operations: [PublicTeamController_findAll, PublicIssueController_queryIssues, PublicIssueController_createIssue, PublicIssueController_getIssue, PublicIssueController_updateIssue, PublicIssueController_deleteIssue]
+  - file: ninetyio-manage-rocks-milestones.md
+    name: Manage Ninety Rocks and Milestones
+    api: openapi/ninetyio-openapi-original.json
+    operations: [PublicRockController_create, PublicRockController_queryRocks, PublicRockController_findOne, PublicRockController_update, PublicMilestoneController_create, PublicMilestoneController_update]
+  - file: ninetyio-update-scorecard.md
+    name: Update Ninety Scorecard
+    api: openapi/ninetyio-openapi-original.json
+    operations: [PublicScorecardController_queryKpis, PublicScorecardController_putScore, PublicScorecardController_putNote, PublicScorecardController_deleteScore, PublicScorecardController_deleteNote]
+  - file: ninetyio-manage-todos.md
+    name: Manage Ninety To-Dos
+    api: openapi/ninetyio-openapi-original.json
+    operations: [PublicTodoController_create, PublicTodoController_queryTodos, PublicTodoController_findOne, PublicTodoController_update, PublicTodoController_delete]

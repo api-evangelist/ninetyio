@@ -1,0 +1,122 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/ninetyio-openapi-original.json
+notes: >-
+  Entity graph derived from OpenAPI response schemas and their id-reference
+  fields (teamId, userId, companyId, kpiId, and Rock->milestones). Ids are
+  MongoDB ObjectId strings (24-hex), e.g. 507f1f77bcf86cd799439011.
+entities:
+  - name: Company
+    id_field: companyId
+    notes: Top-level tenant; every resource carries a companyId.
+  - name: User
+    id_field: id
+    schema: UserResponseDTO
+    operations: [PublicUserController_findOne]
+  - name: Team
+    id_field: teamId
+    schema: TeamResponseDTO
+    operations: [PublicTeamController_findAll]
+  - name: Issue
+    id_field: id
+    schema: IssueResponseDTO
+    operations:
+      - PublicIssueController_queryIssues
+      - PublicIssueController_getIssue
+      - PublicIssueController_createIssue
+      - PublicIssueController_updateIssue
+      - PublicIssueController_deleteIssue
+  - name: Todo
+    id_field: id
+    schema: TodoResponseDTO
+    operations:
+      - PublicTodoController_queryTodos
+      - PublicTodoController_findOne
+      - PublicTodoController_create
+      - PublicTodoController_update
+      - PublicTodoController_delete
+  - name: Rock
+    id_field: _id
+    schema: RockResponseDTO
+    operations:
+      - PublicRockController_queryRocks
+      - PublicRockController_findOne
+      - PublicRockController_create
+      - PublicRockController_update
+      - PublicRockController_delete
+  - name: Milestone
+    id_field: id
+    schema: MilestoneResponseDTO
+    operations:
+      - PublicMilestoneController_create
+      - PublicMilestoneController_findOne
+      - PublicMilestoneController_update
+  - name: Kpi (Measurable / Scorecard)
+    id_field: kpiId
+    schema: KpiQueryItemResponseDTO
+    operations: [PublicScorecardController_queryKpis]
+  - name: Score
+    parent: Kpi
+    schema: ScoreResponseDTO
+    operations:
+      - PublicScorecardController_putScore
+      - PublicScorecardController_deleteScore
+  - name: Note
+    parent: Kpi
+    schema: NoteResponseDTO
+    operations:
+      - PublicScorecardController_putNote
+      - PublicScorecardController_deleteNote
+relationships:
+  - from: Issue
+    to: Team
+    type: belongs_to
+    via: teamId
+  - from: Issue
+    to: User
+    type: belongs_to
+    via: userId
+  - from: Issue
+    to: Company
+    type: belongs_to
+    via: companyId
+  - from: Todo
+    to: Team
+    type: belongs_to
+    via: teamId
+  - from: Todo
+    to: User
+    type: belongs_to
+    via: userId
+  - from: Todo
+    to: Company
+    type: belongs_to
+    via: companyId
+  - from: Rock
+    to: Team
+    type: belongs_to
+    via: teamId
+  - from: Rock
+    to: User
+    type: belongs_to
+    via: userId
+  - from: Rock
+    to: Milestone
+    type: has_many
+    via: milestones
+  - from: Rock
+    to: Team
+    type: has_many
+    via: additionalTeamIds
+  - from: Milestone
+    to: Rock
+    type: belongs_to
+    via: rockId
+  - from: Score
+    to: Kpi
+    type: belongs_to
+    via: kpiId
+  - from: Note
+    to: Kpi
+    type: belongs_to
+    via: kpiId

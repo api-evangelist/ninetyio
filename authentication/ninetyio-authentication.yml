@@ -1,0 +1,32 @@
+generated: '2026-07-20'
+method: searched
+source: openapi/ninetyio-openapi-original.json
+docs: https://help.ninety.io/en/articles/15505694-api-reference-and-access
+summary:
+  types: [http]
+  http_schemes: [bearer]
+  bearer_format: JWT
+  token_model: personal-access-token
+  oauth2_flows: []
+  api_key_in: []
+  notes: >-
+    Authentication is a Personal Access Token (PAT) passed as an HTTP Bearer
+    token in the Authorization header. Tokens are generated per user at
+    https://app.ninety.io/settings/user/developer-settings with a selectable
+    expiration (30, 90, 180, or 365 days). Every call executes as the generating
+    user and respects that user's in-app permissions; there is no admin or
+    superuser override, and cross-company access requires a separate token per
+    company. There is no OAuth2 / OpenID Connect flow and no scope surface.
+schemes:
+  - name: JWT
+    type: http
+    scheme: bearer
+    bearer_format: JWT
+    description: >-
+      Personal Access Token — generate one at
+      https://app.ninety.io/settings/user/developer-settings
+    location: header (Authorization)
+    sources: [openapi/ninetyio-openapi-original.json]
+applied:
+  global: true
+  requirement: [{JWT: []}]

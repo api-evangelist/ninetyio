@@ -1,8 +1,28 @@
 aid: ninetyio
 name: Ninety.io
-description: Ninety.io is a company surfaced as a portfolio company of insight-partners and added to the
-  API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Ninety.io (Ninety) is a software platform for implementing the Entrepreneurial
+  Operating System (EOS). It gives founders and leadership teams purpose-built
+  tools for the Accountability Chart, the Vision/Traction Organizer (V/TO),
+  quarterly Rocks, the weekly Scorecard, To-Dos, the Issues List, and EOS meeting
+  rhythms such as the Level 10 meeting. Ninety exposes a REST Public API (v1) at
+  api.public.ninety.io authenticated with per-user Personal Access Tokens, giving
+  programmatic create/read/update/delete access to To-Dos, Issues, Rocks,
+  Milestones, Scorecard measurables (KPIs, scores, notes), Teams, and Users.
 url: https://raw.githubusercontent.com/api-evangelist/ninetyio/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://www.ninety.io/hubfs/LI_Thumb_Home.jpg
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
@@ -11,15 +31,190 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
-apis: []
+- EOS
+- Entrepreneurial Operating System
+- Business Management
+- Meetings
+- Productivity
+- Scorecard
+- Team Management
+- Goal Tracking
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- aid: ninetyio:ninetyio-issues-api
+  name: Ninety.io Issues API
+  description: The Issues API from Ninety.io — 3 operation(s) for issues.
+  humanURL: https://help.ninety.io/en/articles/15505694-api-reference-and-access
+  baseURL: https://api.public.ninety.io/v1
+  tags:
+  - Issues
+  properties:
+  - type: OpenAPI
+    url: openapi/ninetyio-issues-api-openapi.yml
+  - type: APIReference
+    url: https://api.public.ninety.io/v1/swagger/index.html
+  - type: Documentation
+    url: https://help.ninety.io/en/articles/15505694-api-reference-and-access
+- aid: ninetyio:ninetyio-milestones-api
+  name: Ninety.io Milestones API
+  description: The Milestones API from Ninety.io — 2 operation(s) for milestones.
+  humanURL: https://help.ninety.io/en/articles/15505694-api-reference-and-access
+  baseURL: https://api.public.ninety.io/v1
+  tags:
+  - Milestones
+  properties:
+  - type: OpenAPI
+    url: openapi/ninetyio-milestones-api-openapi.yml
+  - type: APIReference
+    url: https://api.public.ninety.io/v1/swagger/index.html
+  - type: Documentation
+    url: https://help.ninety.io/en/articles/15505694-api-reference-and-access
+- aid: ninetyio:ninetyio-rocks-api
+  name: Ninety.io Rocks API
+  description: The Rocks API from Ninety.io — 3 operation(s) for rocks.
+  humanURL: https://help.ninety.io/en/articles/15505694-api-reference-and-access
+  baseURL: https://api.public.ninety.io/v1
+  tags:
+  - Rocks
+  properties:
+  - type: OpenAPI
+    url: openapi/ninetyio-rocks-api-openapi.yml
+  - type: APIReference
+    url: https://api.public.ninety.io/v1/swagger/index.html
+  - type: Documentation
+    url: https://help.ninety.io/en/articles/15505694-api-reference-and-access
+- aid: ninetyio:ninetyio-scorecard-api
+  name: Ninety.io Scorecard API
+  description: The Scorecard API from Ninety.io — 5 operation(s) for scorecard.
+  humanURL: https://help.ninety.io/en/articles/15505694-api-reference-and-access
+  baseURL: https://api.public.ninety.io/v1
+  tags:
+  - Scorecard
+  properties:
+  - type: OpenAPI
+    url: openapi/ninetyio-scorecard-api-openapi.yml
+  - type: APIReference
+    url: https://api.public.ninety.io/v1/swagger/index.html
+  - type: Documentation
+    url: https://help.ninety.io/en/articles/15505694-api-reference-and-access
+- aid: ninetyio:ninetyio-teams-api
+  name: Ninety.io Teams API
+  description: The Teams API from Ninety.io — 1 operation(s) for teams.
+  humanURL: https://help.ninety.io/en/articles/15505694-api-reference-and-access
+  baseURL: https://api.public.ninety.io/v1
+  tags:
+  - Teams
+  properties:
+  - type: OpenAPI
+    url: openapi/ninetyio-teams-api-openapi.yml
+  - type: APIReference
+    url: https://api.public.ninety.io/v1/swagger/index.html
+  - type: Documentation
+    url: https://help.ninety.io/en/articles/15505694-api-reference-and-access
+- aid: ninetyio:ninetyio-to-dos-api
+  name: Ninety.io To-Dos API
+  description: The To-Dos API from Ninety.io — 3 operation(s) for to-dos.
+  humanURL: https://help.ninety.io/en/articles/15505694-api-reference-and-access
+  baseURL: https://api.public.ninety.io/v1
+  tags:
+  - To-Dos
+  properties:
+  - type: OpenAPI
+    url: openapi/ninetyio-to-dos-api-openapi.yml
+  - type: APIReference
+    url: https://api.public.ninety.io/v1/swagger/index.html
+  - type: Documentation
+    url: https://help.ninety.io/en/articles/15505694-api-reference-and-access
+- aid: ninetyio:ninetyio-users-api
+  name: Ninety.io Users API
+  description: The Users API from Ninety.io — 1 operation(s) for users.
+  humanURL: https://help.ninety.io/en/articles/15505694-api-reference-and-access
+  baseURL: https://api.public.ninety.io/v1
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/ninetyio-users-api-openapi.yml
+  - type: APIReference
+    url: https://api.public.ninety.io/v1/swagger/index.html
+  - type: Documentation
+    url: https://help.ninety.io/en/articles/15505694-api-reference-and-access
 common:
 - type: Website
   url: https://www.ninety.io/
+- type: Documentation
+  url: https://help.ninety.io/en/articles/15505694-api-reference-and-access
+- type: APIReference
+  url: https://api.public.ninety.io/v1/swagger/index.html
+- type: GettingStarted
+  url: https://help.ninety.io/en/articles/15505694-api-reference-and-access
+- type: Support
+  url: https://help.ninety.io/
+- type: HelpCenter
+  url: https://help.ninety.io/
+- type: Community
+  url: https://community.ninety.io/
+- type: Blog
+  url: https://www.ninety.io/updates
+- type: Roadmap
+  url: https://www.ninety.io/product-updates
+- type: Pricing
+  url: https://www.ninety.io/pricing
+- type: SignUp
+  url: https://app.ninety.io/signup
+- type: Login
+  url: https://app.ninety.io/login
+- type: TermsOfService
+  url: https://www.ninety.io/terms
+- type: PrivacyPolicy
+  url: https://www.ninety.io/privacy-policy
+- type: Integrations
+  url: https://www.ninety.io/integrations
+- type: StatusPage
+  url: https://status.ninety.io/
+- type: TrustCenter
+  url: https://trust.ninety.io/
+- type: Authentication
+  url: authentication/ninetyio-authentication.yml
+- type: Conventions
+  url: conventions/ninetyio-conventions.yml
+- type: ErrorCatalog
+  url: errors/ninetyio-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/ninetyio-lifecycle.yml
+- type: Conformance
+  url: conformance/ninetyio-conformance.yml
+- type: DataModel
+  url: data-model/ninetyio-data-model.yml
+- type: ChangeLog
+  url: changelog/ninetyio-changelog.yml
+- type: MCPServer
+  url: mcp/ninetyio-mcp.yml
+- type: LLMsTxt
+  url: llms/ninetyio-llms.txt
+- type: Overlay
+  url: overlays/ninetyio-openapi-overlay.yaml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Arazzo
+  name: Create a Ninety Rock with Milestones
+  url: arazzo/ninetyio-create-rock-with-milestones.yml
+- type: Arazzo
+  name: Log and Solve a Ninety Issue
+  url: arazzo/ninetyio-log-and-solve-issue.yml
+- type: AgenticAccess
+  url: agentic-access/ninetyio-agentic-access.yml
+- type: DomainSecurity
+  url: security/ninetyio-domain-security.yml
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 23
+  pass: local-v1

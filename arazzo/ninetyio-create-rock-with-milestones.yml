@@ -1,0 +1,48 @@
+arazzo: 1.0.1
+info:
+  title: Create a Ninety Rock with Milestones
+  version: 1.0.0
+  summary: Resolve a team, create a quarterly Rock, and attach a Milestone to it.
+sourceDescriptions:
+  - name: ninety
+    url: ../openapi/ninetyio-openapi-original.json
+    type: openapi
+workflows:
+  - workflowId: createRockWithMilestones
+    summary: Pick a team, create a Rock, then add a Milestone under it.
+    inputs:
+      type: object
+      properties:
+        rockTitle: { type: string }
+        rockDescription: { type: string }
+        dueDate: { type: string }
+        milestoneTitle: { type: string }
+    steps:
+      - stepId: getTeams
+        operationId: PublicTeamController_findAll
+        outputs:
+          teamId: $response.body#/0/id
+      - stepId: createRock
+        operationId: PublicRockController_create
+        requestBody:
+          contentType: application/json
+          payload:
+            title: $inputs.rockTitle
+            description: $inputs.rockDescription
+            teamId: $steps.getTeams.outputs.teamId
+            dueDate: $inputs.dueDate
+        outputs:
+          rockId: $response.body#/_id
+      - stepId: addMilestone
+        operationId: PublicMilestoneController_create
+        requestBody:
+          contentType: application/json
+          payload:
+            rockId: $steps.createRock.outputs.rockId
+            title: $inputs.milestoneTitle
+            dueDate: $inputs.dueDate
+        outputs:
+          milestoneId: $response.body#/id
+    outputs:
+      rockId: $steps.createRock.outputs.rockId
+      milestoneId: $steps.addMilestone.outputs.milestoneId

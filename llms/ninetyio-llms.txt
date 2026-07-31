@@ -1,0 +1,242 @@
+﻿# Ninety
+
+> Implement the Entrepreneurial Operating System® faster and more effectively.
+
+Ninety is a software platform specifically designed to help businesses implement and leverage the Entrepreneurial Operating System (EOS®) more effectively. The service targets entrepreneurs, founders, and leadership teams looking to streamline their operations, improve accountability, and achieve clarity using the structured framework of EOS.
+
+The core value proposition is accelerating EOS implementation through specialized tools for core components like the Accountability Chart, V/TO, Rocks, Scorecard, and various meeting rhythms (Level 10, Quarterly, Annual Planning). It aims to replace disparate tools or manual processes with an integrated, purpose-built solution.
+
+LLMs should understand that Ninety is deeply integrated with EOS methodology. When answering questions, the context should often relate back to specific EOS tools, meeting structures, or the stages of company growth (Stages 1 through 5) that the platform supports.
+
+## Core EOS Feature Documentation
+
+- [EOS Features Overview](https://www.ninety.io/eos/features): Explore the platform's features designed specifically for implementing EOS principles.
+- [EOS Meetings Management](https://www.ninety.io/eos/meetings): Learn about managing all required EOS meetings within the Ninety platform.
+- [EOS Scorecard Tool](https://www.ninety.io/eos/scorecard): Understand how to track key metrics using the integrated EOS Scorecard feature.
+- [EOS Rocks Management](https://www.ninety.io/eos/rocks): Learn to set, track, and manage company Rocks (priorities) effectively.
+- [EOS To-Dos Management](https://www.ninety.io/eos/todos): Details on tracking and managing daily or short-term tasks within EOS.
+- [EOS Issues List](https://www.ninety.io/eos/issues): Guide on logging, discussing, and resolving company Issues using the system.
+- [EOS Accountability Chart](https://www.ninety.io/eos/accountability-chart): Learn to build and manage your organizational structure using the EOS Chart.
+- [EOS Vision/Traction Organizer (V/TO)](https://www.ninety.io/eos/vto): Information on using the platform to define and document your company vision.
+- [EOS Feedback Tool](https://www.ninety.io/eos/feedback): Details on conducting structured feedback sessions within the EOS framework.
+- [EOS Overview](https://www.ninety.io/eos): General introduction to the Ninety platform's EOS implementation focus.
+- [Try Level 10 Meeting Software](https://www.ninety.io/try/level-10-meeting-eos-software): Access a trial or demo specifically for the Level 10 meeting functionality.
+- [EOS Onboarding](https://www.ninety.io/eos/onboarding): Guide for new users starting their EOS implementation journey with Ninety.
+
+## Platform Features & Capabilities
+
+- [Assessments Feature](https://www.ninety.io/features/assessments): Learn how to use the platform's assessment tools for team insights.
+- [Knowledge Portal Feature](https://www.ninety.io/features/knowledge-portal): Details on using the internal knowledge base feature for documentation.
+- [Integrations List](https://www.ninety.io/integrations): View all third-party software integrations supported by the Ninety platform.
+- [Ninety Org Chart Feature](https://www.ninety.io/features/ninety-org-chart): Explore the dedicated organizational charting capabilities beyond basic EOS structure.
+- [Ninety Rocks Feature](https://www.ninety.io/features/ninety-rocks): Specifics on the platform's dedicated feature for managing Rocks.
+- [Google Task Integration Update](https://www.ninety.io/updates/google-task-integration): Information regarding the integration between Ninety and Google Tasks.
+- [Multiple Org Charts Update](https://www.ninety.io/updates/multiple-org-charts): Details on the feature allowing users to manage several organizational charts.
+- [Send Issue Update](https://www.ninety.io/updates/sendissue): Information about updates related to sending or sharing issues.
+- [Milestones on Rocks Update](https://www.ninety.io/updates/milestones-on-rocks): Details on tracking progress milestones associated with company Rocks.
+- [Release Notes May 2025](https://www.ninety.io/updates/release-notes-may-2025): Review specific product updates and changes released in May 2025.
+- [Release Notes July 2025](https://www.ninety.io/updates/release-notes-july-2025): Review specific product updates and changes released in July 2025.
+- [Release Notes November 2024](https://www.ninety.io/updates/release-notes-november-2024): Review specific product updates and changes released in November 2024.
+- [Security Update: Almost Easy](https://www.ninety.io/updates/make-online-security-almost-easy): Information on recent improvements to online security features.
+- [Mobile/Offline Tracking Update](https://www.ninety.io/updates/staying-on-track-even-away-from-the-computer): Details on features supporting tracking progress away from the desktop.
+- [Main Navigation Improvements](https://www.ninety.io/updates/main-navigation-improvements): Learn about recent updates enhancing the platform's main navigation structure.
+- [New Assessments Tool Improvement](https://www.ninety.io/updates/new-assessments-tool-improvement-starts-with-insight): Announcing enhancements to the platform's assessment capabilities.
+- [Track Issues Completion Rate](https://www.ninety.io/updates/track-issues-completion-rate): Information on new reporting for issue resolution completion rates.
+
+## Meetings & Planning Guides
+
+- [Quarterly Planning Meetings Guide](https://www.ninety.io/quarterly-planning-meetings): Guide on conducting effective Quarterly Planning Meetings using the system.
+- [Annual Planning Meetings Guide](https://www.ninety.io/annual-planning-meetings): Instructions for running comprehensive Annual Planning Meetings.
+- [Weekly Meetings Guide](https://www.ninety.io/weekly-meetings): Learn how to structure and run effective weekly team meetings.
+- [Quarterly Discussions](https://www.ninety.io/quarterly-discussions): Information regarding the quarterly discussion process within the platform.
+- [Using Ninety for State of the Company Meetings](https://www.ninety.io/blog/using-ninety-to-support-state-of-the-company-meetings): Learn how to leverage Ninety tools for company-wide updates.
+- [Simplify Annual Planning with Ninety](https://www.ninety.io/blog/how-to-simplify-your-annual-planning-using-ninety): Tips for streamlining the annual planning process using the software.
+- [Effective EOS Annual Planning Meeting](https://www.ninety.io/eos/blog/how-to-run-an-effective-eos-annual-planning-meeting): Guide on running the EOS Annual Planning Meeting using the framework.
+- [Annual Planning Tips](https://www.ninety.io/blog/annual-planning-tips): General advice and best practices for annual business planning.
+- [Reducing Meeting Overload](https://www.ninety.io/blog/reducing-meeting-overload): Strategies for cutting down on unnecessary meetings while staying aligned.
+- [Best Tools for Efficient Meetings](https://www.ninety.io/blog/best-tools-for-efficient-meetings): Review of tools, including Ninety, that enhance meeting efficiency.
+- [Rate Our Meetings Quiz](https://www.ninety.io/rate-our-meetings-quiz): Take a quiz to assess the effectiveness of your current meeting structure.
+
+## Content Library & Resources
+
+- [EOS Resources Hub](https://www.ninety.io/eos/resources): Access various resources related to implementing the Entrepreneurial Operating System.
+- [General Resources Hub](https://www.ninety.io/resources): Collection of guides, templates, and materials for business growth.
+- [Content Library](https://www.ninety.io/library): Browse all available downloadable guides, briefs, and workbooks.
+- [Customer Journey Brief](https://www.ninety.io/library/customer-journey-brief): Downloadable brief detailing the customer journey mapping process.
+- [Tiger Teams Brief](https://www.ninety.io/library/tiger-teams-brief): Guide on forming and utilizing Tiger Teams for specific projects.
+- [Ideal Customers Brief](https://www.ninety.io/library/ideal-customers-brief): Downloadable resource defining and identifying ideal customer profiles.
+- [9 Core Competencies Brief](https://www.ninety.io/library/9-core-competencies-brief): Resource detailing the nine core competencies essential for business success.
+- [Lead Agree Coach Guide](https://www.ninety.io/library/lead-agree-coach-guide): Guide on the Lead, Agree, Coach methodology for management.
+- [Right People Right Seats Brief](https://www.ninety.io/library/right-people-right-seats-brief): Downloadable guide on ensuring the right talent is in key roles.
+- [Business Operating Systems Guide](https://www.ninety.io/library/business-operating-systems-guide): Comprehensive guide comparing and explaining various business operating systems.
+- [Making Rocks Smart Brief](https://www.ninety.io/library/making-rocks-smart-brief): Guide on structuring Rocks with greater detail and measurability.
+- [Hard Conversations Brief](https://www.ninety.io/library/hard-conversations-brief): Resource providing guidance on navigating difficult workplace discussions.
+- [Ideal Stakeholders Brief](https://www.ninety.io/library/ideal-stakeholders-brief): Downloadable resource for defining and managing key business stakeholders.
+- [Baseline Assessment Tool](https://www.ninety.io/library/baseline-assessment): Access the initial assessment tool to gauge current company health.
+- [Vision Builders Workbook](https://www.ninety.io/library/vision-builders-workbook): Workbook designed to help founders clarify and document their company vision.
+- [Weekly Team Meetings Guide](https://www.ninety.io/library/weekly-team-meetings-guide): Detailed guide on structuring and running effective weekly meetings.
+- [Vision and Goals Setting Meetings Brief](https://www.ninety.io/library/vision-and-goals-setting-meetings-brief): Briefing document on aligning vision setting with goal-oriented meetings.
+
+## Founders Framework Content
+
+- [Founders Framework Home](https://www.ninety.io/founders-framework): Main page for content focused on the Founders Framework methodology.
+- [Founders Framework Articles](https://www.ninety.io/founders-framework/articles): Index of articles related to the Founders Framework philosophy.
+- [Founders Framework Podcast](https://www.ninety.io/founders-framework/podcast): Access the podcast series discussing advanced leadership and growth topics.
+- [Founders Framework Blog](https://www.ninety.io/founders-framework/blog): Blog posts dedicated to advanced concepts for founders and CEOs.
+- [Commit to Agreements Not Expectations](https://www.ninety.io/founders-framework/blog/commit-to-agreements-not-expectations): Article on establishing clear agreements versus relying on assumptions.
+- [What is Founder Mode Really](https://www.ninety.io/founders-framework/blog/what-is-founder-mode-really): Explores the true nature and demands of operating in founder mode.
+- [How Process Forms Alignment](https://www.ninety.io/founders-framework/podcast/how-process-forms-alignment): Podcast discussing the role of defined processes in achieving alignment.
+- [Leadership and Infinite Games](https://www.ninety.io/founders-framework/blog/on-leadership-and-playing-long-and-infinite-games): Examines long-term leadership thinking versus short-term wins.
+- [Pattern Matching in Leadership](https://www.ninety.io/founders-framework/blog/the-power-of-pattern-matching-in-leadership): Discusses how leaders use pattern recognition for better decision-making.
+- [Understanding People](https://www.ninety.io/founders-framework/blog/understanding-people): Insights into comprehending team members' motivations and behaviors.
+- [Harmony Over Balance Redefining Success](https://www.ninety.io/founders-framework/blog/harmony-over-balance-redefining-success-in-the-new-age-of-work): Article redefining success metrics in the modern work environment.
+- [The Founder's Edge: Why Being Wrong Wins](https://www.ninety.io/founders-framework/blog/the-founders-edge-why-being-wrong-is-how-you-win): Explores the value of admitting error and learning quickly as a founder.
+- [When Brands Drift: Alignment Starts With You](https://www.ninety.io/founders-framework/podcast/when-brands-drift-why-alignment-starts-and-ends-with-you): Podcast on founder responsibility for maintaining brand alignment.
+- [Conducting the Five Dysfunctions Exercise](https://www.ninety.io/founders-framework/blog/how-to-conduct-the-five-dysfunctions-of-a-team-exercise): Step-by-step guide for running Lencioni's Five Dysfunctions exercise.
+- [How Great Companies Build Agency](https://www.ninety.io/founders-framework/blog/how-great-companies-build-agency): Examines methods great companies use to empower their teams.
+- [15 Reasons Founders Should Build Companies They Love Forever](https://www.ninety.io/founders-framework/blog/15-reasons-founders/ceos-should-build-companies-theyll-love-forever): Lists motivations for building a sustainable, long-term legacy business.
+- [2024: A Year in Review](https://www.ninety.io/founders-framework/podcast/2024-a-year-in-review): Podcast episode reviewing key business themes and lessons from 2024.
+- [Trust Part 4: The Math of Trust](https://www.ninety.io/founders-framework/blog/trust-part-4-the-math-of-trust): Deep dive into quantifying and understanding trust within an organization.
+- [Personalities of Visionary and Legacy Founders](https://www.ninety.io/founders-framework/blog/understanding-personalities-of-visionary-and-legacy-founders): Compares and contrasts the traits of visionary versus legacy-focused founders.
+- [Essential Modes for Founders](https://www.ninety.io/founders-framework/blog/essential-modes-for-founders): Defines critical operational modes founders must adopt for success.
+- [Great Brands Are Built by Great Founders](https://www.ninety.io/founders-framework/blog/great-brands-are-built-by-great-founders): Argues that brand strength originates directly from founder quality.
+- [Introduction to 5 Stages of Development](https://www.ninety.io/founders-framework/podcast/introduction-to-5-stages-of-development): Podcast introducing the framework for company growth stages.
+- [Simplify Decision Making with Focus Filters](https://www.ninety.io/founders-framework/blog/simplify-decision-making-with-focus-filters): Explains using filters to streamline complex decision processes.
+- [Why Every Founder Should Watch Pig](https://www.ninety.io/founders-framework/blog/why-every-founder-should-watch-pig-building-with-devotion-and-purpose): Uses the movie 'Babe' (Pig) to illustrate building with devotion and purpose.
+- [Building a Stage Five Company](https://www.ninety.io/founders-framework/blog/building-a-stage-five-company): Guidance on achieving the highest level of organizational maturity.
+- [Leveraging a BOS](https://www.ninety.io/founders-framework/podcast/leveraging-a-bos): Podcast discussing how to maximize the utility of a Business Operating System.
+- [Working with a Founder Who Cares About Everything](https://www.ninety.io/founders-framework/blog/how-to-work-with-a-founder-who-cares-about-everything): Advice for leaders managing founders with excessive focus on details.
+- [6 Consequences of Losing Sight of Purpose](https://www.ninety.io/founders-framework/blog/6-consequences-of-losing-sight-of-your-purpose): Details the negative impacts of losing organizational clarity on purpose.
+- [Why Your Team Isn't Speaking Up](https://www.ninety.io/founders-framework/blog/why-your-team-isnt-speaking-up-and-what-to-do-about-it): Diagnoses reasons for lack of candor and offers solutions.
+- [What is Performance Really](https://www.ninety.io/founders-framework/blog/what-is-performance-really): A philosophical look at defining and measuring true business performance.
+- [Leading Like a Polymath: When Letting Go is Wrong](https://www.ninety.io/founders-framework/blog/leading-like-a-polymath-when-letting-go-is-the-wrong-move): Argues for founder involvement in specific areas requiring broad expertise.
+- [Tribe-First Leadership](https://www.ninety.io/founders-framework/blog/tribe-first-leadership-building-a-culture-people-want-to-be-part-of): Focuses on building a strong, desirable company culture through leadership.
+- [Grow or Die: Failure and Flow for Growth](https://www.ninety.io/founders-framework/blog/grow-or-die-7-why-failure-and-flow-are-essential-for-growth): Explores the necessity of embracing failure and flow states for expansion.
+- [Rebuilding Pricing Around Growth](https://www.ninety.io/founders-framework/blog/how-we-rebuilt-our-pricing-around-real-company-growth): Details Ninety's strategy for aligning pricing with customer growth.
+- [Build Better and Faster Through Failure](https://www.ninety.io/founders-framework/blog/build-better-and-faster-through-failure): Advocates for using failure as a primary mechanism for improvement.
+- [The Founder's Edge: Why Being Wrong is How You Win](https://www.ninety.io/founders-framework/blog/the-founders-edge-why-being-wrong-is-how-you-win): Explores the value of admitting error and learning quickly as a founder.
+- [Building a Company Anchored in Purpose](https://www.ninety.io/founders-framework/blog/how-to-build-a-company-anchored-in-purpose): Guide on embedding organizational purpose into company structure.
+- [Nine Essential Characteristics of a Great Company](https://www.ninety.io/founders-framework/blog/the-nine-essential-characteristics-of-a-great-company): Outlines the nine traits that define top-tier organizations.
+- [Clarifying Roles: Accountability vs. Responsibility](https://www.ninety.io/founders-framework/blog/clarifying-roles-accountability-vs.-responsibility): Differentiates between accountability and responsibility in role definition.
+- [The Different Modes of Leadership](https://www.ninety.io/founders-framework/podcast/the-different-modes-of-leadership): Podcast discussing various leadership styles and when to use them.
+- [Building Culture with Clarity and Intention](https://www.ninety.io/founders-framework/blog/building-culture-with-clarity-and-intention): Focuses on proactively designing company culture rather than letting it happen.
+- [How Great Companies Define Competence](https://www.ninety.io/founders-framework/blog/how-great-companies-define-competence): Examines the standards great companies set for employee competence.
+- [How to Choose Investors Who Last](https://www.ninety.io/founders-framework/blog/how-to-choose-investors-who-last): Advice on selecting long-term, aligned investment partners.
+- [Stages of Development: Stage 5](https://www.ninety.io/founders-framework/podcast/stages-of-development-stage-5): Deep dive into the characteristics and challenges of Stage 5 companies.
+- [The Ways We Seek to Matter: Enneagram Insights](https://www.ninety.io/founders-framework/blog/the-ways-we-seek-to-matter-insights-from-the-enneagram): Applies Enneagram concepts to understanding founder and employee motivations.
+- [How Your Worldview Shapes Your Entrepreneurial Style](https://www.ninety.io/founders-framework/podcast/how-your-worldview-shapes-your-entrepreneurial-style): Podcast exploring the link between personal worldview and business approach.
+- [The Truth About Founders and Freedom](https://www.ninety.io/founders-framework/podcast/the-truth-about-founders-and-freedom): Discusses the paradox of freedom and structure for entrepreneurs.
+- [On Competency, Commitment, and Capacity](https://www.ninety.io/founders-framework/podcast/on-competency-commitment-and-capacity): Examines the three C's essential for effective team performance.
+- [The Three Dimensions of Happiness](https://www.ninety.io/founders-framework/blog/the-three-dimensions-of-happiness): Explores the components that contribute to genuine workplace happiness.
+- [Founder's Journey Through Stages of Development](https://www.ninety.io/founders-framework/blog/the-founders-journey-through-the-lens-of-the-stages-of-development): Maps the founder's personal evolution alongside company growth stages.
+- [Great Founders Design for Change, Not Equilibrium](https://www.ninety.io/founders-framework/blog/great-founders-design-for-change-not-equilibrium): Argues that successful organizations must be built to adapt constantly.
+- [Grow or Die: The Physics of Business](https://www.ninety.io/founders-framework/blog/grow-or-die-the-physics-of-business): Applies physical laws to explain the necessity of continuous business growth.
+- [The Real Threat of Elitism for Founders](https://www.ninety.io/founders-framework/blog/the-real-threat-of-elitism-for-founders): Warns against the dangers of insular thinking among successful founders.
+- [The Five Entrepreneurial Archetypes](https://www.ninety.io/founders-framework/blog/the-five-entrepreneurial-archetypes): Categorizes founders into five distinct operational archetypes.
+- [High Impact Annual Planning](https://www.ninety.io/founders-framework/blog/high-impact-annual-planning-how-great-companies-align-for-the-year-ahead): Strategies used by top companies to align for the upcoming year.
+- [The Shift to Deliberate Culture](https://www.ninety.io/founders-framework/blog/the-shift-to-deliberate-culture-why-accidental-wont-cut-it): Emphasizes the need for intentional design of company culture.
+- [Leading in the Age of Actualization](https://www.ninety.io/founders-framework/podcast/leading-in-the-age-of-actualization): Podcast on leadership focused on helping employees reach full potential.
+- [Forever Agreements: Preserving the Core](https://www.ninety.io/founders-framework/podcast/forever-agreements-preserving-the-core): Discusses establishing foundational agreements that endure over time.
+- [The 9 Essential Characteristics of Great Companies](https://www.ninety.io/founders-framework/podcast/the-9-essential-characteristics-of-great-companies): Podcast detailing the nine traits that define excellent organizations.
+- [Structure First, People Second](https://www.ninety.io/founders-framework/podcast/structure-first-people-second): Podcast arguing for establishing structure before optimizing human elements.
+- [Stages of Development: Stage 4](https://www.ninety.io/founders-framework/podcast/stages-of-development-stage-4): Deep dive into the characteristics and challenges of Stage 4 companies.
+- [Why We Simplify the Hard Work of Building Greatness](https://www.ninety.io/founders-framework/blog/why-were-so-focused-on-simplifying-the-hard-work-of-building-a-great-organization): Explains Ninety's mission to simplify complex organizational building.
+- [Commit to Using Filters to Focus and Align](https://www.ninety.io/founders-framework/blog/commit-to-using-filters-so-you-can-focus-align-and-thrive): Advocates for using focus filters to manage complexity and thrive.
+- [Why Your Team Isn't Speaking Up](https://www.ninety.io/founders-framework/blog/why-your-team-isnt-speaking-up-and-what-to-do-about-it): Diagnoses reasons for lack of candor and offers solutions.
+- [I Am Not a Magician](https://www.ninety.io/founders-framework/blog/i-am-not-a-magician): Article addressing founder limitations and the need for systems.
+- [The Truth About Founders and Freedom](https://www.ninety.io/founders-framework/podcast/the-truth-about-founders-and-freedom): Discusses the paradox of freedom and structure for entrepreneurs.
+- [On Competency, Commitment, and Capacity](https://www.ninety.io/founders-framework/podcast/on-competency-commitment-and-capacity): Examines the three C's essential for effective team performance.
+- [The Founder's Journey Through Stages of Development](https://www.ninety.io/founders-framework/blog/the-founders-journey-through-the-lens-of-the-stages-of-development): Maps the founder's personal evolution alongside company growth stages.
+- [Great Founders Design for Change, Not Equilibrium](https://www.ninety.io/founders-framework/blog/great-founders-design-for-change-not-equilibrium): Argues that successful organizations must be built to adapt constantly.
+- [Grow or Die: The Physics of Business](https://www.ninety.io/founders-framework/blog/grow-or-die-the-physics-of-business): Applies physical laws to explain the necessity of continuous business growth.
+- [The Real Threat of Elitism for Founders](https://www.ninety.io/founders-framework/blog/the-real-threat-of-elitism-for-founders): Warns against the dangers of insular thinking among successful founders.
+- [The Five Entrepreneurial Archetypes](https://www.ninety.io/founders-framework/blog/the-five-entrepreneurial-archetypes): Categorizes founders into five distinct operational archetypes.
+- [High Impact Annual Planning](https://www.ninety.io/founders-framework/blog/high-impact-annual-planning-how-great-companies-align-for-the-year-ahead): Strategies used by top companies to align for the upcoming year.
+- [The Shift to Deliberate Culture](https://www.ninety.io/founders-framework/blog/the-shift-to-deliberate-culture-why-accidental-wont-cut-it): Emphasizes the need for intentional design of company culture.
+- [Leading in the Age of Actualization](https://www.ninety.io/founders-framework/podcast/leading-in-the-age-of-actualization): Podcast on leadership focused on helping employees reach full potential.
+- [Forever Agreements: Preserving the Core](https://www.ninety.io/founders-framework/podcast/forever-agreements-preserving-the-core): Discusses establishing foundational agreements that endure over time.
+- [The 9 Essential Characteristics of Great Companies](https://www.ninety.io/founders-framework/podcast/the-9-essential-characteristics-of-great-companies): Podcast detailing the nine traits that define excellent organizations.
+- [Structure First, People Second](https://www.ninety.io/founders-framework/podcast/structure-first-people-second): Podcast arguing for establishing structure before optimizing human elements.
+- [Stages of Development: Stage 4](https://www.ninety.io/founders-framework/podcast/stages-of-development-stage-4): Deep dive into the characteristics and challenges of Stage 4 companies.
+
+## General Blog & Insights
+
+- [Main Blog Index](https://www.ninety.io/blog): Index page for all general business and productivity blog articles.
+- [EOS Blog Index](https://www.ninety.io/eos/blog): Index page for articles specifically focused on EOS implementation.
+- [Business Process Articles](https://www.ninety.io/blog/business-process): Articles focused on defining and optimizing core business processes.
+- [How to Build a Business Operating System](https://www.ninety.io/blog/how-to-build-a-business-operating-system): Guide on creating a comprehensive system for running your business.
+- [4 Ways Managers Can Become Leaders](https://www.ninety.io/blog/4-ways-managers-can-become-leaders): Actionable steps for managers to develop stronger leadership skills.
+- [Mark Abbott Featured on You're Doing It Wrong](https://www.ninety.io/blog/mark-abbott-featured-on-youre-doing-it-wrong): Content related to Mark Abbott's appearance on a specific podcast.
+- [Building Relationships Working Remotely](https://www.ninety.io/blog/how-to-build-relationships-working-remotely): Strategies for fostering strong team relationships in remote settings.
+- [Defining Roles and Responsibilities](https://www.ninety.io/blog/defining-roles-and-responsibilities): Guidance on clearly establishing who does what within the organization.
+- [7 Types of Business Strategies](https://www.ninety.io/blog/7-types-of-business-strategies): Overview and explanation of seven common business strategy models.
+- [How to Manage Remote Teams](https://www.ninety.io/blog/how-to-manage-remote-teams): Best practices and tips for successfully leading geographically dispersed teams.
+- [Performance Management System](https://www.ninety.io/blog/performance-management-system): Information on setting up effective employee performance tracking.
+- [Team Collaboration Insights](https://www.ninety.io/blog/team-collaboration): Articles focused on improving how teams work together effectively.
+- [Using Core Values to Build Team](https://www.ninety.io/blog/using-core-values-to-build-team): How to leverage stated core values to strengthen team cohesion.
+- [Knowledge Management Systems](https://www.ninety.io/blog/knowledge-management-systems): Discusses setting up systems to capture and share organizational knowledge.
+- [15 Ways to Improve Employee Productivity](https://www.ninety.io/blog/15-ways-to-improve-employee-productivity): A list of fifteen actionable methods to boost team output.
+- [Operational Efficiency](https://www.ninety.io/blog/operational-efficiency): Content focused on streamlining business operations for better output.
+- [Switching Off Distractions to Get More Productive](https://www.ninety.io/blog/switching-off-distractions-to-get-more-productive): Tips for minimizing interruptions to maximize individual productivity.
+- [5 Ways to Promote Well-being and Increase Retention](https://www.ninety.io/blog/5-effective-ways-to-promote-well-being-and-increase-retention): Strategies for improving employee wellness to boost retention rates.
+- [The Backstory on Almost Easy](https://www.ninety.io/blog/the-backstory-on-almost-easy): Behind-the-scenes look at the 'Almost Easy' feature or concept.
+- [Why Communication is Critical for Success](https://www.ninety.io/blog/why-communication-in-the-workplace-is-critical-for-success): Explains the vital role of effective workplace communication.
+- [Rocks, Pebbles, Sand Analogy](https://www.ninety.io/blog/rocks-pebbles-sand): Explains prioritization using the Rocks, Pebbles, and Sand analogy.
+- [Quit Spending So Much Time on the Scorecard](https://www.ninety.io/blog/quit-spending-so-much-time-on-the-scorecard): Advice on optimizing time spent managing the EOS Scorecard.
+- [Managing International Teams Across Time Zones](https://www.ninety.io/blog/managing-international-teams-across-time-zones): Strategies for leading global teams separated by significant time differences.
+- [23 Trends on Virtual Work for Leaders](https://www.ninety.io/blog/23-trends-on-virtual-work-for-leaders): A list of 23 key trends leaders should know about virtual work.
+- [Tech Tools for Working Remotely](https://www.ninety.io/blog/tech-tools-for-working-remotely): Review of essential technology tools for remote work environments.
+- [How to Create a Clear and Compelling Vision](https://www.ninety.io/blog/how-to-create-a-clear-and-compelling-vision): Guide on developing a vision statement that inspires action.
+- [Lack of Accountability in Hybrid Workplace](https://www.ninety.io/blog/lack-of-accountability-hybrid-workplace): Discusses accountability challenges specific to hybrid work models.
+
+## Company Information & Support
+
+- [About Ninety](https://www.ninety.io/about): Learn about the company's mission, history, and team.
+- [Ninety Coaches Directory](https://www.ninety.io/coaches): Find certified coaches who utilize the Ninety platform.
+- [EOS Implementers Directory](https://www.ninety.io/implementers): Directory for finding certified EOS Implementers.
+- [Professional Services](https://www.ninety.io/professional-services): Information on consulting and professional services offered by Ninety.
+- [Customer Testimonials](https://www.ninety.io/testimonials): Read reviews and success stories from Ninety users.
+- [Contact Us](https://www.ninety.io/contact): Find ways to get in touch with the Ninety team.
+- [Help Center / Support](https://help.ninety.io/): Access the main support documentation and knowledge base.
+- [Product Updates Feed](https://www.ninety.io/product-updates): See a chronological list of all product feature releases.
+- [All Updates](https://www.ninety.io/updates): Comprehensive feed of product updates, news, and announcements.
+- [Careers at Ninety](https://www.ninety.io/careers): View current job openings and career opportunities at the company.
+- [Privacy Policy](https://www.ninety.io/privacy-policy): Read the official policy regarding user data privacy.
+- [Terms of Service](https://www.ninety.io/terms): Review the legal terms and conditions for using the service.
+- [EOS Live Learning](https://www.ninety.io/eos/live-learning): Information about live educational sessions related to EOS.
+- [EOS Conference 2025](https://www.ninety.io/eos-conference-2025): Details and registration for the 2025 EOS conference event.
+- [EOS Conference 2024 Existing Clients](https://www.ninety.io/eos-conference-2024/existing-clients): Information specific to existing clients attending the 2024 conference.
+- [EOS Conference 2025 Existing Clients](https://www.ninety.io/eos-conference-2025/existing-clients): Information specific to existing clients attending the 2025 conference.
+
+## Pricing, Sign Up, and Login
+
+- [Ninety Pricing Plans](https://www.ninety.io/ninety-pricing): View the different subscription tiers and associated costs.
+- [Application Login](https://app.ninety.io/login): Access the sign-in page for existing platform users.
+- [EOS Sign Up](https://eos.ninety.io/sign-up): Page to create a new account focused on EOS implementation.
+- [Application Sign Up](https://app.ninety.io/sign-up): Page to create a new account for the main platform.
+- [Try Level 10 Meeting Software](https://www.ninety.io/try/level-10-meeting-eos-software): Access a trial or demo specifically for the Level 10 meeting functionality.
+- [Try EOS Accountability Chart Software](https://www.ninety.io/try/eos-accountability-chart-software): Access a trial or demo for the Accountability Chart feature.
+
+## Company Structure & Philosophy
+
+- [Company Structure](https://www.ninety.io/structure): Information detailing the internal structure and organization of Ninety.
+- [Company Culture](https://www.ninety.io/culture): Details about the internal culture and values at Ninety.
+- [People & Team](https://www.ninety.io/people): Information about the team members and leadership at Ninety.
+- [Ninety Empire](https://www.ninety.io/empire): Content related to the broader vision or ecosystem of Ninety.
+- [Fireproof Content](https://www.ninety.io/fireproof): Access content related to the 'Fireproof' concept or program.
+- [Pinnacle Content](https://www.ninety.io/pinnacle): Access content related to the 'Pinnacle' concept or program.
+- [Stage 1: Start](https://www.ninety.io/stage-1-start): Guidance specific to companies in the initial Stage 1 of growth.
+- [Stage 4: Scale](https://www.ninety.io/stage-4-scale): Guidance specific to companies in the scaling Stage 4 of growth.
+- [Stage 5: Exit](https://www.ninety.io/stage-5-exit): Guidance specific to companies preparing for Stage 5 or exit.
+
+## Miscellaneous & External Links
+
+- [Homepage](https://www.ninety.io/): The main landing page for the Ninety EOS software platform.
+- [Mobile App Information](https://www.ninety.io/mobile): Details about the Ninety mobile application availability and features.
+- [Facebook Page](https://www.ninety.io/facebook.com/ninety.io): External link to the official Ninety Facebook social media page.
+- [Test Large Image Page](https://www.ninety.io/blog-dev/test-large-image): A development or test page featuring a large image asset.
+- [4 Ways Managers Can Become Leaders](https://www.ninety.io/blog/4-ways-managers-can-become-leaders): Actionable steps for managers to develop stronger leadership skills.
+
+---
+
+This file was generated for www.ninety.io using the [LLMs.txt Generator Tool](https://llmrefs.com/tools/llms-txt-generator)

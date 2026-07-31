@@ -1,0 +1,49 @@
+generated: '2026-07-20'
+method: searched
+source: https://help.ninety.io/en/articles/15505694-api-reference-and-access
+derived_from: openapi/ninetyio-openapi-original.json
+format: nestjs-http-exception
+media_type: application/json
+envelope:
+  message: string or string[]   # human-readable detail(s)
+  error: string                 # HTTP reason phrase
+  statusCode: integer           # HTTP status code
+notes: >-
+  The OpenAPI documents only success responses (200/201/204). The error shape
+  below is the standard NestJS HttpException envelope observed on live probes of
+  the API host and documented behavior (401 Unauthorized, 429 Too Many
+  Requests). Ninety does not use RFC 9457 application/problem+json.
+problems:
+  - status: 400
+    error: Bad Request
+    title: Validation failed
+    remediation: Correct the request body/query — field types and enums per the schema.
+  - status: 401
+    error: Unauthorized
+    title: Missing or invalid Personal Access Token
+    remediation: >-
+      Send a valid, unexpired PAT as a Bearer token in the Authorization header.
+      Regenerate at https://app.ninety.io/settings/user/developer-settings.
+    observed: true
+  - status: 403
+    error: Forbidden
+    title: Insufficient permissions
+    remediation: >-
+      The token's user lacks the in-app permission for this resource/team;
+      calls run under the user's own permissions with no override.
+  - status: 404
+    error: Not Found
+    title: Resource not found
+    remediation: Verify the resource id and that it belongs to the token's company.
+    observed: true
+  - status: 429
+    error: Too Many Requests
+    title: Rate limit exceeded
+    remediation: >-
+      Back off at least one second and retry; limit is 25 requests/second
+      (Thrive plan), reset per user.
+    observed: true
+  - status: 500
+    error: Internal Server Error
+    title: Unexpected server error
+    remediation: Retry with backoff; contact support if persistent.

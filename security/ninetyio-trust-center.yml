@@ -1,0 +1,16 @@
+generated: '2026-07-20'
+method: searched
+probe: true
+url: https://trust.ninety.io/
+resources_url: https://trust.ninety.io/resources
+certifications: []
+notes: >-
+  Ninety operates a public Trust Center at trust.ninety.io covering its security
+  program (defense-in-depth, ongoing threat analysis) and compliance resources.
+  The trust center content is served by a JavaScript SPA, so specific named
+  certifications (e.g. SOC 2, ISO 27001) could not be extracted verbatim and are
+  intentionally left empty rather than fabricated. Confirm named reports on the
+  trust center directly.
+evidence:
+  - source: https://trust.ninety.io/
+    kind: trust-center

@@ -1,0 +1,66 @@
+generated: '2026-07-20'
+method: searched
+source: https://help.ninety.io/en/articles/15505694-api-reference-and-access
+derived_from: openapi/ninetyio-openapi-original.json
+api: Ninety Public API
+base_url: https://api.public.ninety.io/v1
+authentication:
+  style: bearer
+  scheme: Personal Access Token (PAT) as HTTP Bearer, Authorization header
+  ref: authentication/ninetyio-authentication.yml
+idempotency:
+  supported: false
+  notes: >-
+    No idempotency-key header or parameter is documented or present in the
+    OpenAPI. Writes are not idempotency-protected; retries of POST create
+    operations may create duplicates.
+pagination:
+  style: offset
+  params:
+    - name: page
+      in: request-body
+      description: Page number (1-based)
+    - name: pageSize
+      in: request-body
+      description: Number of results per page (max 100)
+    - name: sort
+      in: request-body
+      description: Field to sort results by
+    - name: order
+      in: request-body
+      enum: [asc, desc]
+  response_fields:
+    - items        # array of resources
+    - totalCount   # total matching records
+    - params       # echo of the query parameters used
+  notes: >-
+    Query endpoints are POST /v1/<resource>/query with the filter, sort, and
+    paging supplied in the JSON request body. Responses wrap results in a
+    { items, totalCount, params } envelope.
+field_expansion:
+  supported: false
+metadata:
+  supported: false
+request_tracing:
+  request_id_header: null
+  notes: No documented request-id / correlation-id response header.
+versioning:
+  style: uri-path
+  current: v1
+  ref: lifecycle/ninetyio-lifecycle.yml
+error_envelope:
+  format: nestjs
+  media_type: application/json
+  shape:
+    message: string or string[]
+    error: string       # HTTP reason phrase, e.g. "Not Found"
+    statusCode: integer
+  problem_json: false
+  ref: errors/ninetyio-problem-types.yml
+rate_limiting:
+  documented: true
+  limit: 25 requests per second (Thrive plan), reset per user
+  exceed_status: 429
+  guidance: back off one second on 429
+  headers: none documented
+  ref: null

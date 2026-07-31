@@ -1,0 +1,25 @@
+generated: '2026-07-20'
+method: searched
+source: https://help.ninety.io/en/articles/15505694-api-reference-and-access
+versioning:
+  scheme: uri-path
+  current: v1
+  base_url: https://api.public.ninety.io/v1
+  docs: https://help.ninety.io/en/articles/15505694-api-reference-and-access
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: No published deprecation/sunset policy or RFC 8594 header support found.
+sla:
+  url: null
+  uptime_target: null
+status_page: https://status.ninety.io/
+status_page_uptime: https://status.ninety.io/uptime
+status_page_history: https://status.ninety.io/history
+roadmap: https://www.ninety.io/product-updates
+deprecated_operations: []
+notes: >-
+  The API is on a single URI-path version (v1). Operational status is published
+  at status.ninety.io; a public product-updates/roadmap page is maintained at
+  ninety.io/product-updates. No formal deprecation policy or SLA document was
+  found.

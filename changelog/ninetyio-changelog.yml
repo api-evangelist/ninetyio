@@ -1,0 +1,21 @@
+generated: '2026-07-20'
+method: searched
+source: https://www.ninety.io/product-updates
+scheme: dated-product-updates
+current_version: v1
+notes: >-
+  Ninety publishes a dated Product Updates / roadmap feed at
+  ninety.io/product-updates (also ninety.io/updates and a Product Lab community
+  board). The Public API itself is unversioned beyond the v1 URI path. Recent
+  product highlights below are captured from the public updates feed as a recent
+  window, not a full history.
+entries:
+  - date: '2026'
+    highlights:
+      - Private To-Dos tab for individual tasks and commitments
+      - Sync To-Dos with Google Tasks and Google Calendar
+      - Issues Voting — team members vote to prioritize issues
+      - Upgraded "My 90" workspace surfacing Team/Personal To-Dos, Rocks, and Scorecard KPIs
+      - Smoother click-and-drag panning in the Accountability Chart
+      - Bulk copy/paste with undo/redo in Scorecards
+      - Public API (v1) for To-Dos, Issues, Rocks, Milestones, Scorecard, and Teams
