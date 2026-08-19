@@ -1,0 +1,560 @@
+{
+  "item": [
+    {
+      "id": "94944199-41a8-40a8-8069-2eb9383c83e5",
+      "name": "Rocks",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0988f5f7-89e5-4c71-a5f4-f13dc01b256d",
+          "name": "Query Rocks",
+          "request": {
+            "name": "Query Rocks",
+            "description": {
+              "content": "Returns Rocks grouped by teamId. Supports filtering by status, level, future scope, and more. Results are paginated using pageIndex and pageSize.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "rocks",
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sortField\": \"dueDate\",\n  \"sortDirection\": \"DESC\",\n  \"pageSize\": 10,\n  \"pageIndex\": 0,\n  \"teamId\": \"<string>\",\n  \"userId\": \"<string>\",\n  \"statusCode\": \"<string>\",\n  \"levelCode\": \"<string>\",\n  \"futureScope\": \"<string>\",\n  \"archived\": \"<boolean>\",\n  \"searchText\": \"<string>\",\n  \"includeRockGoals\": \"<boolean>\",\n  \"userIds\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "97b119bf-1be2-42c9-9e04-c6833d57275a",
+              "name": "Rocks grouped by teamId. Each key in the response object is a teamId.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "rocks",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sortField\": \"dueDate\",\n  \"sortDirection\": \"DESC\",\n  \"pageSize\": 10,\n  \"pageIndex\": 0,\n  \"teamId\": \"507f1f77bcf86cd799439011\",\n  \"userId\": \"507f1f77bcf86cd799439012\",\n  \"statusCode\": \"ON_TRACK\",\n  \"levelCode\": \"USER\",\n  \"futureScope\": \"Current\",\n  \"archived\": false,\n  \"searchText\": \"onboarding\",\n  \"includeRockGoals\": false,\n  \"userIds\": \"507f1f77bcf86cd799439012,507f1f77bcf86cd799439016\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"507f1f77bcf86cd799439011\": [\n    {\n      \"_id\": \"507f1f77bcf86cd799439013\",\n      \"userId\": \"507f1f77bcf86cd799439012\",\n      \"teamId\": \"507f1f77bcf86cd799439011\",\n      \"companyId\": \"507f1f77bcf86cd799439015\",\n      \"title\": \"Launch new customer onboarding flow\",\n      \"description\": \"Redesign the onboarding wizard to reduce drop-off by 20%\",\n      \"archived\": false,\n      \"deleted\": false,\n      \"completed\": false,\n      \"dueDate\": \"2026-06-30T23:59:59.000Z\",\n      \"statusCode\": \"ON_TRACK\",\n      \"levelCode\": \"USER\",\n      \"quarter\": \"Q2\",\n      \"futureScope\": \"Current\",\n      \"createdBy\": \"jane.doe@example.com\",\n      \"createdDate\": \"2026-01-15T09:00:00.000Z\",\n      \"updatedAt\": \"2026-03-01T14:30:00.000Z\",\n      \"followers\": [\n        \"507f1f77bcf86cd799439012\"\n      ],\n      \"additionalTeamIds\": [],\n      \"dueDateQuarter\": \"2026 Q2\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3066772c-8695-4725-86a0-53d078005e9e",
+          "name": "Get a Rock by Id",
+          "request": {
+            "name": "Get a Rock by Id",
+            "description": {
+              "content": "Returns a single Rock by its Id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "rocks",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The Rock Id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1161cff3-dd86-4d39-b62e-0c94a4a6e7ac",
+              "name": "Rock retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "rocks",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The Rock Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"_id\": \"507f1f77bcf86cd799439013\",\n  \"userId\": \"507f1f77bcf86cd799439012\",\n  \"teamId\": \"507f1f77bcf86cd799439011\",\n  \"companyId\": \"507f1f77bcf86cd799439015\",\n  \"title\": \"Launch new customer onboarding flow\",\n  \"archived\": false,\n  \"deleted\": false,\n  \"completed\": false,\n  \"dueDate\": \"2026-06-30T23:59:59.000Z\",\n  \"statusCode\": \"ON_TRACK\",\n  \"levelCode\": \"USER\",\n  \"quarter\": \"Q2\",\n  \"description\": \"Redesign the onboarding wizard to reduce drop-off by 20%\",\n  \"originalDueDate\": \"2026-03-31T23:59:59.000Z\",\n  \"futureScope\": \"Current\",\n  \"createdBy\": \"jane.doe@example.com\",\n  \"createdDate\": \"2026-01-15T09:00:00.000Z\",\n  \"updatedAt\": \"2026-03-01T14:30:00.000Z\",\n  \"updatedBy\": \"507f1f77bcf86cd799439012\",\n  \"archivedDate\": \"2026-03-01T14:30:00.000Z\",\n  \"completedDate\": \"2026-06-30T23:59:59.000Z\",\n  \"createdByUserId\": \"507f1f77bcf86cd799439012\",\n  \"ordinal\": 2,\n  \"userOrdinal\": 0,\n  \"planningBoardOrdinal\": 2,\n  \"followers\": [\n    \"507f1f77bcf86cd799439012\",\n    \"507f1f77bcf86cd799439016\"\n  ],\n  \"additionalTeamIds\": [\n    \"507f1f77bcf86cd799439022\"\n  ],\n  \"rockQuarterYearDueDate\": \"2026-06-30T23:59:59.999Z\",\n  \"dueDateQuarter\": \"2026 Q2\",\n  \"milestones\": [\n    {\n      \"_id\": \"507f1f77bcf86cd799439014\",\n      \"companyId\": \"507f1f77bcf86cd799439015\",\n      \"rockId\": \"507f1f77bcf86cd799439013\",\n      \"teamId\": \"507f1f77bcf86cd799439011\",\n      \"ownedByUserId\": \"507f1f77bcf86cd799439012\",\n      \"title\": \"Complete UX wireframes\",\n      \"dueDate\": \"2026-05-15T23:59:59.000Z\",\n      \"isDone\": false,\n      \"isDeleted\": false,\n      \"createdBy\": \"507f1f77bcf86cd799439012\",\n      \"createdDate\": \"2026-01-15T09:00:00.000Z\",\n      \"description\": \"Deliver final wireframes for review in Figma\",\n      \"completedDate\": \"2026-05-10T16:00:00.000Z\",\n      \"userOrdinal\": 0,\n      \"followers\": [\n        \"507f1f77bcf86cd799439012\",\n        \"507f1f77bcf86cd799439016\"\n      ],\n      \"updatedAt\": \"2026-03-01T14:30:00.000Z\",\n      \"toDoId\": \"507f1f77bcf86cd799439099\"\n    },\n    {\n      \"_id\": \"507f1f77bcf86cd799439014\",\n      \"companyId\": \"507f1f77bcf86cd799439015\",\n      \"rockId\": \"507f1f77bcf86cd799439013\",\n      \"teamId\": \"507f1f77bcf86cd799439011\",\n      \"ownedByUserId\": \"507f1f77bcf86cd799439012\",\n      \"title\": \"Complete UX wireframes\",\n      \"dueDate\": \"2026-05-15T23:59:59.000Z\",\n      \"isDone\": false,\n      \"isDeleted\": false,\n      \"createdBy\": \"507f1f77bcf86cd799439012\",\n      \"createdDate\": \"2026-01-15T09:00:00.000Z\",\n      \"description\": \"Deliver final wireframes for review in Figma\",\n      \"completedDate\": \"2026-05-10T16:00:00.000Z\",\n      \"userOrdinal\": 0,\n      \"followers\": [\n        \"507f1f77bcf86cd799439012\",\n        \"507f1f77bcf86cd799439016\"\n      ],\n      \"updatedAt\": \"2026-03-01T14:30:00.000Z\",\n      \"toDoId\": \"507f1f77bcf86cd799439099\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f110af86-ac7c-4dd8-a392-69614f5011c0",
+          "name": "Update a Rock",
+          "request": {
+            "name": "Update a Rock",
+            "description": {
+              "content": "Partially updates a Rock. Only the fields provided in the request body will be changed.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "rocks",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The Rock Id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": \"<string>\",\n  \"teamId\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"statusCode\": \"<string>\",\n  \"levelCode\": \"<string>\",\n  \"quarter\": \"<string>\",\n  \"dueDate\": \"<string>\",\n  \"rockQuarterYearDueDate\": \"<string>\",\n  \"archived\": \"<boolean>\",\n  \"futureScope\": \"<string>\",\n  \"additionalTeamIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7bb5135f-a708-4e0c-91ae-e268c3b4ca8b",
+              "name": "Rock updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "rocks",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The Rock Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userId\": \"507f1f77bcf86cd799439012\",\n  \"teamId\": \"507f1f77bcf86cd799439011\",\n  \"title\": \"Launch new customer onboarding flow\",\n  \"description\": \"Redesign the onboarding wizard to reduce drop-off by 20%\",\n  \"statusCode\": \"ON_TRACK\",\n  \"levelCode\": \"USER\",\n  \"quarter\": \"Q2\",\n  \"dueDate\": \"2026-06-30T23:59:59.000Z\",\n  \"rockQuarterYearDueDate\": \"2026-06-30T23:59:59.999Z\",\n  \"archived\": false,\n  \"futureScope\": \"Current\",\n  \"additionalTeamIds\": [\n    \"507f1f77bcf86cd799439022\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"_id\": \"507f1f77bcf86cd799439013\",\n  \"userId\": \"507f1f77bcf86cd799439012\",\n  \"teamId\": \"507f1f77bcf86cd799439011\",\n  \"companyId\": \"507f1f77bcf86cd799439015\",\n  \"title\": \"Launch new customer onboarding flow\",\n  \"archived\": false,\n  \"deleted\": false,\n  \"completed\": false,\n  \"dueDate\": \"2026-06-30T23:59:59.000Z\",\n  \"statusCode\": \"ON_TRACK\",\n  \"levelCode\": \"USER\",\n  \"quarter\": \"Q2\",\n  \"description\": \"Redesign the onboarding wizard to reduce drop-off by 20%\",\n  \"originalDueDate\": \"2026-03-31T23:59:59.000Z\",\n  \"futureScope\": \"Current\",\n  \"createdBy\": \"jane.doe@example.com\",\n  \"createdDate\": \"2026-01-15T09:00:00.000Z\",\n  \"updatedAt\": \"2026-03-01T14:30:00.000Z\",\n  \"updatedBy\": \"507f1f77bcf86cd799439012\",\n  \"archivedDate\": \"2026-03-01T14:30:00.000Z\",\n  \"completedDate\": \"2026-06-30T23:59:59.000Z\",\n  \"createdByUserId\": \"507f1f77bcf86cd799439012\",\n  \"ordinal\": 2,\n  \"userOrdinal\": 0,\n  \"planningBoardOrdinal\": 2,\n  \"followers\": [\n    \"507f1f77bcf86cd799439012\",\n    \"507f1f77bcf86cd799439016\"\n  ],\n  \"additionalTeamIds\": [\n    \"507f1f77bcf86cd799439022\"\n  ],\n  \"rockQuarterYearDueDate\": \"2026-06-30T23:59:59.999Z\",\n  \"dueDateQuarter\": \"2026 Q2\",\n  \"milestones\": [\n    {\n      \"_id\": \"507f1f77bcf86cd799439014\",\n      \"companyId\": \"507f1f77bcf86cd799439015\",\n      \"rockId\": \"507f1f77bcf86cd799439013\",\n      \"teamId\": \"507f1f77bcf86cd799439011\",\n      \"ownedByUserId\": \"507f1f77bcf86cd799439012\",\n      \"title\": \"Complete UX wireframes\",\n      \"dueDate\": \"2026-05-15T23:59:59.000Z\",\n      \"isDone\": false,\n      \"isDeleted\": false,\n      \"createdBy\": \"507f1f77bcf86cd799439012\",\n      \"createdDate\": \"2026-01-15T09:00:00.000Z\",\n      \"description\": \"Deliver final wireframes for review in Figma\",\n      \"completedDate\": \"2026-05-10T16:00:00.000Z\",\n      \"userOrdinal\": 0,\n      \"followers\": [\n        \"507f1f77bcf86cd799439012\",\n        \"507f1f77bcf86cd799439016\"\n      ],\n      \"updatedAt\": \"2026-03-01T14:30:00.000Z\",\n      \"toDoId\": \"507f1f77bcf86cd799439099\"\n    },\n    {\n      \"_id\": \"507f1f77bcf86cd799439014\",\n      \"companyId\": \"507f1f77bcf86cd799439015\",\n      \"rockId\": \"507f1f77bcf86cd799439013\",\n      \"teamId\": \"507f1f77bcf86cd799439011\",\n      \"ownedByUserId\": \"507f1f77bcf86cd799439012\",\n      \"title\": \"Complete UX wireframes\",\n      \"dueDate\": \"2026-05-15T23:59:59.000Z\",\n      \"isDone\": false,\n      \"isDeleted\": false,\n      \"createdBy\": \"507f1f77bcf86cd799439012\",\n      \"createdDate\": \"2026-01-15T09:00:00.000Z\",\n      \"description\": \"Deliver final wireframes for review in Figma\",\n      \"completedDate\": \"2026-05-10T16:00:00.000Z\",\n      \"userOrdinal\": 0,\n      \"followers\": [\n        \"507f1f77bcf86cd799439012\",\n        \"507f1f77bcf86cd799439016\"\n      ],\n      \"updatedAt\": \"2026-03-01T14:30:00.000Z\",\n      \"toDoId\": \"507f1f77bcf86cd799439099\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "98ceaa81-2393-4997-b3e0-65baa14a8067",
+          "name": "Delete a Rock",
+          "request": {
+            "name": "Delete a Rock",
+            "description": {
+              "content": "Soft-deletes a Rock. Returns the deleted Rock.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "rocks",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The Rock Id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ee78d45e-69f4-4572-91ac-f410dc42cd8b",
+              "name": "Rock deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "rocks",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The Rock Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"_id\": \"507f1f77bcf86cd799439013\",\n  \"userId\": \"507f1f77bcf86cd799439012\",\n  \"teamId\": \"507f1f77bcf86cd799439011\",\n  \"companyId\": \"507f1f77bcf86cd799439015\",\n  \"title\": \"Launch new customer onboarding flow\",\n  \"archived\": false,\n  \"deleted\": false,\n  \"completed\": false,\n  \"dueDate\": \"2026-06-30T23:59:59.000Z\",\n  \"statusCode\": \"ON_TRACK\",\n  \"levelCode\": \"USER\",\n  \"quarter\": \"Q2\",\n  \"description\": \"Redesign the onboarding wizard to reduce drop-off by 20%\",\n  \"originalDueDate\": \"2026-03-31T23:59:59.000Z\",\n  \"futureScope\": \"Current\",\n  \"createdBy\": \"jane.doe@example.com\",\n  \"createdDate\": \"2026-01-15T09:00:00.000Z\",\n  \"updatedAt\": \"2026-03-01T14:30:00.000Z\",\n  \"updatedBy\": \"507f1f77bcf86cd799439012\",\n  \"archivedDate\": \"2026-03-01T14:30:00.000Z\",\n  \"completedDate\": \"2026-06-30T23:59:59.000Z\",\n  \"createdByUserId\": \"507f1f77bcf86cd799439012\",\n  \"ordinal\": 2,\n  \"userOrdinal\": 0,\n  \"planningBoardOrdinal\": 2,\n  \"followers\": [\n    \"507f1f77bcf86cd799439012\",\n    \"507f1f77bcf86cd799439016\"\n  ],\n  \"additionalTeamIds\": [\n    \"507f1f77bcf86cd799439022\"\n  ],\n  \"rockQuarterYearDueDate\": \"2026-06-30T23:59:59.999Z\",\n  \"dueDateQuarter\": \"2026 Q2\",\n  \"milestones\": [\n    {\n      \"_id\": \"507f1f77bcf86cd799439014\",\n      \"companyId\": \"507f1f77bcf86cd799439015\",\n      \"rockId\": \"507f1f77bcf86cd799439013\",\n      \"teamId\": \"507f1f77bcf86cd799439011\",\n      \"ownedByUserId\": \"507f1f77bcf86cd799439012\",\n      \"title\": \"Complete UX wireframes\",\n      \"dueDate\": \"2026-05-15T23:59:59.000Z\",\n      \"isDone\": false,\n      \"isDeleted\": false,\n      \"createdBy\": \"507f1f77bcf86cd799439012\",\n      \"createdDate\": \"2026-01-15T09:00:00.000Z\",\n      \"description\": \"Deliver final wireframes for review in Figma\",\n      \"completedDate\": \"2026-05-10T16:00:00.000Z\",\n      \"userOrdinal\": 0,\n      \"followers\": [\n        \"507f1f77bcf86cd799439012\",\n        \"507f1f77bcf86cd799439016\"\n      ],\n      \"updatedAt\": \"2026-03-01T14:30:00.000Z\",\n      \"toDoId\": \"507f1f77bcf86cd799439099\"\n    },\n    {\n      \"_id\": \"507f1f77bcf86cd799439014\",\n      \"companyId\": \"507f1f77bcf86cd799439015\",\n      \"rockId\": \"507f1f77bcf86cd799439013\",\n      \"teamId\": \"507f1f77bcf86cd799439011\",\n      \"ownedByUserId\": \"507f1f77bcf86cd799439012\",\n      \"title\": \"Complete UX wireframes\",\n      \"dueDate\": \"2026-05-15T23:59:59.000Z\",\n      \"isDone\": false,\n      \"isDeleted\": false,\n      \"createdBy\": \"507f1f77bcf86cd799439012\",\n      \"createdDate\": \"2026-01-15T09:00:00.000Z\",\n      \"description\": \"Deliver final wireframes for review in Figma\",\n      \"completedDate\": \"2026-05-10T16:00:00.000Z\",\n      \"userOrdinal\": 0,\n      \"followers\": [\n        \"507f1f77bcf86cd799439012\",\n        \"507f1f77bcf86cd799439016\"\n      ],\n      \"updatedAt\": \"2026-03-01T14:30:00.000Z\",\n      \"toDoId\": \"507f1f77bcf86cd799439099\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0c37371a-c8cf-4dc8-8847-c94fdf5bf653",
+          "name": "Create a Rock",
+          "request": {
+            "name": "Create a Rock",
+            "description": {
+              "content": "Creates a Rock assigned to the authenticated user. The owner and companyId are automatically derived from the authenticated user's JWT.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "rocks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rock\": {\n    \"teamId\": \"<string>\",\n    \"title\": \"<string>\",\n    \"dueDate\": \"<string>\",\n    \"statusCode\": \"<string>\",\n    \"levelCode\": \"<string>\",\n    \"quarter\": \"<string>\",\n    \"description\": \"<string>\",\n    \"additionalTeamIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"futureScope\": \"<string>\",\n    \"rockQuarterYearDueDate\": \"<string>\"\n  },\n  \"addCreatorToFollowersList\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ff733a75-43bf-4b39-a576-864a54f46782",
+              "name": "Rock created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "rocks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rock\": {\n    \"teamId\": \"507f1f77bcf86cd799439011\",\n    \"title\": \"Launch new customer onboarding flow\",\n    \"dueDate\": \"2026-06-30T23:59:59.000Z\",\n    \"statusCode\": \"ON_TRACK\",\n    \"levelCode\": \"USER\",\n    \"quarter\": \"Q2\",\n    \"description\": \"Redesign the onboarding wizard to reduce drop-off by 20%\",\n    \"additionalTeamIds\": [\n      \"507f1f77bcf86cd799439022\",\n      \"507f1f77bcf86cd799439033\"\n    ],\n    \"futureScope\": \"Current\",\n    \"rockQuarterYearDueDate\": \"2026-06-30T23:59:59.999Z\"\n  },\n  \"addCreatorToFollowersList\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"_id\": \"507f1f77bcf86cd799439013\",\n    \"userId\": \"507f1f77bcf86cd799439012\",\n    \"teamId\": \"507f1f77bcf86cd799439011\",\n    \"companyId\": \"507f1f77bcf86cd799439015\",\n    \"title\": \"Launch new customer onboarding flow\",\n    \"archived\": false,\n    \"deleted\": false,\n    \"completed\": false,\n    \"dueDate\": \"2026-06-30T23:59:59.000Z\",\n    \"statusCode\": \"ON_TRACK\",\n    \"levelCode\": \"USER\",\n    \"quarter\": \"Q2\",\n    \"description\": \"Redesign the onboarding wizard to reduce drop-off by 20%\",\n    \"originalDueDate\": \"2026-03-31T23:59:59.000Z\",\n    \"futureScope\": \"Current\",\n    \"createdBy\": \"jane.doe@example.com\",\n    \"createdDate\": \"2026-01-15T09:00:00.000Z\",\n    \"updatedAt\": \"2026-03-01T14:30:00.000Z\",\n    \"updatedBy\": \"507f1f77bcf86cd799439012\",\n    \"archivedDate\": \"2026-03-01T14:30:00.000Z\",\n    \"completedDate\": \"2026-06-30T23:59:59.000Z\",\n    \"createdByUserId\": \"507f1f77bcf86cd799439012\",\n    \"ordinal\": 2,\n    \"userOrdinal\": 0,\n    \"planningBoardOrdinal\": 2,\n    \"followers\": [\n      \"507f1f77bcf86cd799439012\",\n      \"507f1f77bcf86cd799439016\"\n    ],\n    \"additionalTeamIds\": [\n      \"507f1f77bcf86cd799439022\"\n    ],\n    \"rockQuarterYearDueDate\": \"2026-06-30T23:59:59.999Z\",\n    \"dueDateQuarter\": \"2026 Q2\",\n    \"milestones\": [\n      {\n        \"_id\": \"507f1f77bcf86cd799439014\",\n        \"companyId\": \"507f1f77bcf86cd799439015\",\n        \"rockId\": \"507f1f77bcf86cd799439013\",\n        \"teamId\": \"507f1f77bcf86cd799439011\",\n        \"ownedByUserId\": \"507f1f77bcf86cd799439012\",\n        \"title\": \"Complete UX wireframes\",\n        \"dueDate\": \"2026-05-15T23:59:59.000Z\",\n        \"isDone\": false,\n        \"isDeleted\": false,\n        \"createdBy\": \"507f1f77bcf86cd799439012\",\n        \"createdDate\": \"2026-01-15T09:00:00.000Z\",\n        \"description\": \"Deliver final wireframes for review in Figma\",\n        \"completedDate\": \"2026-05-10T16:00:00.000Z\",\n        \"userOrdinal\": 0,\n        \"followers\": [\n          \"507f1f77bcf86cd799439012\",\n          \"507f1f77bcf86cd799439016\"\n        ],\n        \"updatedAt\": \"2026-03-01T14:30:00.000Z\",\n        \"toDoId\": \"507f1f77bcf86cd799439099\"\n      },\n      {\n        \"_id\": \"507f1f77bcf86cd799439014\",\n        \"companyId\": \"507f1f77bcf86cd799439015\",\n        \"rockId\": \"507f1f77bcf86cd799439013\",\n        \"teamId\": \"507f1f77bcf86cd799439011\",\n        \"ownedByUserId\": \"507f1f77bcf86cd799439012\",\n        \"title\": \"Complete UX wireframes\",\n        \"dueDate\": \"2026-05-15T23:59:59.000Z\",\n        \"isDone\": false,\n        \"isDeleted\": false,\n        \"createdBy\": \"507f1f77bcf86cd799439012\",\n        \"createdDate\": \"2026-01-15T09:00:00.000Z\",\n        \"description\": \"Deliver final wireframes for review in Figma\",\n        \"completedDate\": \"2026-05-10T16:00:00.000Z\",\n        \"userOrdinal\": 0,\n        \"followers\": [\n          \"507f1f77bcf86cd799439012\",\n          \"507f1f77bcf86cd799439016\"\n        ],\n        \"updatedAt\": \"2026-03-01T14:30:00.000Z\",\n        \"toDoId\": \"507f1f77bcf86cd799439099\"\n      }\n    ]\n  },\n  {\n    \"_id\": \"507f1f77bcf86cd799439013\",\n    \"userId\": \"507f1f77bcf86cd799439012\",\n    \"teamId\": \"507f1f77bcf86cd799439011\",\n    \"companyId\": \"507f1f77bcf86cd799439015\",\n    \"title\": \"Launch new customer onboarding flow\",\n    \"archived\": false,\n    \"deleted\": false,\n    \"completed\": false,\n    \"dueDate\": \"2026-06-30T23:59:59.000Z\",\n    \"statusCode\": \"ON_TRACK\",\n    \"levelCode\": \"USER\",\n    \"quarter\": \"Q2\",\n    \"description\": \"Redesign the onboarding wizard to reduce drop-off by 20%\",\n    \"originalDueDate\": \"2026-03-31T23:59:59.000Z\",\n    \"futureScope\": \"Current\",\n    \"createdBy\": \"jane.doe@example.com\",\n    \"createdDate\": \"2026-01-15T09:00:00.000Z\",\n    \"updatedAt\": \"2026-03-01T14:30:00.000Z\",\n    \"updatedBy\": \"507f1f77bcf86cd799439012\",\n    \"archivedDate\": \"2026-03-01T14:30:00.000Z\",\n    \"completedDate\": \"2026-06-30T23:59:59.000Z\",\n    \"createdByUserId\": \"507f1f77bcf86cd799439012\",\n    \"ordinal\": 2,\n    \"userOrdinal\": 0,\n    \"planningBoardOrdinal\": 2,\n    \"followers\": [\n      \"507f1f77bcf86cd799439012\",\n      \"507f1f77bcf86cd799439016\"\n    ],\n    \"additionalTeamIds\": [\n      \"507f1f77bcf86cd799439022\"\n    ],\n    \"rockQuarterYearDueDate\": \"2026-06-30T23:59:59.999Z\",\n    \"dueDateQuarter\": \"2026 Q2\",\n    \"milestones\": [\n      {\n        \"_id\": \"507f1f77bcf86cd799439014\",\n        \"companyId\": \"507f1f77bcf86cd799439015\",\n        \"rockId\": \"507f1f77bcf86cd799439013\",\n        \"teamId\": \"507f1f77bcf86cd799439011\",\n        \"ownedByUserId\": \"507f1f77bcf86cd799439012\",\n        \"title\": \"Complete UX wireframes\",\n        \"dueDate\": \"2026-05-15T23:59:59.000Z\",\n        \"isDone\": false,\n        \"isDeleted\": false,\n        \"createdBy\": \"507f1f77bcf86cd799439012\",\n        \"createdDate\": \"2026-01-15T09:00:00.000Z\",\n        \"description\": \"Deliver final wireframes for review in Figma\",\n        \"completedDate\": \"2026-05-10T16:00:00.000Z\",\n        \"userOrdinal\": 0,\n        \"followers\": [\n          \"507f1f77bcf86cd799439012\",\n          \"507f1f77bcf86cd799439016\"\n        ],\n        \"updatedAt\": \"2026-03-01T14:30:00.000Z\",\n        \"toDoId\": \"507f1f77bcf86cd799439099\"\n      },\n      {\n        \"_id\": \"507f1f77bcf86cd799439014\",\n        \"companyId\": \"507f1f77bcf86cd799439015\",\n        \"rockId\": \"507f1f77bcf86cd799439013\",\n        \"teamId\": \"507f1f77bcf86cd799439011\",\n        \"ownedByUserId\": \"507f1f77bcf86cd799439012\",\n        \"title\": \"Complete UX wireframes\",\n        \"dueDate\": \"2026-05-15T23:59:59.000Z\",\n        \"isDone\": false,\n        \"isDeleted\": false,\n        \"createdBy\": \"507f1f77bcf86cd799439012\",\n        \"createdDate\": \"2026-01-15T09:00:00.000Z\",\n        \"description\": \"Deliver final wireframes for review in Figma\",\n        \"completedDate\": \"2026-05-10T16:00:00.000Z\",\n        \"userOrdinal\": 0,\n        \"followers\": [\n          \"507f1f77bcf86cd799439012\",\n          \"507f1f77bcf86cd799439016\"\n        ],\n        \"updatedAt\": \"2026-03-01T14:30:00.000Z\",\n        \"toDoId\": \"507f1f77bcf86cd799439099\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "74e2b299-58ab-4e23-9f0f-d1bea87b320f",
+    "name": "Ninety Public Issues Rocks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Public API endpoints for Ninety users\n\n[https://api.public.ninety.io/v1/swagger.json](/v1/swagger-json)",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,550 @@
+{
+  "item": [
+    {
+      "id": "138a16b8-1968-4ca2-b270-0aa20ffebeeb",
+      "name": "To-Dos",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6c77386b-83fa-4902-9d05-e6fbc24c1d41",
+          "name": "Create a To-Do",
+          "request": {
+            "name": "Create a To-Do",
+            "description": {
+              "content": "Creates a new To-Do. Omit `teamId` (or pass an empty string) to create a personal To-Do.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "todos"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"dueDate\": \"<string>\",\n  \"teamId\": \"<string>\",\n  \"repeat\": \"<string>\",\n  \"userId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "def49420-8232-4604-8266-ccfa1caf7bd0",
+              "name": "To-Do created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "todos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"Follow up with client\",\n  \"description\": \"Send the Q2 proposal\",\n  \"dueDate\": \"2024-03-15\",\n  \"teamId\": \"507f1f77bcf86cd799439011\",\n  \"repeat\": \"weekly\",\n  \"userId\": \"507f1f77bcf86cd799439013\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"507f1f77bcf86cd799439011\",\n  \"title\": \"Follow up with client\",\n  \"isPersonal\": false,\n  \"completed\": false,\n  \"archived\": false,\n  \"userId\": \"507f1f77bcf86cd799439013\",\n  \"companyId\": \"507f1f77bcf86cd799439014\",\n  \"createdDate\": \"2024-01-15T09:00:00.000Z\",\n  \"updatedDate\": \"2024-02-01T14:30:00.000Z\",\n  \"description\": \"Send the Q2 proposal\",\n  \"dueDate\": \"2024-03-15T00:00:00.000Z\",\n  \"teamId\": \"507f1f77bcf86cd799439012\",\n  \"teamName\": \"Leadership\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6b94e61a-6e75-4df3-ac50-23d0ec99ddf1",
+          "name": "Query To-Dos",
+          "request": {
+            "name": "Query To-Dos",
+            "description": {
+              "content": "Returns a list of To-Dos matching the provided filters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "todos",
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"teamId\": \"<string>\",\n  \"sort\": \"<string>\",\n  \"order\": \"<string>\",\n  \"page\": \"<number>\",\n  \"pageSize\": \"<number>\",\n  \"isPersonal\": \"<boolean>\",\n  \"completed\": \"<boolean>\",\n  \"archived\": \"<boolean>\",\n  \"searchText\": \"<string>\",\n  \"title\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "958d1b22-a473-48ef-85dd-75b7086e0ffb",
+              "name": "To-Dos queried successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "todos",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"teamId\": \"507f1f77bcf86cd799439011\",\n  \"sort\": \"dueDate\",\n  \"order\": \"asc\",\n  \"page\": 1,\n  \"pageSize\": 25,\n  \"isPersonal\": false,\n  \"completed\": false,\n  \"archived\": false,\n  \"searchText\": \"follow up\",\n  \"title\": \"Follow up with client\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"507f1f77bcf86cd799439011\",\n    \"title\": \"Follow up with client\",\n    \"isPersonal\": false,\n    \"completed\": false,\n    \"archived\": false,\n    \"userId\": \"507f1f77bcf86cd799439013\",\n    \"companyId\": \"507f1f77bcf86cd799439014\",\n    \"createdDate\": \"2024-01-15T09:00:00.000Z\",\n    \"updatedDate\": \"2024-02-01T14:30:00.000Z\",\n    \"description\": \"Send the Q2 proposal\",\n    \"dueDate\": \"2024-03-15T00:00:00.000Z\",\n    \"teamId\": \"507f1f77bcf86cd799439012\",\n    \"teamName\": \"Leadership\"\n  },\n  {\n    \"id\": \"507f1f77bcf86cd799439011\",\n    \"title\": \"Follow up with client\",\n    \"isPersonal\": false,\n    \"completed\": false,\n    \"archived\": false,\n    \"userId\": \"507f1f77bcf86cd799439013\",\n    \"companyId\": \"507f1f77bcf86cd799439014\",\n    \"createdDate\": \"2024-01-15T09:00:00.000Z\",\n    \"updatedDate\": \"2024-02-01T14:30:00.000Z\",\n    \"description\": \"Send the Q2 proposal\",\n    \"dueDate\": \"2024-03-15T00:00:00.000Z\",\n    \"teamId\": \"507f1f77bcf86cd799439012\",\n    \"teamName\": \"Leadership\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d7975a0a-d387-4e24-839e-3d26651e8da7",
+          "name": "Get a To-Do by Id",
+          "request": {
+            "name": "Get a To-Do by Id",
+            "description": {
+              "content": "Returns a single To-Do by its Id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "todos",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The To-Do Id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8d361639-84bf-4c79-b66e-68729e7f628b",
+              "name": "To-Do retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "todos",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The To-Do Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"507f1f77bcf86cd799439011\",\n  \"title\": \"Follow up with client\",\n  \"isPersonal\": false,\n  \"completed\": false,\n  \"archived\": false,\n  \"userId\": \"507f1f77bcf86cd799439013\",\n  \"companyId\": \"507f1f77bcf86cd799439014\",\n  \"createdDate\": \"2024-01-15T09:00:00.000Z\",\n  \"updatedDate\": \"2024-02-01T14:30:00.000Z\",\n  \"description\": \"Send the Q2 proposal\",\n  \"dueDate\": \"2024-03-15T00:00:00.000Z\",\n  \"teamId\": \"507f1f77bcf86cd799439012\",\n  \"teamName\": \"Leadership\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "848bd3e4-e5d0-4d6c-9c6a-60339aadc946",
+          "name": "Update a To-Do",
+          "request": {
+            "name": "Update a To-Do",
+            "description": {
+              "content": "Partially updates a To-Do. Only fields included in the request body are changed.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "todos",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The To-Do Id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"completed\": \"<boolean>\",\n  \"archived\": \"<boolean>\",\n  \"dueDate\": \"<string>\",\n  \"teamId\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"repeat\": \"<string>\",\n  \"userId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6a96f0e7-3b6d-411a-9c9e-9c0e1637a40a",
+              "name": "To-Do updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "todos",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The To-Do Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"completed\": \"<boolean>\",\n  \"archived\": \"<boolean>\",\n  \"dueDate\": \"<string>\",\n  \"teamId\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"repeat\": \"<string>\",\n  \"userId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"507f1f77bcf86cd799439011\",\n  \"title\": \"Follow up with client\",\n  \"isPersonal\": false,\n  \"completed\": false,\n  \"archived\": false,\n  \"userId\": \"507f1f77bcf86cd799439013\",\n  \"companyId\": \"507f1f77bcf86cd799439014\",\n  \"createdDate\": \"2024-01-15T09:00:00.000Z\",\n  \"updatedDate\": \"2024-02-01T14:30:00.000Z\",\n  \"description\": \"Send the Q2 proposal\",\n  \"dueDate\": \"2024-03-15T00:00:00.000Z\",\n  \"teamId\": \"507f1f77bcf86cd799439012\",\n  \"teamName\": \"Leadership\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e0cd7fbf-e844-4fec-85cc-ef1383829964",
+          "name": "Delete a To-Do",
+          "request": {
+            "name": "Delete a To-Do",
+            "description": {
+              "content": "Permanently deletes a To-Do.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "todos",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The To-Do Id"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2c23b417-ed6e-4646-bb1a-e13d207f0d32",
+              "name": "To-Do deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "todos",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The To-Do Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "cdd78c94-46b6-4019-b70e-162b91a3c278",
+    "name": "Ninety Public Issues To-Dos API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Public API endpoints for Ninety users\n\n[https://api.public.ninety.io/v1/swagger.json](/v1/swagger-json)",
+      "type": "text/plain"
+    }
+  }
+}

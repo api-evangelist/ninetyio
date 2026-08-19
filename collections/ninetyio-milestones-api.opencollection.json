@@ -1,0 +1,81 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ninety Public Issues Milestones API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Milestones",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a Milestone by Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/milestones/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The Milestone Id"
+              }
+            ]
+          },
+          "docs": "Returns a single Milestone by its Id."
+        },
+        {
+          "info": {
+            "name": "Update a Milestone",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/v1/milestones/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The Milestone Id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Partially updates a Milestone. Only the fields provided in the request body will be changed."
+        },
+        {
+          "info": {
+            "name": "Create a Milestone",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/milestones",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a Milestone linked to a Rock assigned to the authenticated user. The owner and companyId are automatically derived from the authenticated user's JWT."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

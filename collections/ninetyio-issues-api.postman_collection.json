@@ -1,0 +1,550 @@
+{
+  "item": [
+    {
+      "id": "91dca407-e3bf-4d61-bdb8-3d8902108de7",
+      "name": "Issues",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "447ab6d4-66ab-4e1d-9f99-7b5bbe6681e4",
+          "name": "Query Issues",
+          "request": {
+            "name": "Query Issues",
+            "description": {
+              "content": "Returns a paginated list of Issues. Supports filtering by team, interval, and search text.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "issues",
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sortField\": \"createdDate\",\n  \"sortDirection\": \"DESC\",\n  \"pageSize\": 10,\n  \"pageIndex\": 0,\n  \"teamId\": \"<string>\",\n  \"intervalCode\": \"<string>\",\n  \"searchText\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "45d44f03-e131-4a8e-a87b-3da57f1ec035",
+              "name": "Issues queried successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "issues",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sortField\": \"createdDate\",\n  \"sortDirection\": \"DESC\",\n  \"pageSize\": 25,\n  \"pageIndex\": 0,\n  \"teamId\": \"507f1f77bcf86cd799439011\",\n  \"intervalCode\": \"SHORT_TERM\",\n  \"searchText\": \"supply chain\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"507f1f77bcf86cd799439011\",\n      \"userId\": \"507f1f77bcf86cd799439012\",\n      \"teamId\": \"507f1f77bcf86cd799439013\",\n      \"companyId\": \"507f1f77bcf86cd799439014\",\n      \"archived\": false,\n      \"archivedDate\": \"1956-11-27T14:11:36.254Z\",\n      \"completed\": false,\n      \"completedDate\": \"2008-03-18T09:35:37.846Z\",\n      \"createdBy\": \"Jane Smith\",\n      \"deleted\": false,\n      \"description\": \"<p>Revenue projections are inconsistent with actuals.</p>\",\n      \"intervalCode\": \"SHORT_TERM\",\n      \"priority\": 3,\n      \"title\": \"Cash flow projections are off\",\n      \"createdDate\": \"2024-01-15T09:00:00.000Z\"\n    },\n    {\n      \"id\": \"507f1f77bcf86cd799439011\",\n      \"userId\": \"507f1f77bcf86cd799439012\",\n      \"teamId\": \"507f1f77bcf86cd799439013\",\n      \"companyId\": \"507f1f77bcf86cd799439014\",\n      \"archived\": false,\n      \"archivedDate\": \"1968-06-24T20:17:20.673Z\",\n      \"completed\": false,\n      \"completedDate\": \"1957-07-18T02:31:07.647Z\",\n      \"createdBy\": \"Jane Smith\",\n      \"deleted\": false,\n      \"description\": \"<p>Revenue projections are inconsistent with actuals.</p>\",\n      \"intervalCode\": \"SHORT_TERM\",\n      \"priority\": 3,\n      \"title\": \"Cash flow projections are off\",\n      \"createdDate\": \"2024-01-15T09:00:00.000Z\"\n    }\n  ],\n  \"totalCount\": 9300.410238392975,\n  \"params\": {\n    \"sortField\": \"string\",\n    \"sortDirection\": \"string\",\n    \"pageSize\": 9567.212120642942,\n    \"pageIndex\": 1470.8402694153588,\n    \"intervalCode\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e3371d22-5cfc-4ff0-974d-d6c4bd2ec891",
+          "name": "Get an Issue by Id",
+          "request": {
+            "name": "Get an Issue by Id",
+            "description": {
+              "content": "Returns a single Issue by its Id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "issues",
+                ":issueId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "issueId",
+                  "description": "(Required) The Issue Id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0826fd11-6731-4f47-8585-7ff2881683db",
+              "name": "Issue retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "issues",
+                    ":issueId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "issueId",
+                      "description": "(Required) The Issue Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"507f1f77bcf86cd799439011\",\n  \"userId\": \"507f1f77bcf86cd799439012\",\n  \"teamId\": \"507f1f77bcf86cd799439013\",\n  \"companyId\": \"507f1f77bcf86cd799439014\",\n  \"archived\": false,\n  \"archivedDate\": \"1955-06-19T09:09:09.914Z\",\n  \"completed\": false,\n  \"completedDate\": \"1981-01-26T23:07:36.518Z\",\n  \"createdBy\": \"Jane Smith\",\n  \"deleted\": false,\n  \"description\": \"<p>Revenue projections are inconsistent with actuals.</p>\",\n  \"intervalCode\": \"SHORT_TERM\",\n  \"priority\": 3,\n  \"title\": \"Cash flow projections are off\",\n  \"createdDate\": \"2024-01-15T09:00:00.000Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "428f96b7-7432-421a-ad43-0f015a23e730",
+          "name": "Update an Issue",
+          "request": {
+            "name": "Update an Issue",
+            "description": {
+              "content": "Partially updates an Issue. Only fields included in the request body are changed.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "issues",
+                ":issueId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "issueId",
+                  "description": "(Required) The Issue Id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"teamId\": \"<string>\",\n  \"interval\": \"<string>\",\n  \"description\": \"<string>\",\n  \"priority\": \"<number>\",\n  \"completed\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "05cb8fc9-4f4a-46e0-9d17-4e87cf8c9613",
+              "name": "Issue updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "issues",
+                    ":issueId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "issueId",
+                      "description": "(Required) The Issue Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"teamId\": \"<string>\",\n  \"interval\": \"<string>\",\n  \"description\": \"<string>\",\n  \"priority\": \"<number>\",\n  \"completed\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"507f1f77bcf86cd799439011\",\n  \"userId\": \"507f1f77bcf86cd799439012\",\n  \"teamId\": \"507f1f77bcf86cd799439013\",\n  \"companyId\": \"507f1f77bcf86cd799439014\",\n  \"archived\": false,\n  \"archivedDate\": \"1955-06-19T09:09:09.914Z\",\n  \"completed\": false,\n  \"completedDate\": \"1981-01-26T23:07:36.518Z\",\n  \"createdBy\": \"Jane Smith\",\n  \"deleted\": false,\n  \"description\": \"<p>Revenue projections are inconsistent with actuals.</p>\",\n  \"intervalCode\": \"SHORT_TERM\",\n  \"priority\": 3,\n  \"title\": \"Cash flow projections are off\",\n  \"createdDate\": \"2024-01-15T09:00:00.000Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9ef4840e-0392-4621-b55d-107986ab5750",
+          "name": "Delete an Issue",
+          "request": {
+            "name": "Delete an Issue",
+            "description": {
+              "content": "Permanently deletes an Issue.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "issues",
+                ":issueId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "issueId",
+                  "description": "(Required) The Issue Id"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d61d1419-5645-4957-8e34-7f4d3ea7a70c",
+              "name": "Issue deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "issues",
+                    ":issueId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "issueId",
+                      "description": "(Required) The Issue Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d3dc3b06-f80f-45eb-9c2d-a098e34348d0",
+          "name": "Create an Issue",
+          "request": {
+            "name": "Create an Issue",
+            "description": {
+              "content": "Creates a new Issue for the specified team.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "issues"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"teamId\": \"<string>\",\n  \"interval\": \"SHORT_TERM\",\n  \"description\": \"<string>\",\n  \"priority\": \"<number>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f6ea071d-4fcf-4715-8b81-3c0f650d69bf",
+              "name": "Issue created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "issues"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"Cash flow projections are off\",\n  \"teamId\": \"507f1f77bcf86cd799439011\",\n  \"interval\": \"SHORT_TERM\",\n  \"description\": \"<p>Revenue projections are inconsistent with actuals.</p>\",\n  \"priority\": 3\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"507f1f77bcf86cd799439011\",\n  \"userId\": \"507f1f77bcf86cd799439012\",\n  \"teamId\": \"507f1f77bcf86cd799439013\",\n  \"companyId\": \"507f1f77bcf86cd799439014\",\n  \"archived\": false,\n  \"archivedDate\": \"1955-06-19T09:09:09.914Z\",\n  \"completed\": false,\n  \"completedDate\": \"1981-01-26T23:07:36.518Z\",\n  \"createdBy\": \"Jane Smith\",\n  \"deleted\": false,\n  \"description\": \"<p>Revenue projections are inconsistent with actuals.</p>\",\n  \"intervalCode\": \"SHORT_TERM\",\n  \"priority\": 3,\n  \"title\": \"Cash flow projections are off\",\n  \"createdDate\": \"2024-01-15T09:00:00.000Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "25d08354-29d1-4ea6-83fe-c7d136864f44",
+    "name": "Ninety Public Issues API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Public API endpoints for Ninety users\n\n[https://api.public.ninety.io/v1/swagger.json](/v1/swagger-json)",
+      "type": "text/plain"
+    }
+  }
+}

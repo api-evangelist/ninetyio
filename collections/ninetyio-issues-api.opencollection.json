@@ -1,0 +1,115 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ninety Public Issues API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Issues",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query Issues",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/issues/query",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns a paginated list of Issues. Supports filtering by team, interval, and search text."
+        },
+        {
+          "info": {
+            "name": "Get an Issue by Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/issues/:issueId",
+            "params": [
+              {
+                "name": "issueId",
+                "value": "",
+                "type": "path",
+                "description": "The Issue Id"
+              }
+            ]
+          },
+          "docs": "Returns a single Issue by its Id."
+        },
+        {
+          "info": {
+            "name": "Update an Issue",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/v1/issues/:issueId",
+            "params": [
+              {
+                "name": "issueId",
+                "value": "",
+                "type": "path",
+                "description": "The Issue Id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Partially updates an Issue. Only fields included in the request body are changed."
+        },
+        {
+          "info": {
+            "name": "Delete an Issue",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/issues/:issueId",
+            "params": [
+              {
+                "name": "issueId",
+                "value": "",
+                "type": "path",
+                "description": "The Issue Id"
+              }
+            ]
+          },
+          "docs": "Permanently deletes an Issue."
+        },
+        {
+          "info": {
+            "name": "Create an Issue",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/issues",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new Issue for the specified team."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,135 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ninety Public Issues Scorecard API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Scorecard",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query Measurables",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/scorecard/kpis/query",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns a paginated list of Measurables matching the provided filters."
+        },
+        {
+          "info": {
+            "name": "Create or update a Measurable score",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/scorecard/kpis/:kpiId/scores",
+            "params": [
+              {
+                "name": "kpiId",
+                "value": "",
+                "type": "path",
+                "description": "The Id of the Measurable"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates or updates the score for a Measurable for the given period. If a score already exists for that period, it is overwritten."
+        },
+        {
+          "info": {
+            "name": "Create or update a Measurable note",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/scorecard/kpis/:kpiId/notes",
+            "params": [
+              {
+                "name": "kpiId",
+                "value": "",
+                "type": "path",
+                "description": "The Id of the Measurable"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates or updates the note for a Measurable for the given period. If a note already exists for that period, it is overwritten."
+        },
+        {
+          "info": {
+            "name": "Delete a Measurable score",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/scorecard/kpis/:kpiId/scores/:periodStartDate",
+            "params": [
+              {
+                "name": "kpiId",
+                "value": "",
+                "type": "path",
+                "description": "The Id of the Measurable"
+              },
+              {
+                "name": "periodStartDate",
+                "value": "",
+                "type": "path",
+                "description": "The ISO 8601 start date of the period"
+              }
+            ]
+          },
+          "docs": "Deletes the score for a Measurable for the given period start date."
+        },
+        {
+          "info": {
+            "name": "Delete a Measurable note",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/scorecard/kpis/:kpiId/notes/:periodStartDate",
+            "params": [
+              {
+                "name": "kpiId",
+                "value": "",
+                "type": "path",
+                "description": "The Id of the Measurable"
+              },
+              {
+                "name": "periodStartDate",
+                "value": "",
+                "type": "path",
+                "description": "The ISO 8601 start date of the period"
+              }
+            ]
+          },
+          "docs": "Deletes the note for a Measurable for the given period start date."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

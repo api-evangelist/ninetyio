@@ -1,0 +1,608 @@
+{
+  "item": [
+    {
+      "id": "303c38d0-5143-45c4-a1a2-4c72a611303d",
+      "name": "Scorecard",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0eb5a079-24c8-4756-87a0-73559a810150",
+          "name": "Query Measurables",
+          "request": {
+            "name": "Query Measurables",
+            "description": {
+              "content": "Returns a paginated list of Measurables matching the provided filters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "scorecard",
+                "kpis",
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"excludeKpiIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"pageIndex\": \"<number>\",\n  \"pageSize\": \"<number>\",\n  \"periodInterval\": \"<string>\",\n  \"searchOwner\": \"<string>\",\n  \"searchText\": \"<string>\",\n  \"searchTitle\": \"<string>\",\n  \"sortField\": \"<string>\",\n  \"sortDirection\": \"<string>\",\n  \"unassignedOnly\": \"<boolean>\",\n  \"userIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "afcb50ad-c720-4c5c-a455-5493a0b0b7cf",
+              "name": "Measurables queried successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "scorecard",
+                    "kpis",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"excludeKpiIds\": [\n    \"64d6a32564d6a32564d6a325\"\n  ],\n  \"pageIndex\": 0,\n  \"pageSize\": 25,\n  \"periodInterval\": \"weekly\",\n  \"searchOwner\": \"Jim\",\n  \"searchText\": \"Finance\",\n  \"searchTitle\": \"Indicator\",\n  \"sortField\": \"title\",\n  \"sortDirection\": \"ASC\",\n  \"unassignedOnly\": false,\n  \"userIds\": [\n    \"64d6a32564d6a32564d6a325\",\n    \"64d6a32564d6a32564d6a326\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"currentPage\": 9109.589543549551,\n  \"items\": [\n    {\n      \"_id\": \"64d6a32564d6a32564d6a325\",\n      \"defaultGoal\": {},\n      \"periodInterval\": \"weekly\",\n      \"title\": \"Weekly Revenue\",\n      \"unit\": \"number\",\n      \"userFullName\": \"Jane Smith\",\n      \"type\": \"active\",\n      \"attachmentCount\": 0,\n      \"isSmart\": false,\n      \"isUsedInFormula\": false,\n      \"teams\": [\n        {\n          \"id\": \"507f1f77bcf86cd799439011\",\n          \"name\": \"Leadership\"\n        },\n        {\n          \"id\": \"507f1f77bcf86cd799439011\",\n          \"name\": \"Leadership\"\n        }\n      ],\n      \"scorecards\": [\n        {\n          \"id\": \"507f1f77bcf86cd799439012\",\n          \"name\": \"Weekly Leadership Scorecard\",\n          \"periodInterval\": \"weekly\"\n        },\n        {\n          \"id\": \"507f1f77bcf86cd799439012\",\n          \"name\": \"Weekly Leadership Scorecard\",\n          \"periodInterval\": \"weekly\"\n        }\n      ],\n      \"currency\": \"USD\",\n      \"userId\": {},\n      \"lastScoreUpdatedAt\": {}\n    },\n    {\n      \"_id\": \"64d6a32564d6a32564d6a325\",\n      \"defaultGoal\": {},\n      \"periodInterval\": \"weekly\",\n      \"title\": \"Weekly Revenue\",\n      \"unit\": \"number\",\n      \"userFullName\": \"Jane Smith\",\n      \"type\": \"active\",\n      \"attachmentCount\": 0,\n      \"isSmart\": false,\n      \"isUsedInFormula\": false,\n      \"teams\": [\n        {\n          \"id\": \"507f1f77bcf86cd799439011\",\n          \"name\": \"Leadership\"\n        },\n        {\n          \"id\": \"507f1f77bcf86cd799439011\",\n          \"name\": \"Leadership\"\n        }\n      ],\n      \"scorecards\": [\n        {\n          \"id\": \"507f1f77bcf86cd799439012\",\n          \"name\": \"Weekly Leadership Scorecard\",\n          \"periodInterval\": \"weekly\"\n        },\n        {\n          \"id\": \"507f1f77bcf86cd799439012\",\n          \"name\": \"Weekly Leadership Scorecard\",\n          \"periodInterval\": \"weekly\"\n        }\n      ],\n      \"currency\": \"USD\",\n      \"userId\": {},\n      \"lastScoreUpdatedAt\": {}\n    }\n  ],\n  \"itemsCount\": 4715.4281413631425,\n  \"totalCount\": 8498.881940908828,\n  \"totalPages\": 3449.7465319247067\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "996a4f51-962c-42b1-be56-37abc45fa051",
+          "name": "Create or update a Measurable score",
+          "request": {
+            "name": "Create or update a Measurable score",
+            "description": {
+              "content": "Creates or updates the score for a Measurable for the given period. If a score already exists for that period, it is overwritten.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "scorecard",
+                "kpis",
+                ":kpiId",
+                "scores"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "kpiId",
+                  "description": "(Required) The Id of the Measurable"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"value\": \"<number>\",\n  \"periodStartDate\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "69ff22d6-5eca-4128-b54b-687c72abcbde",
+              "name": "Score created/updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "scorecard",
+                    "kpis",
+                    ":kpiId",
+                    "scores"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "kpiId",
+                      "description": "(Required) The Id of the Measurable"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": 100,\n  \"periodStartDate\": \"2024-01-01T00:00:00.000Z\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"64d6a32564d6a32564d6a325\",\n  \"periodStartDate\": \"2024-01-01T00:00:00.000Z\",\n  \"value\": 95\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7c01a602-0b2e-478d-88a3-268d6c3225b6",
+          "name": "Create or update a Measurable note",
+          "request": {
+            "name": "Create or update a Measurable note",
+            "description": {
+              "content": "Creates or updates the note for a Measurable for the given period. If a note already exists for that period, it is overwritten.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "scorecard",
+                "kpis",
+                ":kpiId",
+                "notes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "kpiId",
+                  "description": "(Required) The Id of the Measurable"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"note\": \"<string>\",\n  \"periodStartDate\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9ed71ef7-26bc-40cd-bc73-530c68db4cd8",
+              "name": "Note created/updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "scorecard",
+                    "kpis",
+                    ":kpiId",
+                    "notes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "kpiId",
+                      "description": "(Required) The Id of the Measurable"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"note\": \"Great progress this week!\",\n  \"periodStartDate\": \"2024-01-01T00:00:00.000Z\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"64d6a32564d6a32564d6a325\",\n  \"periodStartDate\": \"2024-01-01T00:00:00.000Z\",\n  \"note\": \"Good progress this week\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "805c7ded-2757-4344-a745-3f2a37b0eeb3",
+          "name": "Delete a Measurable score",
+          "request": {
+            "name": "Delete a Measurable score",
+            "description": {
+              "content": "Deletes the score for a Measurable for the given period start date.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "scorecard",
+                "kpis",
+                ":kpiId",
+                "scores",
+                ":periodStartDate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "kpiId",
+                  "description": "(Required) The Id of the Measurable"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "periodStartDate",
+                  "description": "(Required) The ISO 8601 start date of the period"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1249c92b-d163-4b57-baec-ae9f56304984",
+              "name": "Score deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "scorecard",
+                    "kpis",
+                    ":kpiId",
+                    "scores",
+                    ":periodStartDate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "kpiId",
+                      "description": "(Required) The Id of the Measurable"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "periodStartDate",
+                      "description": "(Required) The ISO 8601 start date of the period"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9e07c6b3-17dd-4d35-a019-0da51bc8ef97",
+          "name": "Delete a Measurable note",
+          "request": {
+            "name": "Delete a Measurable note",
+            "description": {
+              "content": "Deletes the note for a Measurable for the given period start date.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "scorecard",
+                "kpis",
+                ":kpiId",
+                "notes",
+                ":periodStartDate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "kpiId",
+                  "description": "(Required) The Id of the Measurable"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "periodStartDate",
+                  "description": "(Required) The ISO 8601 start date of the period"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fbb32bbc-cf22-49b6-99dc-0f41f1d5d489",
+              "name": "Note deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "scorecard",
+                    "kpis",
+                    ":kpiId",
+                    "notes",
+                    ":periodStartDate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "kpiId",
+                      "description": "(Required) The Id of the Measurable"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "periodStartDate",
+                      "description": "(Required) The ISO 8601 start date of the period"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4bd8f16f-df9f-4194-aa4f-bab2d1d531da",
+    "name": "Ninety Public Issues Scorecard API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Public API endpoints for Ninety users\n\n[https://api.public.ninety.io/v1/swagger.json](/v1/swagger-json)",
+      "type": "text/plain"
+    }
+  }
+}

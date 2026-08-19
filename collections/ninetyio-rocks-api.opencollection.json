@@ -1,0 +1,115 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ninety Public Issues Rocks API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Rocks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query Rocks",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/rocks/query",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns Rocks grouped by teamId. Supports filtering by status, level, future scope, and more. Results are paginated using pageIndex and pageSize."
+        },
+        {
+          "info": {
+            "name": "Get a Rock by Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/rocks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The Rock Id"
+              }
+            ]
+          },
+          "docs": "Returns a single Rock by its Id."
+        },
+        {
+          "info": {
+            "name": "Update a Rock",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/v1/rocks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The Rock Id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Partially updates a Rock. Only the fields provided in the request body will be changed."
+        },
+        {
+          "info": {
+            "name": "Delete a Rock",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/rocks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The Rock Id"
+              }
+            ]
+          },
+          "docs": "Soft-deletes a Rock. Returns the deleted Rock."
+        },
+        {
+          "info": {
+            "name": "Create a Rock",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/rocks",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a Rock assigned to the authenticated user. The owner and companyId are automatically derived from the authenticated user's JWT."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

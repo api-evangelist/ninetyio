@@ -1,0 +1,115 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ninety Public Issues To-Dos API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "To-Dos",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a To-Do",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/todos",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new To-Do. Omit `teamId` (or pass an empty string) to create a personal To-Do."
+        },
+        {
+          "info": {
+            "name": "Query To-Dos",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/todos/query",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns a list of To-Dos matching the provided filters."
+        },
+        {
+          "info": {
+            "name": "Get a To-Do by Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/todos/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The To-Do Id"
+              }
+            ]
+          },
+          "docs": "Returns a single To-Do by its Id."
+        },
+        {
+          "info": {
+            "name": "Update a To-Do",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/v1/todos/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The To-Do Id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Partially updates a To-Do. Only fields included in the request body are changed."
+        },
+        {
+          "info": {
+            "name": "Delete a To-Do",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/todos/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The To-Do Id"
+              }
+            ]
+          },
+          "docs": "Permanently deletes a To-Do."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

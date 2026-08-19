@@ -1,0 +1,359 @@
+{
+  "item": [
+    {
+      "id": "d5ea9564-32cf-4698-99c7-085e603f6023",
+      "name": "Milestones",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1ab4c4df-e59f-43df-82fd-9f921dc18a09",
+          "name": "Get a Milestone by Id",
+          "request": {
+            "name": "Get a Milestone by Id",
+            "description": {
+              "content": "Returns a single Milestone by its Id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "milestones",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The Milestone Id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0007054e-b670-4299-ae68-164c779af23d",
+              "name": "Milestone retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "milestones",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The Milestone Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"_id\": \"507f1f77bcf86cd799439014\",\n  \"companyId\": \"507f1f77bcf86cd799439015\",\n  \"rockId\": \"507f1f77bcf86cd799439013\",\n  \"teamId\": \"507f1f77bcf86cd799439011\",\n  \"ownedByUserId\": \"507f1f77bcf86cd799439012\",\n  \"title\": \"Complete UX wireframes\",\n  \"dueDate\": \"2026-05-15T23:59:59.000Z\",\n  \"isDone\": false,\n  \"isDeleted\": false,\n  \"createdBy\": \"507f1f77bcf86cd799439012\",\n  \"createdDate\": \"2026-01-15T09:00:00.000Z\",\n  \"description\": \"Deliver final wireframes for review in Figma\",\n  \"completedDate\": \"2026-05-10T16:00:00.000Z\",\n  \"userOrdinal\": 0,\n  \"followers\": [\n    \"507f1f77bcf86cd799439012\",\n    \"507f1f77bcf86cd799439016\"\n  ],\n  \"updatedAt\": \"2026-03-01T14:30:00.000Z\",\n  \"toDoId\": \"507f1f77bcf86cd799439099\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d841e3c5-8ab6-40c7-9e99-9c2ff08a15a7",
+          "name": "Update a Milestone",
+          "request": {
+            "name": "Update a Milestone",
+            "description": {
+              "content": "Partially updates a Milestone. Only the fields provided in the request body will be changed.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "milestones",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The Milestone Id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"dueDate\": \"<string>\",\n  \"isDone\": \"<boolean>\",\n  \"ownedByUserId\": \"<string>\",\n  \"completedDate\": \"<string>\",\n  \"followers\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a1d691ca-997b-4fc6-b5aa-d8a641992e3b",
+              "name": "Milestone updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "milestones",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The Milestone Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"Complete UX wireframes\",\n  \"description\": \"Deliver final wireframes for review in Figma\",\n  \"dueDate\": \"2026-05-15T23:59:59.000Z\",\n  \"isDone\": true,\n  \"ownedByUserId\": \"507f1f77bcf86cd799439012\",\n  \"completedDate\": \"2026-05-10T16:00:00.000Z\",\n  \"followers\": [\n    \"507f1f77bcf86cd799439012\",\n    \"507f1f77bcf86cd799439016\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"_id\": \"507f1f77bcf86cd799439014\",\n  \"companyId\": \"507f1f77bcf86cd799439015\",\n  \"rockId\": \"507f1f77bcf86cd799439013\",\n  \"teamId\": \"507f1f77bcf86cd799439011\",\n  \"ownedByUserId\": \"507f1f77bcf86cd799439012\",\n  \"title\": \"Complete UX wireframes\",\n  \"dueDate\": \"2026-05-15T23:59:59.000Z\",\n  \"isDone\": false,\n  \"isDeleted\": false,\n  \"createdBy\": \"507f1f77bcf86cd799439012\",\n  \"createdDate\": \"2026-01-15T09:00:00.000Z\",\n  \"description\": \"Deliver final wireframes for review in Figma\",\n  \"completedDate\": \"2026-05-10T16:00:00.000Z\",\n  \"userOrdinal\": 0,\n  \"followers\": [\n    \"507f1f77bcf86cd799439012\",\n    \"507f1f77bcf86cd799439016\"\n  ],\n  \"updatedAt\": \"2026-03-01T14:30:00.000Z\",\n  \"toDoId\": \"507f1f77bcf86cd799439099\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bb458120-20b7-4df4-b685-91a27d8cdf96",
+          "name": "Create a Milestone",
+          "request": {
+            "name": "Create a Milestone",
+            "description": {
+              "content": "Creates a Milestone linked to a Rock assigned to the authenticated user. The owner and companyId are automatically derived from the authenticated user's JWT.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "milestones"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rockId\": \"<string>\",\n  \"title\": \"<string>\",\n  \"dueDate\": \"<string>\",\n  \"teamId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"userOrdinal\": \"<number>\",\n  \"toDoId\": \"<string>\",\n  \"isDone\": \"<boolean>\",\n  \"completedDate\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d100946f-f65c-4655-845a-8b392b121ffe",
+              "name": "Milestone created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "milestones"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rockId\": \"507f1f77bcf86cd799439013\",\n  \"title\": \"Complete UX wireframes\",\n  \"dueDate\": \"2026-05-15T23:59:59.000Z\",\n  \"teamId\": \"507f1f77bcf86cd799439011\",\n  \"description\": \"Deliver final wireframes for review in Figma\",\n  \"userOrdinal\": 0,\n  \"toDoId\": \"507f1f77bcf86cd799439099\",\n  \"isDone\": false,\n  \"completedDate\": \"2026-05-10T16:00:00.000Z\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"_id\": \"507f1f77bcf86cd799439014\",\n  \"companyId\": \"507f1f77bcf86cd799439015\",\n  \"rockId\": \"507f1f77bcf86cd799439013\",\n  \"teamId\": \"507f1f77bcf86cd799439011\",\n  \"ownedByUserId\": \"507f1f77bcf86cd799439012\",\n  \"title\": \"Complete UX wireframes\",\n  \"dueDate\": \"2026-05-15T23:59:59.000Z\",\n  \"isDone\": false,\n  \"isDeleted\": false,\n  \"createdBy\": \"507f1f77bcf86cd799439012\",\n  \"createdDate\": \"2026-01-15T09:00:00.000Z\",\n  \"description\": \"Deliver final wireframes for review in Figma\",\n  \"completedDate\": \"2026-05-10T16:00:00.000Z\",\n  \"userOrdinal\": 0,\n  \"followers\": [\n    \"507f1f77bcf86cd799439012\",\n    \"507f1f77bcf86cd799439016\"\n  ],\n  \"updatedAt\": \"2026-03-01T14:30:00.000Z\",\n  \"toDoId\": \"507f1f77bcf86cd799439099\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9d1de02c-905f-4cc1-9ab2-c99d23556cb9",
+    "name": "Ninety Public Issues Milestones API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Public API endpoints for Ninety users\n\n[https://api.public.ninety.io/v1/swagger.json](/v1/swagger-json)",
+      "type": "text/plain"
+    }
+  }
+}
