@@ -4,43 +4,46 @@ info:
   version: 1.0.0
   summary: Resolve a team, create an Issue on its list, then mark it solved.
 sourceDescriptions:
-  - name: ninety
-    url: ../openapi/ninetyio-openapi-original.json
-    type: openapi
+- name: issuesApi
+  url: ../openapi/ninetyio-issues-api-openapi.yml
+  type: openapi
+- name: teamsApi
+  url: ../openapi/ninetyio-teams-api-openapi.yml
+  type: openapi
 workflows:
-  - workflowId: logAndSolveIssue
-    summary: Create an Issue for a team and complete it (IDS solved).
-    inputs:
-      type: object
-      properties:
-        title: { type: string }
-        description: { type: string }
-    steps:
-      - stepId: getTeams
-        operationId: PublicTeamController_findAll
-        outputs:
-          teamId: $response.body#/0/id
-      - stepId: createIssue
-        operationId: PublicIssueController_createIssue
-        requestBody:
-          contentType: application/json
-          payload:
-            title: $inputs.title
-            description: $inputs.description
-            teamId: $steps.getTeams.outputs.teamId
-        outputs:
-          issueId: $response.body#/id
-      - stepId: solveIssue
-        operationId: PublicIssueController_updateIssue
-        parameters:
-          - name: issueId
-            in: path
-            value: $steps.createIssue.outputs.issueId
-        requestBody:
-          contentType: application/json
-          payload:
-            completed: true
-        outputs:
-          completed: $response.body#/completed
+- workflowId: logAndSolveIssue
+  summary: Create an Issue for a team and complete it (IDS solved).
+  inputs:
+    type: object
+    properties:
+      title: {type: string}
+      description: {type: string}
+  steps:
+  - stepId: getTeams
+    operationId: PublicTeamController_findAll
     outputs:
-      issueId: $steps.createIssue.outputs.issueId
+      teamId: $response.body#/0/id
+  - stepId: createIssue
+    operationId: PublicIssueController_createIssue
+    requestBody:
+      contentType: application/json
+      payload:
+        title: $inputs.title
+        description: $inputs.description
+        teamId: $steps.getTeams.outputs.teamId
+    outputs:
+      issueId: $response.body#/id
+  - stepId: solveIssue
+    operationId: PublicIssueController_updateIssue
+    parameters:
+    - name: issueId
+      in: path
+      value: $steps.createIssue.outputs.issueId
+    requestBody:
+      contentType: application/json
+      payload:
+        completed: true
+    outputs:
+      completed: $response.body#/completed
+  outputs:
+    issueId: $steps.createIssue.outputs.issueId
