@@ -52,6 +52,16 @@ tags:
 - Business Management
 - Meetings
 - Productivity
+- Scorecards
+- Team Management
+- Goal Tracking
+tags_raw:
+- Company
+- EOS
+- Entrepreneurial Operating System
+- Business Management
+- Meetings
+- Productivity
 - Scorecard
 - Team Management
 - Goal Tracking
@@ -109,6 +119,8 @@ apis:
   humanURL: https://help.ninety.io/en/articles/15505694-api-reference-and-access
   baseURL: https://api.public.ninety.io/v1
   tags:
+  - Scorecards
+  tags_raw:
   - Scorecard
   properties:
   - type: OpenAPI
