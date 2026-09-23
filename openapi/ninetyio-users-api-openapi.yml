@@ -1,10 +1,10 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Ninety Public Issues Users API
+  title: Ninety Public Users API
   description: 'Public API endpoints for Ninety users
 
 
-    [https://api.public.ninety.io/v1/swagger.json](/v1/swagger-json)'
+    https://api.public.ninety.io/v1/swagger.json'
   version: '1.0'
   contact: {}
 servers: []

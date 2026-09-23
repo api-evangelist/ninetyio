@@ -1,10 +1,10 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Ninety Public Issues Scorecard API
+  title: Ninety Public Scorecard API
   description: 'Public API endpoints for Ninety users
 
 
-    [https://api.public.ninety.io/v1/swagger.json](/v1/swagger-json)'
+    https://api.public.ninety.io/v1/swagger.json'
   version: '1.0'
   contact: {}
 servers: []
@@ -142,144 +142,6 @@ paths:
       - Scorecard
 components:
   schemas:
-    PutNoteDTO:
-      type: object
-      properties:
-        note:
-          type: string
-          description: The note text
-          example: Great progress this week!
-        periodStartDate:
-          type: string
-          description: The period start date in ISO 8601 format
-          example: '2024-01-01T00:00:00.000Z'
-      required:
-      - note
-      - periodStartDate
-    TeamDTO:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The Id of the team
-          example: 507f1f77bcf86cd799439011
-        name:
-          type: string
-          description: The name of the team
-          example: Leadership
-      required:
-      - id
-      - name
-    GetKpisQueryDTO:
-      type: object
-      properties:
-        excludeKpiIds:
-          description: Array of Measurable Ids to exclude from the response
-          example:
-          - 64d6a32564d6a32564d6a325
-          type: array
-          items:
-            type: string
-        pageIndex:
-          type: number
-          description: The page number to retrieve
-          example: 0
-        pageSize:
-          type: number
-          description: The number of items to retrieve per page
-          example: 25
-        periodInterval:
-          type: string
-          description: Limits results to Measurables with the specified period interval
-          enum:
-          - weekly
-          - monthly
-          - quarterly
-          - annual
-          example: weekly
-        searchOwner:
-          type: string
-          description: The name, or part of the name, of the owner of the Measurables to retrieve
-          example: Jim
-        searchText:
-          type: string
-          description: Text to search for in the Measurable title or description
-          example: Finance
-        searchTitle:
-          type: string
-          description: Text to search for in the Measurable title only
-          example: Indicator
-        sortField:
-          type: string
-          description: The field to sort Measurables by
-          enum:
-          - id
-          - owner
-          - title
-          example: title
-        sortDirection:
-          type: string
-          description: The sort direction for the selected sort field
-          enum:
-          - ASC
-          - DESC
-          example: ASC
-        unassignedOnly:
-          type: boolean
-          description: Only include Measurables that have no owner assigned
-          example: false
-        userIds:
-          description: An array of user Ids to filter Measurables by owner
-          example:
-          - 64d6a32564d6a32564d6a325
-          - 64d6a32564d6a32564d6a326
-          type: array
-          items:
-            type: string
-    ScoreResponseDTO:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The Id of the score
-          example: 64d6a32564d6a32564d6a325
-        value:
-          type: number
-          description: The score value
-          example: 95
-        periodStartDate:
-          type: string
-          description: The period start date in ISO 8601 format
-          example: '2024-01-01T00:00:00.000Z'
-      required:
-      - id
-      - periodStartDate
-    PaginatedKpiResponseDTO:
-      type: object
-      properties:
-        currentPage:
-          type: number
-          description: The current page number (1-based index)
-        items:
-          description: The Measurables on the current page
-          type: array
-          items:
-            $ref: '#/components/schemas/KpiQueryItemResponseDTO'
-        itemsCount:
-          type: number
-          description: The number of items returned on the current page
-        totalCount:
-          type: number
-          description: The total number of items across all pages
-        totalPages:
-          type: number
-          description: The total number of pages available
-      required:
-      - currentPage
-      - items
-      - itemsCount
-      - totalCount
-      - totalPages
     KpiQueryItemResponseDTO:
       type: object
       properties:
@@ -379,6 +241,98 @@ components:
       - isUsedInFormula
       - teams
       - scorecards
+    PaginatedKpiResponseDTO:
+      type: object
+      properties:
+        currentPage:
+          type: number
+          description: The current page number (1-based index)
+        items:
+          description: The Measurables on the current page
+          type: array
+          items:
+            $ref: '#/components/schemas/KpiQueryItemResponseDTO'
+        itemsCount:
+          type: number
+          description: The number of items returned on the current page
+        totalCount:
+          type: number
+          description: The total number of items across all pages
+        totalPages:
+          type: number
+          description: The total number of pages available
+      required:
+      - currentPage
+      - items
+      - itemsCount
+      - totalCount
+      - totalPages
+    GetKpisQueryDTO:
+      type: object
+      properties:
+        excludeKpiIds:
+          description: Array of Measurable Ids to exclude from the response
+          example:
+          - 64d6a32564d6a32564d6a325
+          type: array
+          items:
+            type: string
+        pageIndex:
+          type: number
+          description: The page number to retrieve
+          example: 0
+        pageSize:
+          type: number
+          description: The number of items to retrieve per page
+          example: 25
+        periodInterval:
+          type: string
+          description: Limits results to Measurables with the specified period interval
+          enum:
+          - weekly
+          - monthly
+          - quarterly
+          - annual
+          example: weekly
+        searchOwner:
+          type: string
+          description: The name, or part of the name, of the owner of the Measurables to retrieve
+          example: Jim
+        searchText:
+          type: string
+          description: Text to search for in the Measurable title or description
+          example: Finance
+        searchTitle:
+          type: string
+          description: Text to search for in the Measurable title only
+          example: Indicator
+        sortField:
+          type: string
+          description: The field to sort Measurables by
+          enum:
+          - id
+          - owner
+          - title
+          example: title
+        sortDirection:
+          type: string
+          description: The sort direction for the selected sort field
+          enum:
+          - ASC
+          - DESC
+          example: ASC
+        unassignedOnly:
+          type: boolean
+          description: Only include Measurables that have no owner assigned
+          example: false
+        userIds:
+          description: An array of user Ids to filter Measurables by owner
+          example:
+          - 64d6a32564d6a32564d6a325
+          - 64d6a32564d6a32564d6a326
+          type: array
+          items:
+            type: string
     PutScoreDTO:
       type: object
       properties:
@@ -392,6 +346,38 @@ components:
           example: '2024-01-01T00:00:00.000Z'
       required:
       - value
+      - periodStartDate
+    TeamDTO:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The Id of the team
+          example: 507f1f77bcf86cd799439011
+        name:
+          type: string
+          description: The name of the team
+          example: Leadership
+      required:
+      - id
+      - name
+    ScoreResponseDTO:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The Id of the score
+          example: 64d6a32564d6a32564d6a325
+        value:
+          type: number
+          description: The score value
+          example: 95
+        periodStartDate:
+          type: string
+          description: The period start date in ISO 8601 format
+          example: '2024-01-01T00:00:00.000Z'
+      required:
+      - id
       - periodStartDate
     ScorecardDTO:
       type: object
@@ -434,6 +420,20 @@ components:
           example: '2024-01-01T00:00:00.000Z'
       required:
       - id
+      - periodStartDate
+    PutNoteDTO:
+      type: object
+      properties:
+        note:
+          type: string
+          description: The note text
+          example: Great progress this week!
+        periodStartDate:
+          type: string
+          description: The period start date in ISO 8601 format
+          example: '2024-01-01T00:00:00.000Z'
+      required:
+      - note
       - periodStartDate
   securitySchemes:
     JWT:

@@ -1,10 +1,10 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   title: Ninety Public Issues API
   description: 'Public API endpoints for Ninety users
 
 
-    [https://api.public.ninety.io/v1/swagger.json](/v1/swagger-json)'
+    https://api.public.ninety.io/v1/swagger.json'
   version: '1.0'
   contact: {}
 servers: []
@@ -123,6 +123,99 @@ paths:
       - Issues
 components:
   schemas:
+    PaginatedIssuesResponseDTO:
+      type: object
+      properties:
+        items:
+          description: Array of Issues
+          type: array
+          items:
+            $ref: '#/components/schemas/IssueResponseDTO'
+        totalCount:
+          type: number
+          description: Total number of Issues matching the query
+        params:
+          description: Query parameters used
+          allOf:
+          - $ref: '#/components/schemas/IssuesQueryParamsResponseDTO'
+      required:
+      - items
+      - totalCount
+    CreateIssueDTO:
+      type: object
+      properties:
+        title:
+          type: string
+          description: Title of the Issue
+          example: Cash flow projections are off
+        teamId:
+          type: string
+          description: Id of the team that owns the Issue
+          example: 507f1f77bcf86cd799439011
+        interval:
+          type: string
+          description: Issue classification. Defaults to `SHORT_TERM` if not provided.
+          enum:
+          - SHORT_TERM
+          - LONG_TERM
+          default: SHORT_TERM
+          example: SHORT_TERM
+        description:
+          type: string
+          description: HTML description of the Issue
+          example: <p>Revenue projections are inconsistent with actuals.</p>
+        priority:
+          type: number
+          description: Priority level from 0 (none) to 5 (highest)
+          minimum: 0
+          maximum: 5
+          example: 3
+      required:
+      - title
+      - teamId
+    GetIssuesQueryDTO:
+      type: object
+      properties:
+        sortField:
+          type: string
+          description: The field to sort results by
+          default: createdDate
+          example: createdDate
+        sortDirection:
+          type: string
+          description: The sort direction
+          default: DESC
+          enum:
+          - ASC
+          - DESC
+          example: DESC
+        pageSize:
+          type: number
+          description: Number of items per page
+          default: 10
+          minimum: 1
+          example: 25
+        pageIndex:
+          type: number
+          description: Zero-based page index
+          default: 0
+          minimum: 0
+          example: 0
+        teamId:
+          type: string
+          description: A single team Id or a comma-separated list of team Ids to filter by. Omit to query all Teams.
+          example: 507f1f77bcf86cd799439011
+        intervalCode:
+          type: string
+          description: Filter by Issue classification
+          enum:
+          - SHORT_TERM
+          - LONG_TERM
+          example: SHORT_TERM
+        searchText:
+          type: string
+          description: Search text to match against Issue title, description, and comments
+          example: supply chain
     IssueResponseDTO:
       type: object
       properties:
@@ -192,56 +285,6 @@ components:
           type: string
           description: Date and time when the Issue was created
           example: '2024-01-15T09:00:00.000Z'
-    PaginatedIssuesResponseDTO:
-      type: object
-      properties:
-        items:
-          description: Array of Issues
-          type: array
-          items:
-            $ref: '#/components/schemas/IssueResponseDTO'
-        totalCount:
-          type: number
-          description: Total number of Issues matching the query
-        params:
-          description: Query parameters used
-          allOf:
-          - $ref: '#/components/schemas/IssuesQueryParamsResponseDTO'
-      required:
-      - items
-      - totalCount
-    CreateIssueDTO:
-      type: object
-      properties:
-        title:
-          type: string
-          description: Title of the Issue
-          example: Cash flow projections are off
-        teamId:
-          type: string
-          description: Id of the team that owns the Issue
-          example: 507f1f77bcf86cd799439011
-        interval:
-          type: string
-          description: Issue classification. Defaults to `SHORT_TERM` if not provided.
-          enum:
-          - SHORT_TERM
-          - LONG_TERM
-          default: SHORT_TERM
-          example: SHORT_TERM
-        description:
-          type: string
-          description: HTML description of the Issue
-          example: <p>Revenue projections are inconsistent with actuals.</p>
-        priority:
-          type: number
-          description: Priority level from 0 (none) to 5 (highest)
-          minimum: 0
-          maximum: 5
-          example: 3
-      required:
-      - title
-      - teamId
     UpdateIssueDTO:
       type: object
       properties:
@@ -286,49 +329,6 @@ components:
         intervalCode:
           type: string
           description: Interval code filter used in the query
-    GetIssuesQueryDTO:
-      type: object
-      properties:
-        sortField:
-          type: string
-          description: The field to sort results by
-          default: createdDate
-          example: createdDate
-        sortDirection:
-          type: string
-          description: The sort direction
-          default: DESC
-          enum:
-          - ASC
-          - DESC
-          example: DESC
-        pageSize:
-          type: number
-          description: Number of items per page
-          default: 10
-          minimum: 1
-          example: 25
-        pageIndex:
-          type: number
-          description: Zero-based page index
-          default: 0
-          minimum: 0
-          example: 0
-        teamId:
-          type: string
-          description: A single team Id or a comma-separated list of team Ids to filter by. Omit to query all Teams.
-          example: 507f1f77bcf86cd799439011
-        intervalCode:
-          type: string
-          description: Filter by Issue classification
-          enum:
-          - SHORT_TERM
-          - LONG_TERM
-          example: SHORT_TERM
-        searchText:
-          type: string
-          description: Search text to match against Issue title, description, and comments
-          example: supply chain
   securitySchemes:
     JWT:
       scheme: bearer

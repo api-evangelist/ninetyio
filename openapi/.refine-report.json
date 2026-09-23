@@ -1,13 +1,7 @@
 {
   "provider": "ninetyio",
   "sources": [
-    "ninetyio-issues-api-openapi.yml",
-    "ninetyio-milestones-api-openapi.yml",
-    "ninetyio-rocks-api-openapi.yml",
-    "ninetyio-scorecard-api-openapi.yml",
-    "ninetyio-teams-api-openapi.yml",
-    "ninetyio-to-dos-api-openapi.yml",
-    "ninetyio-users-api-openapi.yml"
+    "_original/ninetyio-openapi-original.json"
   ],
   "outputs": [
     "ninetyio-issues-api-openapi.yml",
@@ -21,6 +15,25 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "ninetyio-openapi-original.json: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "ninetyio-openapi-original.json: declared missing tag: Issues",
+    "ninetyio-openapi-original.json: declared missing tag: Milestones",
+    "ninetyio-openapi-original.json: declared missing tag: Rocks",
+    "ninetyio-openapi-original.json: declared missing tag: Scorecard",
+    "ninetyio-openapi-original.json: declared missing tag: Teams",
+    "ninetyio-openapi-original.json: declared missing tag: To-Dos",
+    "ninetyio-openapi-original.json: declared missing tag: Users",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "ninetyio-issues-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ninetyio-milestones-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ninetyio-rocks-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ninetyio-scorecard-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ninetyio-teams-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ninetyio-to-dos-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ninetyio-users-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

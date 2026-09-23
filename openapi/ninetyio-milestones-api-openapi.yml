@@ -1,10 +1,10 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Ninety Public Issues Milestones API
+  title: Ninety Public Milestones API
   description: 'Public API endpoints for Ninety users
 
 
-    [https://api.public.ninety.io/v1/swagger.json](/v1/swagger-json)'
+    https://api.public.ninety.io/v1/swagger.json'
   version: '1.0'
   contact: {}
 servers: []
@@ -85,6 +85,41 @@ paths:
       - Milestones
 components:
   schemas:
+    UpdateMilestoneDTO:
+      type: object
+      properties:
+        title:
+          type: string
+          description: The title of the Milestone
+          example: Complete UX wireframes
+        description:
+          type: string
+          description: The description of the Milestone
+          example: Deliver final wireframes for review in Figma
+        dueDate:
+          type: string
+          description: The due date of the Milestone (ISO 8601)
+          example: '2026-05-15T23:59:59.000Z'
+        isDone:
+          type: boolean
+          description: Set to true to mark the Milestone as done
+          example: true
+        ownedByUserId:
+          type: string
+          description: The Id of the user who owns this Milestone
+          example: 507f1f77bcf86cd799439012
+        completedDate:
+          type: string
+          description: The date the Milestone was completed (ISO 8601). Provide when setting isDone to true.
+          example: '2026-05-10T16:00:00.000Z'
+        followers:
+          description: Array of user Ids who are following this Milestone
+          example:
+          - 507f1f77bcf86cd799439012
+          - 507f1f77bcf86cd799439016
+          type: array
+          items:
+            type: string
     CreateMilestoneDTO:
       type: object
       properties:
@@ -216,41 +251,6 @@ components:
       - isDeleted
       - createdBy
       - createdDate
-    UpdateMilestoneDTO:
-      type: object
-      properties:
-        title:
-          type: string
-          description: The title of the Milestone
-          example: Complete UX wireframes
-        description:
-          type: string
-          description: The description of the Milestone
-          example: Deliver final wireframes for review in Figma
-        dueDate:
-          type: string
-          description: The due date of the Milestone (ISO 8601)
-          example: '2026-05-15T23:59:59.000Z'
-        isDone:
-          type: boolean
-          description: Set to true to mark the Milestone as done
-          example: true
-        ownedByUserId:
-          type: string
-          description: The Id of the user who owns this Milestone
-          example: 507f1f77bcf86cd799439012
-        completedDate:
-          type: string
-          description: The date the Milestone was completed (ISO 8601). Provide when setting isDone to true.
-          example: '2026-05-10T16:00:00.000Z'
-        followers:
-          description: Array of user Ids who are following this Milestone
-          example:
-          - 507f1f77bcf86cd799439012
-          - 507f1f77bcf86cd799439016
-          type: array
-          items:
-            type: string
   securitySchemes:
     JWT:
       scheme: bearer
