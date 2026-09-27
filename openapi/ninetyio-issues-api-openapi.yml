@@ -173,49 +173,32 @@ components:
       required:
       - title
       - teamId
-    GetIssuesQueryDTO:
+    UpdateIssueDTO:
       type: object
       properties:
-        sortField:
+        title:
           type: string
-          description: The field to sort results by
-          default: createdDate
-          example: createdDate
-        sortDirection:
-          type: string
-          description: The sort direction
-          default: DESC
-          enum:
-          - ASC
-          - DESC
-          example: DESC
-        pageSize:
-          type: number
-          description: Number of items per page
-          default: 10
-          minimum: 1
-          example: 25
-        pageIndex:
-          type: number
-          description: Zero-based page index
-          default: 0
-          minimum: 0
-          example: 0
+          description: Title of the Issue
         teamId:
           type: string
-          description: A single team Id or a comma-separated list of team Ids to filter by. Omit to query all Teams.
-          example: 507f1f77bcf86cd799439011
-        intervalCode:
+          description: Id of the team that owns the Issue
+        interval:
           type: string
-          description: Filter by Issue classification
+          description: Interval classification for the Issue
           enum:
           - SHORT_TERM
           - LONG_TERM
-          example: SHORT_TERM
-        searchText:
+        description:
           type: string
-          description: Search text to match against Issue title, description, and comments
-          example: supply chain
+          description: HTML description of the Issue
+        priority:
+          type: number
+          description: 'Priority of the Issue: 0-5'
+          minimum: 0
+          maximum: 5
+        completed:
+          type: boolean
+          description: Whether the Issue is completed
     IssueResponseDTO:
       type: object
       properties:
@@ -285,32 +268,49 @@ components:
           type: string
           description: Date and time when the Issue was created
           example: '2024-01-15T09:00:00.000Z'
-    UpdateIssueDTO:
+    GetIssuesQueryDTO:
       type: object
       properties:
-        title:
+        sortField:
           type: string
-          description: Title of the Issue
+          description: The field to sort results by
+          default: createdDate
+          example: createdDate
+        sortDirection:
+          type: string
+          description: The sort direction
+          default: DESC
+          enum:
+          - ASC
+          - DESC
+          example: DESC
+        pageSize:
+          type: number
+          description: Number of items per page
+          default: 10
+          minimum: 1
+          example: 25
+        pageIndex:
+          type: number
+          description: Zero-based page index
+          default: 0
+          minimum: 0
+          example: 0
         teamId:
           type: string
-          description: Id of the team that owns the Issue
-        interval:
+          description: A single team Id or a comma-separated list of team Ids to filter by. Omit to query all Teams.
+          example: 507f1f77bcf86cd799439011
+        intervalCode:
           type: string
-          description: Interval classification for the Issue
+          description: Filter by Issue classification
           enum:
           - SHORT_TERM
           - LONG_TERM
-        description:
+          example: SHORT_TERM
+        searchText:
           type: string
-          description: HTML description of the Issue
-        priority:
-          type: number
-          description: 'Priority of the Issue: 0-5'
-          minimum: 0
-          maximum: 5
-        completed:
-          type: boolean
-          description: Whether the Issue is completed
+          description: Search text to match against Issue title, description, and comments
+          example: supply chain
     IssuesQueryParamsResponseDTO:
       type: object
       properties:

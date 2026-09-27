@@ -154,6 +154,33 @@ components:
           example: 507f1f77bcf86cd799439013
       required:
       - title
+    UpdateTodoDTO:
+      type: object
+      properties:
+        completed:
+          type: boolean
+          description: Whether the todo is completed
+        archived:
+          type: boolean
+          description: Whether the todo is archived
+        dueDate:
+          type: string
+          description: Due date in ISO format
+        teamId:
+          type: string
+          description: The team Id
+        title:
+          type: string
+          description: The title of the todo
+        description:
+          type: string
+          description: The description of the todo
+        repeat:
+          type: string
+          description: Repeat pattern
+        userId:
+          type: string
+          description: User Id to assign the To-Do to
     GetTodosQueryDTO:
       type: object
       properties:
@@ -200,33 +227,6 @@ components:
           type: string
           description: Filter by exact title match
           example: Follow up with client
-    UpdateTodoDTO:
-      type: object
-      properties:
-        completed:
-          type: boolean
-          description: Whether the todo is completed
-        archived:
-          type: boolean
-          description: Whether the todo is archived
-        dueDate:
-          type: string
-          description: Due date in ISO format
-        teamId:
-          type: string
-          description: The team Id
-        title:
-          type: string
-          description: The title of the todo
-        description:
-          type: string
-          description: The description of the todo
-        repeat:
-          type: string
-          description: Repeat pattern
-        userId:
-          type: string
-          description: User Id to assign the To-Do to
     TodoResponseDTO:
       type: object
       properties:
