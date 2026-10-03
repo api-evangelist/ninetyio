@@ -170,6 +170,32 @@ components:
       required:
       - id
       - name
+    PaginatedKpiResponseDTO:
+      type: object
+      properties:
+        currentPage:
+          type: number
+          description: The current page number (1-based index)
+        items:
+          description: The Measurables on the current page
+          type: array
+          items:
+            $ref: '#/components/schemas/KpiQueryItemResponseDTO'
+        itemsCount:
+          type: number
+          description: The number of items returned on the current page
+        totalCount:
+          type: number
+          description: The total number of items across all pages
+        totalPages:
+          type: number
+          description: The total number of pages available
+      required:
+      - currentPage
+      - items
+      - itemsCount
+      - totalCount
+      - totalPages
     PutNoteDTO:
       type: object
       properties:
@@ -202,98 +228,6 @@ components:
       required:
       - id
       - periodStartDate
-    PaginatedKpiResponseDTO:
-      type: object
-      properties:
-        currentPage:
-          type: number
-          description: The current page number (1-based index)
-        items:
-          description: The Measurables on the current page
-          type: array
-          items:
-            $ref: '#/components/schemas/KpiQueryItemResponseDTO'
-        itemsCount:
-          type: number
-          description: The number of items returned on the current page
-        totalCount:
-          type: number
-          description: The total number of items across all pages
-        totalPages:
-          type: number
-          description: The total number of pages available
-      required:
-      - currentPage
-      - items
-      - itemsCount
-      - totalCount
-      - totalPages
-    GetKpisQueryDTO:
-      type: object
-      properties:
-        excludeKpiIds:
-          description: Array of Measurable Ids to exclude from the response
-          example:
-          - 64d6a32564d6a32564d6a325
-          type: array
-          items:
-            type: string
-        pageIndex:
-          type: number
-          description: The page number to retrieve
-          example: 0
-        pageSize:
-          type: number
-          description: The number of items to retrieve per page
-          example: 25
-        periodInterval:
-          type: string
-          description: Limits results to Measurables with the specified period interval
-          enum:
-          - weekly
-          - monthly
-          - quarterly
-          - annual
-          example: weekly
-        searchOwner:
-          type: string
-          description: The name, or part of the name, of the owner of the Measurables to retrieve
-          example: Jim
-        searchText:
-          type: string
-          description: Text to search for in the Measurable title or description
-          example: Finance
-        searchTitle:
-          type: string
-          description: Text to search for in the Measurable title only
-          example: Indicator
-        sortField:
-          type: string
-          description: The field to sort Measurables by
-          enum:
-          - id
-          - owner
-          - title
-          example: title
-        sortDirection:
-          type: string
-          description: The sort direction for the selected sort field
-          enum:
-          - ASC
-          - DESC
-          example: ASC
-        unassignedOnly:
-          type: boolean
-          description: Only include Measurables that have no owner assigned
-          example: false
-        userIds:
-          description: An array of user Ids to filter Measurables by owner
-          example:
-          - 64d6a32564d6a32564d6a325
-          - 64d6a32564d6a32564d6a326
-          type: array
-          items:
-            type: string
     ScorecardDTO:
       type: object
       properties:
@@ -318,24 +252,6 @@ components:
       - id
       - name
       - periodInterval
-    NoteResponseDTO:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The Id of the note
-          example: 64d6a32564d6a32564d6a325
-        note:
-          type: string
-          description: The note text
-          example: Good progress this week
-        periodStartDate:
-          type: string
-          description: The period start date in ISO 8601 format
-          example: '2024-01-01T00:00:00.000Z'
-      required:
-      - id
-      - periodStartDate
     KpiQueryItemResponseDTO:
       type: object
       properties:
@@ -435,6 +351,90 @@ components:
       - isUsedInFormula
       - teams
       - scorecards
+    NoteResponseDTO:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The Id of the note
+          example: 64d6a32564d6a32564d6a325
+        note:
+          type: string
+          description: The note text
+          example: Good progress this week
+        periodStartDate:
+          type: string
+          description: The period start date in ISO 8601 format
+          example: '2024-01-01T00:00:00.000Z'
+      required:
+      - id
+      - periodStartDate
+    GetKpisQueryDTO:
+      type: object
+      properties:
+        excludeKpiIds:
+          description: Array of Measurable Ids to exclude from the response
+          example:
+          - 64d6a32564d6a32564d6a325
+          type: array
+          items:
+            type: string
+        pageIndex:
+          type: number
+          description: The page number to retrieve
+          example: 0
+        pageSize:
+          type: number
+          description: The number of items to retrieve per page
+          example: 25
+        periodInterval:
+          type: string
+          description: Limits results to Measurables with the specified period interval
+          enum:
+          - weekly
+          - monthly
+          - quarterly
+          - annual
+          example: weekly
+        searchOwner:
+          type: string
+          description: The name, or part of the name, of the owner of the Measurables to retrieve
+          example: Jim
+        searchText:
+          type: string
+          description: Text to search for in the Measurable title or description
+          example: Finance
+        searchTitle:
+          type: string
+          description: Text to search for in the Measurable title only
+          example: Indicator
+        sortField:
+          type: string
+          description: The field to sort Measurables by
+          enum:
+          - id
+          - owner
+          - title
+          example: title
+        sortDirection:
+          type: string
+          description: The sort direction for the selected sort field
+          enum:
+          - ASC
+          - DESC
+          example: ASC
+        unassignedOnly:
+          type: boolean
+          description: Only include Measurables that have no owner assigned
+          example: false
+        userIds:
+          description: An array of user Ids to filter Measurables by owner
+          example:
+          - 64d6a32564d6a32564d6a325
+          - 64d6a32564d6a32564d6a326
+          type: array
+          items:
+            type: string
   securitySchemes:
     JWT:
       scheme: bearer

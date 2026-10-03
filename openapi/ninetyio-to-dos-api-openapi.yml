@@ -125,35 +125,6 @@ paths:
       - To Dos
 components:
   schemas:
-    CreateTodoDTO:
-      type: object
-      properties:
-        title:
-          type: string
-          description: The title of the To-Do
-          example: Follow up with client
-        description:
-          type: string
-          description: The description of the To-Do
-          example: Send the Q2 proposal
-        dueDate:
-          type: string
-          description: Due date in YYYY-MM-DD format
-          example: '2024-03-15'
-        teamId:
-          type: string
-          description: The Id of the team to assign this To-Do to. Omit or pass an empty string for a personal To-Do.
-          example: 507f1f77bcf86cd799439011
-        repeat:
-          type: string
-          description: Recurrence pattern for the To-Do (e.g., `weekly`, `monthly`)
-          example: weekly
-        userId:
-          type: string
-          description: Id of the user to assign the To-Do to. Defaults to the authenticated user.
-          example: 507f1f77bcf86cd799439013
-      required:
-      - title
     UpdateTodoDTO:
       type: object
       properties:
@@ -181,52 +152,6 @@ components:
         userId:
           type: string
           description: User Id to assign the To-Do to
-    GetTodosQueryDTO:
-      type: object
-      properties:
-        teamId:
-          type: string
-          description: Filter results to a specific team Id
-          example: 507f1f77bcf86cd799439011
-        sort:
-          type: string
-          description: The field to sort results by
-          example: dueDate
-        order:
-          type: string
-          description: Sort direction
-          enum:
-          - asc
-          - desc
-          example: asc
-        page:
-          type: number
-          description: Page number (1-based)
-          example: 1
-        pageSize:
-          type: number
-          description: Number of results per page (max 100)
-          example: 25
-        isPersonal:
-          type: boolean
-          description: Filter to personal To-Dos only (not associated with a team)
-          example: false
-        completed:
-          type: boolean
-          description: Filter by completed status
-          example: false
-        archived:
-          type: boolean
-          description: Filter by archived status
-          example: false
-        searchText:
-          type: string
-          description: Search text to match against To-Do title and description
-          example: follow up
-        title:
-          type: string
-          description: Filter by exact title match
-          example: Follow up with client
     TodoResponseDTO:
       type: object
       properties:
@@ -292,6 +217,81 @@ components:
       - companyId
       - createdDate
       - updatedDate
+    GetTodosQueryDTO:
+      type: object
+      properties:
+        teamId:
+          type: string
+          description: Filter results to a specific team Id
+          example: 507f1f77bcf86cd799439011
+        sort:
+          type: string
+          description: The field to sort results by
+          example: dueDate
+        order:
+          type: string
+          description: Sort direction
+          enum:
+          - asc
+          - desc
+          example: asc
+        page:
+          type: number
+          description: Page number (1-based)
+          example: 1
+        pageSize:
+          type: number
+          description: Number of results per page (max 100)
+          example: 25
+        isPersonal:
+          type: boolean
+          description: Filter to personal To-Dos only (not associated with a team)
+          example: false
+        completed:
+          type: boolean
+          description: Filter by completed status
+          example: false
+        archived:
+          type: boolean
+          description: Filter by archived status
+          example: false
+        searchText:
+          type: string
+          description: Search text to match against To-Do title and description
+          example: follow up
+        title:
+          type: string
+          description: Filter by exact title match
+          example: Follow up with client
+    CreateTodoDTO:
+      type: object
+      properties:
+        title:
+          type: string
+          description: The title of the To-Do
+          example: Follow up with client
+        description:
+          type: string
+          description: The description of the To-Do
+          example: Send the Q2 proposal
+        dueDate:
+          type: string
+          description: Due date in YYYY-MM-DD format
+          example: '2024-03-15'
+        teamId:
+          type: string
+          description: The Id of the team to assign this To-Do to. Omit or pass an empty string for a personal To-Do.
+          example: 507f1f77bcf86cd799439011
+        repeat:
+          type: string
+          description: Recurrence pattern for the To-Do (e.g., `weekly`, `monthly`)
+          example: weekly
+        userId:
+          type: string
+          description: Id of the user to assign the To-Do to. Defaults to the authenticated user.
+          example: 507f1f77bcf86cd799439013
+      required:
+      - title
   securitySchemes:
     JWT:
       scheme: bearer

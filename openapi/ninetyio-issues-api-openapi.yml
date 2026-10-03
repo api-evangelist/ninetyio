@@ -141,64 +141,24 @@ components:
       required:
       - items
       - totalCount
-    CreateIssueDTO:
+    IssuesQueryParamsResponseDTO:
       type: object
       properties:
-        title:
+        sortField:
           type: string
-          description: Title of the Issue
-          example: Cash flow projections are off
-        teamId:
+          description: Sort field used in the query
+        sortDirection:
           type: string
-          description: Id of the team that owns the Issue
-          example: 507f1f77bcf86cd799439011
-        interval:
-          type: string
-          description: Issue classification. Defaults to `SHORT_TERM` if not provided.
-          enum:
-          - SHORT_TERM
-          - LONG_TERM
-          default: SHORT_TERM
-          example: SHORT_TERM
-        description:
-          type: string
-          description: HTML description of the Issue
-          example: <p>Revenue projections are inconsistent with actuals.</p>
-        priority:
+          description: Sort direction used in the query
+        pageSize:
           type: number
-          description: Priority level from 0 (none) to 5 (highest)
-          minimum: 0
-          maximum: 5
-          example: 3
-      required:
-      - title
-      - teamId
-    UpdateIssueDTO:
-      type: object
-      properties:
-        title:
-          type: string
-          description: Title of the Issue
-        teamId:
-          type: string
-          description: Id of the team that owns the Issue
-        interval:
-          type: string
-          description: Interval classification for the Issue
-          enum:
-          - SHORT_TERM
-          - LONG_TERM
-        description:
-          type: string
-          description: HTML description of the Issue
-        priority:
+          description: Page size used in the query
+        pageIndex:
           type: number
-          description: 'Priority of the Issue: 0-5'
-          minimum: 0
-          maximum: 5
-        completed:
-          type: boolean
-          description: Whether the Issue is completed
+          description: Page index used in the query
+        intervalCode:
+          type: string
+          description: Interval code filter used in the query
     IssueResponseDTO:
       type: object
       properties:
@@ -268,6 +228,38 @@ components:
           type: string
           description: Date and time when the Issue was created
           example: '2024-01-15T09:00:00.000Z'
+    CreateIssueDTO:
+      type: object
+      properties:
+        title:
+          type: string
+          description: Title of the Issue
+          example: Cash flow projections are off
+        teamId:
+          type: string
+          description: Id of the team that owns the Issue
+          example: 507f1f77bcf86cd799439011
+        interval:
+          type: string
+          description: Issue classification. Defaults to `SHORT_TERM` if not provided.
+          enum:
+          - SHORT_TERM
+          - LONG_TERM
+          default: SHORT_TERM
+          example: SHORT_TERM
+        description:
+          type: string
+          description: HTML description of the Issue
+          example: <p>Revenue projections are inconsistent with actuals.</p>
+        priority:
+          type: number
+          description: Priority level from 0 (none) to 5 (highest)
+          minimum: 0
+          maximum: 5
+          example: 3
+      required:
+      - title
+      - teamId
     GetIssuesQueryDTO:
       type: object
       properties:
@@ -311,24 +303,32 @@ components:
           type: string
           description: Search text to match against Issue title, description, and comments
           example: supply chain
-    IssuesQueryParamsResponseDTO:
+    UpdateIssueDTO:
       type: object
       properties:
-        sortField:
+        title:
           type: string
-          description: Sort field used in the query
-        sortDirection:
+          description: Title of the Issue
+        teamId:
           type: string
-          description: Sort direction used in the query
-        pageSize:
+          description: Id of the team that owns the Issue
+        interval:
+          type: string
+          description: Interval classification for the Issue
+          enum:
+          - SHORT_TERM
+          - LONG_TERM
+        description:
+          type: string
+          description: HTML description of the Issue
+        priority:
           type: number
-          description: Page size used in the query
-        pageIndex:
-          type: number
-          description: Page index used in the query
-        intervalCode:
-          type: string
-          description: Interval code filter used in the query
+          description: 'Priority of the Issue: 0-5'
+          minimum: 0
+          maximum: 5
+        completed:
+          type: boolean
+          description: Whether the Issue is completed
   securitySchemes:
     JWT:
       scheme: bearer
