@@ -1,0 +1,45 @@
+slug: ninetyio
+provider: Ninety.io
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 3
+edges:
+- tag: Milestones
+  spec_file: ninetyio-milestones-api-openapi.yml
+  capability_id: BC-900.30
+  capability_id_l1: BC-900
+  capability_name: Project Management
+  confidence: 0.7
+  evidence: POST /v1/milestones PublicMilestoneController_create; MilestoneResponseDTO also referenced
+    in Rocks (CreateRockDataDTO)
+  reason: Milestones are sub-steps of quarterly Rocks (goals), i.e. tracked tasks/milestones within an
+    initiative — project execution planning and tracking.
+- tag: Rocks
+  spec_file: ninetyio-rocks-api-openapi.yml
+  capability_id: BC-100.20
+  capability_id_l1: BC-100
+  capability_name: Strategy Execution Management
+  confidence: 0.7
+  evidence: 'RockQuarter, RockStatusCode, RockLevelCode, RockFutureScope; vendor: "quarterly Rocks"'
+  reason: Rocks are EOS quarterly priorities/goals cascaded by level (company/team/individual) — the translation
+    of strategy into time-boxed objectives, matching Strategy Execution Management (OKR-equivalent). Alternative
+    reading as project management keeps confidence moderate.
+- tag: Scorecard
+  spec_file: ninetyio-scorecard-api-openapi.yml
+  capability_id: BC-230.30
+  capability_id_l1: BC-230
+  capability_name: Management Reporting
+  confidence: 0.7
+  evidence: POST /v1/scorecard/kpis/query Query Measurables; POST /v1/scorecard/kpis/{kpiId}/scores Create
+    or update a Measurable score
+  reason: Operations manage KPI definitions and weekly period scores/notes — periodic performance reporting
+    against KPIs. Could also read as strategy scorecard execution, hence 0.7.

@@ -176,6 +176,9 @@ apis:
   - type: Documentation
     url: https://help.ninety.io/en/articles/15505694-api-reference-and-access
 common:
+- type: CapabilityMap
+  url: capabilities/ninetyio-capability-edges.yml
+  name: Ninety.io Business Capability Map
 - type: Website
   url: https://www.ninety.io/
 - type: Documentation
