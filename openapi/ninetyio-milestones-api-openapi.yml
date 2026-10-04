@@ -85,41 +85,50 @@ paths:
       - Milestones
 components:
   schemas:
-    UpdateMilestoneDTO:
+    CreateMilestoneDTO:
       type: object
       properties:
+        rockId:
+          type: string
+          description: The Id of the Rock this Milestone belongs to
+          example: 507f1f77bcf86cd799439013
         title:
           type: string
           description: The title of the Milestone
           example: Complete UX wireframes
-        description:
-          type: string
-          description: The description of the Milestone
-          example: Deliver final wireframes for review in Figma
         dueDate:
           type: string
           description: The due date of the Milestone (ISO 8601)
           example: '2026-05-15T23:59:59.000Z'
+        teamId:
+          type: string
+          description: The Id of the team the Milestone belongs to
+          example: 507f1f77bcf86cd799439011
+        description:
+          type: string
+          description: The description of the Milestone
+          example: Deliver final wireframes for review in Figma
+        userOrdinal:
+          type: number
+          description: The ordinal position of this Milestone for the user (0-based)
+          example: 0
+        toDoId:
+          type: string
+          description: The Id of a related To-Do item, if any
+          example: 507f1f77bcf86cd799439099
         isDone:
           type: boolean
-          description: Set to true to mark the Milestone as done
-          example: true
-        ownedByUserId:
-          type: string
-          description: The Id of the user who owns this Milestone
-          example: 507f1f77bcf86cd799439012
+          description: True if the Milestone is already done at creation time
+          example: false
         completedDate:
           type: string
-          description: The date the Milestone was completed (ISO 8601). Provide when setting isDone to true.
+          description: The date the Milestone was completed (ISO 8601). Required when isDone is true.
           example: '2026-05-10T16:00:00.000Z'
-        followers:
-          description: Array of user Ids who are following this Milestone
-          example:
-          - 507f1f77bcf86cd799439012
-          - 507f1f77bcf86cd799439016
-          type: array
-          items:
-            type: string
+      required:
+      - rockId
+      - title
+      - dueDate
+      - teamId
     MilestoneResponseDTO:
       type: object
       properties:
@@ -207,50 +216,41 @@ components:
       - isDeleted
       - createdBy
       - createdDate
-    CreateMilestoneDTO:
+    UpdateMilestoneDTO:
       type: object
       properties:
-        rockId:
-          type: string
-          description: The Id of the Rock this Milestone belongs to
-          example: 507f1f77bcf86cd799439013
         title:
           type: string
           description: The title of the Milestone
           example: Complete UX wireframes
-        dueDate:
-          type: string
-          description: The due date of the Milestone (ISO 8601)
-          example: '2026-05-15T23:59:59.000Z'
-        teamId:
-          type: string
-          description: The Id of the team the Milestone belongs to
-          example: 507f1f77bcf86cd799439011
         description:
           type: string
           description: The description of the Milestone
           example: Deliver final wireframes for review in Figma
-        userOrdinal:
-          type: number
-          description: The ordinal position of this Milestone for the user (0-based)
-          example: 0
-        toDoId:
+        dueDate:
           type: string
-          description: The Id of a related To-Do item, if any
-          example: 507f1f77bcf86cd799439099
+          description: The due date of the Milestone (ISO 8601)
+          example: '2026-05-15T23:59:59.000Z'
         isDone:
           type: boolean
-          description: True if the Milestone is already done at creation time
-          example: false
+          description: Set to true to mark the Milestone as done
+          example: true
+        ownedByUserId:
+          type: string
+          description: The Id of the user who owns this Milestone
+          example: 507f1f77bcf86cd799439012
         completedDate:
           type: string
-          description: The date the Milestone was completed (ISO 8601). Required when isDone is true.
+          description: The date the Milestone was completed (ISO 8601). Provide when setting isDone to true.
           example: '2026-05-10T16:00:00.000Z'
-      required:
-      - rockId
-      - title
-      - dueDate
-      - teamId
+        followers:
+          description: Array of user Ids who are following this Milestone
+          example:
+          - 507f1f77bcf86cd799439012
+          - 507f1f77bcf86cd799439016
+          type: array
+          items:
+            type: string
   securitySchemes:
     JWT:
       scheme: bearer

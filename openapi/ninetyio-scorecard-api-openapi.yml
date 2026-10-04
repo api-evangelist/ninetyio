@@ -142,116 +142,6 @@ paths:
       - Scorecard
 components:
   schemas:
-    PutScoreDTO:
-      type: object
-      properties:
-        value:
-          type: number
-          description: The score value
-          example: 100
-        periodStartDate:
-          type: string
-          description: The period start date in ISO 8601 format
-          example: '2024-01-01T00:00:00.000Z'
-      required:
-      - value
-      - periodStartDate
-    TeamDTO:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The Id of the team
-          example: 507f1f77bcf86cd799439011
-        name:
-          type: string
-          description: The name of the team
-          example: Leadership
-      required:
-      - id
-      - name
-    PaginatedKpiResponseDTO:
-      type: object
-      properties:
-        currentPage:
-          type: number
-          description: The current page number (1-based index)
-        items:
-          description: The Measurables on the current page
-          type: array
-          items:
-            $ref: '#/components/schemas/KpiQueryItemResponseDTO'
-        itemsCount:
-          type: number
-          description: The number of items returned on the current page
-        totalCount:
-          type: number
-          description: The total number of items across all pages
-        totalPages:
-          type: number
-          description: The total number of pages available
-      required:
-      - currentPage
-      - items
-      - itemsCount
-      - totalCount
-      - totalPages
-    PutNoteDTO:
-      type: object
-      properties:
-        note:
-          type: string
-          description: The note text
-          example: Great progress this week!
-        periodStartDate:
-          type: string
-          description: The period start date in ISO 8601 format
-          example: '2024-01-01T00:00:00.000Z'
-      required:
-      - note
-      - periodStartDate
-    ScoreResponseDTO:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The Id of the score
-          example: 64d6a32564d6a32564d6a325
-        value:
-          type: number
-          description: The score value
-          example: 95
-        periodStartDate:
-          type: string
-          description: The period start date in ISO 8601 format
-          example: '2024-01-01T00:00:00.000Z'
-      required:
-      - id
-      - periodStartDate
-    ScorecardDTO:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The Id of the Scorecard
-          example: 507f1f77bcf86cd799439012
-        name:
-          type: string
-          description: The name of the Scorecard
-          example: Weekly Leadership Scorecard
-        periodInterval:
-          type: string
-          description: The period interval of the Scorecard
-          enum:
-          - weekly
-          - monthly
-          - quarterly
-          - annual
-          example: weekly
-      required:
-      - id
-      - name
-      - periodInterval
     KpiQueryItemResponseDTO:
       type: object
       properties:
@@ -351,17 +241,31 @@ components:
       - isUsedInFormula
       - teams
       - scorecards
-    NoteResponseDTO:
+    TeamDTO:
       type: object
       properties:
         id:
           type: string
-          description: The Id of the note
-          example: 64d6a32564d6a32564d6a325
-        note:
+          description: The Id of the team
+          example: 507f1f77bcf86cd799439011
+        name:
           type: string
-          description: The note text
-          example: Good progress this week
+          description: The name of the team
+          example: Leadership
+      required:
+      - id
+      - name
+    ScoreResponseDTO:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The Id of the score
+          example: 64d6a32564d6a32564d6a325
+        value:
+          type: number
+          description: The score value
+          example: 95
         periodStartDate:
           type: string
           description: The period start date in ISO 8601 format
@@ -435,6 +339,102 @@ components:
           type: array
           items:
             type: string
+    PaginatedKpiResponseDTO:
+      type: object
+      properties:
+        currentPage:
+          type: number
+          description: The current page number (1-based index)
+        items:
+          description: The Measurables on the current page
+          type: array
+          items:
+            $ref: '#/components/schemas/KpiQueryItemResponseDTO'
+        itemsCount:
+          type: number
+          description: The number of items returned on the current page
+        totalCount:
+          type: number
+          description: The total number of items across all pages
+        totalPages:
+          type: number
+          description: The total number of pages available
+      required:
+      - currentPage
+      - items
+      - itemsCount
+      - totalCount
+      - totalPages
+    PutScoreDTO:
+      type: object
+      properties:
+        value:
+          type: number
+          description: The score value
+          example: 100
+        periodStartDate:
+          type: string
+          description: The period start date in ISO 8601 format
+          example: '2024-01-01T00:00:00.000Z'
+      required:
+      - value
+      - periodStartDate
+    ScorecardDTO:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The Id of the Scorecard
+          example: 507f1f77bcf86cd799439012
+        name:
+          type: string
+          description: The name of the Scorecard
+          example: Weekly Leadership Scorecard
+        periodInterval:
+          type: string
+          description: The period interval of the Scorecard
+          enum:
+          - weekly
+          - monthly
+          - quarterly
+          - annual
+          example: weekly
+      required:
+      - id
+      - name
+      - periodInterval
+    PutNoteDTO:
+      type: object
+      properties:
+        note:
+          type: string
+          description: The note text
+          example: Great progress this week!
+        periodStartDate:
+          type: string
+          description: The period start date in ISO 8601 format
+          example: '2024-01-01T00:00:00.000Z'
+      required:
+      - note
+      - periodStartDate
+    NoteResponseDTO:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The Id of the note
+          example: 64d6a32564d6a32564d6a325
+        note:
+          type: string
+          description: The note text
+          example: Good progress this week
+        periodStartDate:
+          type: string
+          description: The period start date in ISO 8601 format
+          example: '2024-01-01T00:00:00.000Z'
+      required:
+      - id
+      - periodStartDate
   securitySchemes:
     JWT:
       scheme: bearer

@@ -150,136 +150,30 @@ paths:
       - Rocks
 components:
   schemas:
-    CreateRockDTO:
-      type: object
-      properties:
-        rock:
-          description: The Rock data
-          allOf:
-          - $ref: '#/components/schemas/CreateRockDataDTO'
-        addCreatorToFollowersList:
-          type: boolean
-          description: When true, the authenticated user is added to the Rock's followers list
-          default: false
-          example: false
-      required:
-      - rock
-    UpdateRockDTO:
-      type: object
-      properties:
-        userId:
-          type: string
-          description: The Id of the user who owns the Rock
-          example: 507f1f77bcf86cd799439012
-        teamId:
-          type: string
-          description: The Id of the team the Rock belongs to
-          example: 507f1f77bcf86cd799439011
-        title:
-          type: string
-          description: The title of the Rock
-          example: Launch new customer onboarding flow
-        description:
-          type: string
-          description: The description of the Rock
-          example: Redesign the onboarding wizard to reduce drop-off by 20%
-        statusCode:
-          description: The status of the Rock — `OFF_TRACK` · `ON_TRACK` · `DONE` · `CANCELED`
-          example: ON_TRACK
-          allOf:
-          - $ref: '#/components/schemas/RockStatusCode'
-        levelCode:
-          description: The level of the Rock — `USER` · `COMPANY_AND_DEPARTMENT` · `COMPANY` · `DEPARTMENT`
-          example: USER
-          allOf:
-          - $ref: '#/components/schemas/RockLevelCode'
-        quarter:
-          description: The quarter associated with the Rock — `Q1` · `Q2` · `Q3` · `Q4` · `None`
-          example: Q2
-          allOf:
-          - $ref: '#/components/schemas/RockQuarter'
-        dueDate:
-          type: string
-          description: The due date of the Rock (ISO 8601)
-          example: '2026-06-30T23:59:59.000Z'
-        rockQuarterYearDueDate:
-          type: string
-          description: The quarter-aligned year due date of the Rock (ISO 8601)
-          example: '2026-06-30T23:59:59.999Z'
-        archived:
-          type: boolean
-          description: Set to true to archive the Rock, false to unarchive it
-          example: false
-        futureScope:
-          description: The future scope of the Rock — `Current` · `Next` · `Later` · `Future`
-          example: Current
-          allOf:
-          - $ref: '#/components/schemas/RockFutureScope'
-        additionalTeamIds:
-          description: Array of additional team Ids that can also view this Rock
-          example:
-          - 507f1f77bcf86cd799439022
-          type: array
-          items:
-            type: string
-    CreateRockDataDTO:
-      type: object
-      properties:
-        teamId:
-          type: string
-          description: The Id of the team the Rock belongs to
-          example: 507f1f77bcf86cd799439011
-        title:
-          type: string
-          description: The title of the Rock
-          example: Launch new customer onboarding flow
-        dueDate:
-          type: string
-          description: The due date of the Rock (ISO 8601)
-          example: '2026-06-30T23:59:59.000Z'
-        statusCode:
-          description: The status of the Rock — `OFF_TRACK` · `ON_TRACK` · `DONE` · `CANCELED`
-          example: ON_TRACK
-          allOf:
-          - $ref: '#/components/schemas/RockStatusCode'
-        levelCode:
-          description: The level of the Rock — `USER` · `COMPANY_AND_DEPARTMENT` · `COMPANY` · `DEPARTMENT`
-          example: USER
-          allOf:
-          - $ref: '#/components/schemas/RockLevelCode'
-        quarter:
-          description: The quarter associated with the Rock — `Q1` · `Q2` · `Q3` · `Q4` · `None`
-          example: Q2
-          allOf:
-          - $ref: '#/components/schemas/RockQuarter'
-        description:
-          type: string
-          description: The description of the Rock
-          example: Redesign the onboarding wizard to reduce drop-off by 20%
-        additionalTeamIds:
-          description: Array of additional team Ids that can also view this Rock
-          example:
-          - 507f1f77bcf86cd799439022
-          - 507f1f77bcf86cd799439033
-          type: array
-          items:
-            type: string
-        futureScope:
-          description: The future scope of the Rock — `Current` · `Next` · `Later` · `Future`
-          example: Current
-          allOf:
-          - $ref: '#/components/schemas/RockFutureScope'
-        rockQuarterYearDueDate:
-          type: string
-          description: The quarter-aligned year due date of the Rock (ISO 8601)
-          example: '2026-06-30T23:59:59.999Z'
-      required:
-      - teamId
-      - title
-      - dueDate
-      - statusCode
-      - levelCode
-      - quarter
+    RockFutureScope:
+      type: string
+      enum:
+      - Current
+      - Next
+      - Later
+      - Future
+      description: The future scope of the Rock — `Current` · `Next` · `Later` · `Future`
+    RockLevelCode:
+      type: string
+      enum:
+      - USER
+      - COMPANY_AND_DEPARTMENT
+      - COMPANY
+      - DEPARTMENT
+      description: Filter Rocks by level — `USER` · `COMPANY_AND_DEPARTMENT` · `COMPANY` · `DEPARTMENT`
+    RockStatusCode:
+      type: string
+      enum:
+      - OFF_TRACK
+      - ON_TRACK
+      - DONE
+      - CANCELED
+      description: Filter Rocks by status — `OFF_TRACK` · `ON_TRACK` · `DONE` · `CANCELED`
     MilestoneResponseDTO:
       type: object
       properties:
@@ -367,39 +261,17 @@ components:
       - isDeleted
       - createdBy
       - createdDate
-    RockStatusCode:
+    RockSortField:
       type: string
       enum:
-      - OFF_TRACK
-      - ON_TRACK
-      - DONE
-      - CANCELED
-      description: Filter Rocks by status — `OFF_TRACK` · `ON_TRACK` · `DONE` · `CANCELED`
-    RockFutureScope:
-      type: string
-      enum:
-      - Current
-      - Next
-      - Later
-      - Future
-      description: The future scope of the Rock — `Current` · `Next` · `Later` · `Future`
-    RockQuarter:
-      type: string
-      enum:
-      - Q1
-      - Q2
-      - Q3
-      - Q4
-      - None
-      description: The quarter associated with the Rock — `Q1` · `Q2` · `Q3` · `Q4` · `None`
-    RockLevelCode:
-      type: string
-      enum:
-      - USER
-      - COMPANY_AND_DEPARTMENT
-      - COMPANY
-      - DEPARTMENT
-      description: Filter Rocks by level — `USER` · `COMPANY_AND_DEPARTMENT` · `COMPANY` · `DEPARTMENT`
+      - title
+      - statusCode
+      - dueDate
+      - completedDate
+      - owner
+      - team
+      - dueDateQuarter
+      description: Field to sort Rocks by
     GetRocksQueryDTO:
       type: object
       properties:
@@ -479,17 +351,64 @@ components:
       - sortDirection
       - pageSize
       - pageIndex
-    RockSortField:
-      type: string
-      enum:
+    CreateRockDataDTO:
+      type: object
+      properties:
+        teamId:
+          type: string
+          description: The Id of the team the Rock belongs to
+          example: 507f1f77bcf86cd799439011
+        title:
+          type: string
+          description: The title of the Rock
+          example: Launch new customer onboarding flow
+        dueDate:
+          type: string
+          description: The due date of the Rock (ISO 8601)
+          example: '2026-06-30T23:59:59.000Z'
+        statusCode:
+          description: The status of the Rock — `OFF_TRACK` · `ON_TRACK` · `DONE` · `CANCELED`
+          example: ON_TRACK
+          allOf:
+          - $ref: '#/components/schemas/RockStatusCode'
+        levelCode:
+          description: The level of the Rock — `USER` · `COMPANY_AND_DEPARTMENT` · `COMPANY` · `DEPARTMENT`
+          example: USER
+          allOf:
+          - $ref: '#/components/schemas/RockLevelCode'
+        quarter:
+          description: The quarter associated with the Rock — `Q1` · `Q2` · `Q3` · `Q4` · `None`
+          example: Q2
+          allOf:
+          - $ref: '#/components/schemas/RockQuarter'
+        description:
+          type: string
+          description: The description of the Rock
+          example: Redesign the onboarding wizard to reduce drop-off by 20%
+        additionalTeamIds:
+          description: Array of additional team Ids that can also view this Rock
+          example:
+          - 507f1f77bcf86cd799439022
+          - 507f1f77bcf86cd799439033
+          type: array
+          items:
+            type: string
+        futureScope:
+          description: The future scope of the Rock — `Current` · `Next` · `Later` · `Future`
+          example: Current
+          allOf:
+          - $ref: '#/components/schemas/RockFutureScope'
+        rockQuarterYearDueDate:
+          type: string
+          description: The quarter-aligned year due date of the Rock (ISO 8601)
+          example: '2026-06-30T23:59:59.999Z'
+      required:
+      - teamId
       - title
-      - statusCode
       - dueDate
-      - completedDate
-      - owner
-      - team
-      - dueDateQuarter
-      description: Field to sort Rocks by
+      - statusCode
+      - levelCode
+      - quarter
     RockResponseDTO:
       type: object
       properties:
@@ -648,6 +567,87 @@ components:
       - statusCode
       - levelCode
       - quarter
+    RockQuarter:
+      type: string
+      enum:
+      - Q1
+      - Q2
+      - Q3
+      - Q4
+      - None
+      description: The quarter associated with the Rock — `Q1` · `Q2` · `Q3` · `Q4` · `None`
+    UpdateRockDTO:
+      type: object
+      properties:
+        userId:
+          type: string
+          description: The Id of the user who owns the Rock
+          example: 507f1f77bcf86cd799439012
+        teamId:
+          type: string
+          description: The Id of the team the Rock belongs to
+          example: 507f1f77bcf86cd799439011
+        title:
+          type: string
+          description: The title of the Rock
+          example: Launch new customer onboarding flow
+        description:
+          type: string
+          description: The description of the Rock
+          example: Redesign the onboarding wizard to reduce drop-off by 20%
+        statusCode:
+          description: The status of the Rock — `OFF_TRACK` · `ON_TRACK` · `DONE` · `CANCELED`
+          example: ON_TRACK
+          allOf:
+          - $ref: '#/components/schemas/RockStatusCode'
+        levelCode:
+          description: The level of the Rock — `USER` · `COMPANY_AND_DEPARTMENT` · `COMPANY` · `DEPARTMENT`
+          example: USER
+          allOf:
+          - $ref: '#/components/schemas/RockLevelCode'
+        quarter:
+          description: The quarter associated with the Rock — `Q1` · `Q2` · `Q3` · `Q4` · `None`
+          example: Q2
+          allOf:
+          - $ref: '#/components/schemas/RockQuarter'
+        dueDate:
+          type: string
+          description: The due date of the Rock (ISO 8601)
+          example: '2026-06-30T23:59:59.000Z'
+        rockQuarterYearDueDate:
+          type: string
+          description: The quarter-aligned year due date of the Rock (ISO 8601)
+          example: '2026-06-30T23:59:59.999Z'
+        archived:
+          type: boolean
+          description: Set to true to archive the Rock, false to unarchive it
+          example: false
+        futureScope:
+          description: The future scope of the Rock — `Current` · `Next` · `Later` · `Future`
+          example: Current
+          allOf:
+          - $ref: '#/components/schemas/RockFutureScope'
+        additionalTeamIds:
+          description: Array of additional team Ids that can also view this Rock
+          example:
+          - 507f1f77bcf86cd799439022
+          type: array
+          items:
+            type: string
+    CreateRockDTO:
+      type: object
+      properties:
+        rock:
+          description: The Rock data
+          allOf:
+          - $ref: '#/components/schemas/CreateRockDataDTO'
+        addCreatorToFollowersList:
+          type: boolean
+          description: When true, the authenticated user is added to the Rock's followers list
+          default: false
+          example: false
+      required:
+      - rock
   securitySchemes:
     JWT:
       scheme: bearer
