@@ -44,7 +44,7 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.23'
 created: '2026-07-17'
-modified: '2026-07-20'
+modified: '2026-10-06'
 tags:
 - Company
 - EOS
@@ -176,6 +176,10 @@ apis:
   - type: Documentation
     url: https://help.ninety.io/en/articles/15505694-api-reference-and-access
 common:
+- url: https://www.ninety.io/eos/blog
+  type: Blog
+- url: https://www.ninety.io/eos/blog/rss.xml
+  type: BlogRSS
 - type: CapabilityMap
   url: capabilities/ninetyio-capability-edges.yml
   name: Ninety.io Business Capability Map
