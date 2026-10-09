@@ -3,6 +3,22 @@ info:
   title: Create a Ninety Rock with Milestones
   version: 1.0.0
   summary: Resolve a team, create a quarterly Rock, and attach a Milestone to it.
+  x-realizes-capability-ids:
+  - BC-100.20
+  - BC-900.30
+  x-capability-derivation:
+    method: 'deterministic join: sourceDescriptions -> per-tag OpenAPI -> tag/capability edge. No classification at this step.'
+    min_confidence: 0.7
+    sources:
+    - capability_id: BC-100.20
+      capability_name: Strategy Execution Management
+      spec: ninetyio-rocks-api-openapi.yml
+      confidence: 0.7
+    - capability_id: BC-900.30
+      capability_name: Project Management
+      spec: ninetyio-milestones-api-openapi.yml
+      confidence: 0.7
+    model: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities, CC BY 4.0
 sourceDescriptions:
 - name: milestonesApi
   url: ../openapi/ninetyio-milestones-api-openapi.yml
